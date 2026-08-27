@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Esila Birtanemmm 💗</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background:
+        radial-gradient(circle at 50% 20%, #5a3048 0%, transparent 35%),
+        linear-gradient(145deg, #1c1017, #321823 55%, #24121b);
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .hearts {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .heart {
+      position: absolute;
+      color: rgba(255, 174, 202, 0.18);
+      font-size: 22px;
+      animation: float 8s linear infinite;
+    }
+
+    @keyframes float {
+      from {
+        transform: translateY(110vh) rotate(0deg);
+        opacity: 0;
+      }
+      20% { opacity: 1; }
+      100% {
+        transform: translateY(-10vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .screen {
+      width: min(90%, 430px);
+      text-align: center;
+      padding: 35px 25px;
+      border: 1px solid rgba(255, 182, 210, 0.18);
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.055);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(12px);
+      animation: appear 0.7s ease;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.97);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    h1 {
+      margin: 0 0 15px;
+      color: #ffd4e3;
+      font-size: clamp(28px, 8vw, 40px);
+      font-weight: 700;
+    }
+
+    p {
+      color: #f7dce6;
+      font-size: 18px;
+      line-height: 1.5;
+    }
+
+    .subtitle {
+      margin-bottom: 28px;
+    }
+
+    input {
+      width: 100%;
+      padding: 16px;
+      border: 1px solid rgba(255, 190, 215, 0.25);
+      border-radius: 15px;
+      outline: none;
+      background: rgba(0, 0, 0, 0.2);
+      color: white;
+      text-align: center;
+      font-size: 20px;
+      letter-spacing: 5px;
+    }
+
+    input:focus {
+      border-color: #e99ab7;
+      box-shadow: 0 0 20px rgba(233, 154, 183, 0.12);
+    }
+
+    .main-btn,
+    .choice-btn {
+      border: none;
+      border-radius: 15px;
+      padding: 14px 22px;
+      font-size: 17px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .main-btn {
+      width: 100%;
+      margin-top: 15px;
+      color: #351923;
+      background: #f3b5cb;
+    }
+
+    .main-btn:hover {
+      background: #ffd0df;
+      transform: translateY(-2px);
+    }
+
+    .error {
+      min-height: 24px;
+      margin: 12px 0 0;
+      color: #ff9fbd;
+      font-size: 14px;
+    }
+
+    .question {
+      font-size: clamp(25px, 7vw, 34px);
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      position: relative;
+      height: 90px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .yes {
+      color: #351923;
+      background: #f5b5cb;
+      box-shadow: 0 8px 25px rgba(245, 181, 203, 0.18);
+    }
+
+    .yes:hover {
+      transform: scale(1.05);
+      background: #ffd1df;
+    }
+
+    .no {
+      color: #fff;
+      background: #583342;
+      border: 1px solid rgba(255, 200, 220, 0.2);
+      position: fixed;
+      z-index: 10;
+    }
+
+    .gif-container {
+      display: none;
+      margin-top: 25px;
+      animation: appear 0.8s ease;
+    }
+
+    .gif-container img {
+      width: 100%;
+      max-width: 330px;
+      max-height: 330px;
+      object-fit: contain;
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+    }
+
+    .love-message {
+      color: #ffd2e1;
+      font-size: 21px;
+      font-weight: 600;
+      margin-top: 18px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @media (max-width: 480px) {
+      .screen {
+        padding: 30px 20px;
+      }
+
+      .buttons {
+        gap: 10px;
+      }
+
+      .choice-btn {
+        padding: 13px 18px;
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="hearts">
+    <span class="heart" style="left:8%; animation-delay:0s;">♡</span>
+    <span class="heart" style="left:25%; animation-delay:2s;">♥</span>
+    <span class="heart" style="left:45%; animation-delay:4s;">♡</span>
+    <span class="heart" style="left:68%; animation-delay:1s;">♥</span>
+    <span class="heart" style="left:88%; animation-delay:3s;">♡</span>
+  </div>
+
+  <!-- GİRİŞ -->
+  <div class="screen" id="welcomeScreen">
+    <h1>Esila birtanemmm 💗</h1>
+    <p class="subtitle">Sana küçük bir şey hazırladım... 🥺</p>
+    <button class="main-btn" onclick="showPassword()">
+      Bakayım 💕
+    </button>
+  </div>
+
+  <!-- ŞİFRE -->
+  <div class="screen hidden" id="passwordScreen">
+    <h1>Bir saniye... 🔐</h1>
+    <p>Önce özel şifremizi gir bakalım 💗</p>
+
+    <input
+      id="password"
+      type="password"
+      inputmode="numeric"
+      maxlength="6"
+      placeholder="••••••"
+      onkeydown="if(event.key === 'Enter') checkPassword()"
+    >
+
+    <button class="main-btn" onclick="checkPassword()">
+      Aç 💕
+    </button>
+
+    <div class="error" id="error"></div>
+  </div>
+
+  <!-- BARIŞMA -->
+  <div class="screen hidden" id="questionScreen">
+    <h1>Özür dilerim yavrum 🥺</h1>
+
+    <p class="question">
+      Barışalımmı? 💗
+    </p>
+
+    <div class="buttons">
+      <button class="choice-btn yes" onclick="yesClicked()">
+        EVETTTTT 💕
+      </button>
+
+      <button
+        class="choice-btn no"
+        id="noButton"
+        onmouseenter="moveNoButton()"
+        ontouchstart="moveNoButton()"
+        onclick="moveNoButton()"
+      >
+        HAYIR !
+      </button>
+    </div>
+
+    <div class="gif-container" id="gifContainer">
+      <img src="kedi.gif" alt="Tatlı kedi 💗">
+      <div class="love-message">
+        Biliyordum barışacağımızııı 🥹💗
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showPassword() {
+      document.getElementById("welcomeScreen").classList.add("hidden");
+      document.getElementById("passwordScreen").classList.remove("hidden");
+
+      setTimeout(() => {
+        document.getElementById("password").focus();
+      }, 300);
+    }
+
+    function checkPassword() {
+      const password = document.getElementById("password").value;
+      const error = document.getElementById("error");
+
+      if (password === "160826") {
+        document.getElementById("passwordScreen").classList.add("hidden");
+        document.getElementById("questionScreen").classList.remove("hidden");
+
+        setTimeout(placeNoButton, 100);
+      } else {
+        error.textContent = "Hmm... yanlış şifre 🥺";
+        document.getElementById("password").value = "";
+
+        setTimeout(() => {
+          error.textContent = "";
+        }, 1800);
+      }
+    }
+
+    function placeNoButton() {
+      const button = document.getElementById("noButton");
+
+      const maxX = window.innerWidth - button.offsetWidth - 15;
+      const maxY = window.innerHeight - button.offsetHeight - 15;
+
+      const x = Math.max(10, Math.random() * maxX);
+      const y = Math.max(10, Math.random() * maxY);
+
+      button.style.left = x + "px";
+      button.style.top = y + "px";
+    }
+
+    function moveNoButton() {
+      placeNoButton();
+    }
+
+    function yesClicked() {
+      const gif = document.getElementById("gifContainer");
+      const noButton = document.getElementById("noButton");
+
+      noButton.style.display = "none";
+      gif.style.display = "block";
+
+      // GIF'in baştan başlamasını garanti eder
+      const img = gif.querySelector("img");
+      img.src = "";
+      setTimeout(() => {
+        img.src = "kedi.gif";
+      }, 50);
+    }
+
+    window.addEventListener("resize", () => {
+      const noButton = document.getElementById("noButton");
+
+      if (
+        !document
+          .getElementById("questionScreen")
+          .classList.contains("hidden")
+      ) {
+        placeNoButton();
+      }
+    });
+  </script>
+
+</body>
+</html>
