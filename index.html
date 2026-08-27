@@ -12,6 +12,7 @@
 
 <style>
 
+/* reset bilmemnesi, internetten buldum aynen yapıştırdım */
 * {
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
@@ -32,6 +33,7 @@ body {
     justify-content: center;
     font-family: Arial, sans-serif;
 
+    /* arkaplan rengi, yeşilli bişeyler olsun dedik */
     background:
         radial-gradient(
             circle at center,
@@ -93,13 +95,11 @@ body {
 }
 
 @keyframes soldan {
-
     from {
         opacity: 0;
         transform:
             translateX(-100vw);
     }
-
     to {
         opacity: 1;
         transform:
@@ -108,13 +108,11 @@ body {
 }
 
 @keyframes sagdan {
-
     from {
         opacity: 0;
         transform:
             translateX(100vw);
     }
-
     to {
         opacity: 1;
         transform:
@@ -122,25 +120,11 @@ body {
     }
 }
 
-.line1 {
-    top: 7%;
-}
-
-.line2 {
-    top: 19%;
-}
-
-.line3 {
-    bottom: 27%;
-}
-
-.line4 {
-    bottom: 15%;
-}
-
-.line5 {
-    bottom: 5%;
-}
+.line1 { top: 7%; }
+.line2 { top: 19%; }
+.line3 { bottom: 27%; }
+.line4 { bottom: 15%; }
+.line5 { bottom: 5%; }
 
 #alarm {
     position: fixed;
@@ -148,59 +132,24 @@ body {
     z-index: 100;
     pointer-events: none;
     opacity: 0;
-
-    background:
-        rgba(220, 40, 40, 0);
-
-    border:
-        0 solid rgba(220, 40, 40, 0);
+    background: rgba(220, 40, 40, 0);
+    border: 0 solid rgba(220, 40, 40, 0);
 }
 
 #alarm.active {
-    animation:
-        alarm .45s ease;
+    animation: alarm .45s ease;
 }
 
 @keyframes alarm {
-
-    0% {
-        opacity: 0;
-        background:
-            rgba(220, 40, 40, 0);
-        border-width: 0;
-    }
-
-    20% {
-        opacity: 1;
-        background:
-            rgba(220, 40, 40, .17);
-        border-width: 8px;
-    }
-
-    45% {
-        opacity: .5;
-        background:
-            rgba(220, 40, 40, .07);
-        border-width: 4px;
-    }
-
-    70% {
-        opacity: .8;
-        background:
-            rgba(220, 40, 40, .12);
-        border-width: 7px;
-    }
-
-    100% {
-        opacity: 0;
-        background:
-            rgba(220, 40, 40, 0);
-        border-width: 0;
-    }
+    0% { opacity: 0; background: rgba(220, 40, 40, 0); border-width: 0; }
+    20% { opacity: 1; background: rgba(220, 40, 40, .17); border-width: 8px; }
+    45% { opacity: .5; background: rgba(220, 40, 40, .07); border-width: 4px; }
+    70% { opacity: .8; background: rgba(220, 40, 40, .12); border-width: 7px; }
+    100% { opacity: 0; background: rgba(220, 40, 40, 0); border-width: 0; }
 }
 
+/* evete basınca pembe olcak, renk kodunu rastegele seçtim */
 body.pembe {
-
     background:
         radial-gradient(
             circle at center,
@@ -223,101 +172,53 @@ body.pembe .yes {
 body.pembe .no {
     background: #ffffff;
     color: #171717;
-
-    border-color:
-        #dddddd;
+    border-color: #dddddd;
 }
 
 body.pembe .poem-line {
-    color:
-        rgba(255, 255, 255, .68);
+    color: rgba(255, 255, 255, .68);
 }
 
 .pembe-gecis {
-
     position: fixed;
     inset: 0;
     z-index: 200;
     pointer-events: none;
-
-    background:
-        #e8bfc8;
-
+    background: #e8bfc8;
     opacity: 0;
-
-    animation:
-        pembeGecis 1.1s ease forwards;
+    animation: pembeGecis 1.1s ease forwards;
 }
 
 @keyframes pembeGecis {
-
-    0% {
-        opacity: 0;
-    }
-
-    35% {
-        opacity: .7;
-    }
-
-    100% {
-        opacity: 0;
-    }
+    0% { opacity: 0; }
+    35% { opacity: .7; }
+    100% { opacity: 0; }
 }
 
 .card {
-
     position: relative;
     z-index: 10;
-
-    width:
-        calc(100% - 28px);
-
+    width: calc(100% - 28px);
     max-width: 380px;
-
-    padding:
-        30px 19px;
-
+    padding: 30px 19px;
     text-align: center;
-
-    background:
-        rgba(255, 255, 255, .96);
-
-    border:
-        1px solid
-        rgba(74, 110, 79, .15);
-
+    background: rgba(255, 255, 255, .96);
+    border: 1px solid rgba(74, 110, 79, .15);
     border-radius: 24px;
-
-    box-shadow:
-        0 20px 60px
-        rgba(55, 83, 59, .17);
-
-    backdrop-filter:
-        blur(10px);
-
-    -webkit-backdrop-filter:
-        blur(10px);
-
-    animation:
-        kart .6s ease;
+    box-shadow: 0 20px 60px rgba(55, 83, 59, .17);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    animation: kart .6s ease;
 }
 
 @keyframes kart {
-
     from {
         opacity: 0;
-
-        transform:
-            translateY(12px)
-            scale(.97);
+        transform: translateY(12px) scale(.97);
     }
-
     to {
         opacity: 1;
-
-        transform:
-            translateY(0)
-            scale(1);
+        transform: translateY(0) scale(1);
     }
 }
 
@@ -326,393 +227,177 @@ body.pembe .poem-line {
 }
 
 .heart {
-
     width: 23px;
     height: 23px;
-
-    margin:
-        0 auto 3px;
-
+    margin: 0 auto 3px;
     color: #202620;
-
     font-size: 19px;
     line-height: 23px;
-
-    animation:
-        donenKalp 6s linear infinite,
-        kalpParla 3s ease-in-out infinite;
+    animation: donenKalp 6s linear infinite, kalpParla 3s ease-in-out infinite;
 }
 
 @keyframes donenKalp {
-
-    from {
-        transform:
-            rotate(0deg);
-    }
-
-    to {
-        transform:
-            rotate(360deg);
-    }
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
 @keyframes kalpParla {
-
-    0%,
-    100% {
-
-        opacity: .65;
-
-        filter:
-            drop-shadow(
-                0 0 0
-                rgba(30, 40, 30, 0)
-            );
-    }
-
-    50% {
-
-        opacity: 1;
-
-        filter:
-            drop-shadow(
-                0 0 7px
-                rgba(30, 40, 30, .28)
-            );
-    }
+    0%, 100% { opacity: .65; filter: drop-shadow(0 0 0 rgba(30, 40, 30, 0)); }
+    50% { opacity: 1; filter: drop-shadow(0 0 7px rgba(30, 40, 30, .28)); }
 }
 
 h1 {
-
-    margin:
-        0 0 23px;
-
-    color:
-        #527659;
-
+    margin: 0 0 23px;
+    color: #527659;
     font-size: 29px;
     font-weight: 650;
 }
 
 input {
-
     display: block;
-
     width: 100%;
     height: 52px;
-
-    padding:
-        0 14px;
-
-    border:
-        1px solid
-        #bdd3bf;
-
+    padding: 0 14px;
+    border: 1px solid #bdd3bf;
     border-radius: 14px;
-
     outline: none;
-
-    background:
-        #f8fbf8;
-
-    color:
-        #38543d;
-
+    background: #f8fbf8;
+    color: #38543d;
     text-align: center;
-
     font-size: 19px;
     letter-spacing: 6px;
 }
 
 input::placeholder {
-
-    color:
-        #a5b7a7;
-
+    color: #a5b7a7;
     letter-spacing: 1px;
 }
 
 input:focus {
-
-    border-color:
-        #80a786;
-
-    box-shadow:
-        0 0 0 4px
-        rgba(128, 167, 134, .11);
+    border-color: #80a786;
+    box-shadow: 0 0 0 4px rgba(128, 167, 134, .11);
 }
 
 .error {
-
     min-height: 18px;
-
     margin-top: 8px;
-
-    color:
-        #718f76;
-
+    color: #718f76;
     font-size: 13px;
 }
 
 .question {
-
     margin-bottom: 27px;
-
-    color:
-        #527659;
-
+    color: #527659;
     font-size: 26px;
-
     line-height: 1.45;
-
     font-weight: 600;
 }
 
 .buttons {
-
     position: relative;
-
     width: 100%;
     height: 54px;
-
     display: flex;
-
     align-items: center;
     justify-content: center;
-
     gap: 13px;
 }
 
 button {
-
     height: 50px;
-
-    padding:
-        0 18px;
-
+    padding: 0 18px;
     border: none;
-
     border-radius: 14px;
-
     font-family: inherit;
-
     font-size: 13px;
-
     font-weight: 700;
-
     cursor: pointer;
-
-    touch-action:
-        manipulation;
+    touch-action: manipulation;
 }
 
 .yes {
-
     position: relative;
     z-index: 20;
-
-    background:
-        #8fb793;
-
+    background: #8fb793;
     color: white;
-
-    box-shadow:
-        0 8px 20px
-        rgba(75, 113, 81, .16);
-
-    transition:
-        transform .2s ease,
-        background .7s ease,
-        color .7s ease;
+    box-shadow: 0 8px 20px rgba(75, 113, 81, .16);
+    transition: transform .2s ease, background .7s ease, color .7s ease;
 }
 
 .yes:active {
-
-    transform:
-        scale(.96);
+    transform: scale(.96);
 }
 
+/* hayır butonu kaçıyo burda baya uğraştım */
 .no {
-
     position: relative;
     z-index: 30;
-
-    background:
-        #eef5ee;
-
-    color:
-        #58745d;
-
-    border:
-        1px solid
-        #c2d7c4;
-
-    transition:
-        left .5s
-        cubic-bezier(.22, .8, .2, 1),
-
-        top .5s
-        cubic-bezier(.22, .8, .2, 1),
-
-        transform .5s
-        cubic-bezier(.22, .8, .2, 1),
-
-        background .7s ease,
-
-        color .7s ease;
+    background: #eef5ee;
+    color: #58745d;
+    border: 1px solid #c2d7c4;
+    transition: left .5s cubic-bezier(.22, .8, .2, 1), top .5s cubic-bezier(.22, .8, .2, 1), transform .5s cubic-bezier(.22, .8, .2, 1), background .7s ease, color .7s ease;
 }
 
 .gif-container {
-
     display: none;
-
     width: 100%;
-
     margin: 0;
-
     text-align: center;
-
-    animation:
-        gifGiris .7s ease;
+    animation: gifGiris .7s ease;
 }
 
 .gif-container img {
-
     display: block;
-
     width: 100%;
-
     max-width: 280px;
     max-height: 280px;
-
-    margin:
-        0 auto;
-
+    margin: 0 auto;
     object-fit: contain;
-
     border-radius: 18px;
-
-    box-shadow:
-        0 15px 40px
-        rgba(59, 89, 64, .17);
+    box-shadow: 0 15px 40px rgba(59, 89, 64, .17);
 }
 
 .love {
-
     margin-top: 15px;
-
-    color:
-        #527659;
-
+    color: #527659;
     font-size: 18px;
-
     line-height: 1.45;
-
     font-weight: 600;
-
     text-align: center;
-
-    transition:
-        color .7s ease;
+    transition: color .7s ease;
 }
 
 @keyframes gifGiris {
-
     from {
-
         opacity: 0;
-
-        transform:
-            translateY(12px)
-            scale(.94);
+        transform: translateY(12px) scale(.94);
     }
-
     to {
-
         opacity: 1;
-
-        transform:
-            translateY(0)
-            scale(1);
+        transform: translateY(0) scale(1);
     }
 }
 
 @media (max-width: 420px) {
-
-    .card {
-
-        width:
-            calc(100% - 24px);
-
-        padding:
-            29px 18px;
-    }
-
-    h1 {
-        font-size: 28px;
-    }
-
-    .question {
-        font-size: 25px;
-    }
-
-    .poem-line {
-
-        width: 40vw;
-
-        font-size: 11px;
-    }
+    .card { width: calc(100% - 24px); padding: 29px 18px; }
+    h1 { font-size: 28px; }
+    .question { font-size: 25px; }
+    .poem-line { width: 40vw; font-size: 11px; }
 }
 
 @media (max-width: 350px) {
-
-    .card {
-
-        width:
-            calc(100% - 20px);
-
-        padding:
-            26px 15px;
-    }
-
-    .question {
-        font-size: 23px;
-    }
-
-    button {
-
-        padding:
-            0 15px;
-
-        font-size: 12px;
-    }
+    .card { width: calc(100% - 20px); padding: 26px 15px; }
+    .question { font-size: 23px; }
+    button { padding: 0 15px; font-size: 12px; }
 }
 
 @media (max-height: 680px) {
-
-    .poem-line {
-        font-size: 10.5px;
-    }
-
-    .line1 {
-        top: 5%;
-    }
-
-    .line2 {
-        top: 16%;
-    }
-
-    .line3 {
-        bottom: 25%;
-    }
-
-    .line4 {
-        bottom: 13%;
-    }
-
-    .line5 {
-        bottom: 3%;
-    }
+    .poem-line { font-size: 10.5px; }
+    .line1 { top: 5%; }
+    .line2 { top: 16%; }
+    .line3 { bottom: 25%; }
+    .line4 { bottom: 13%; }
+    .line5 { bottom: 3%; }
 }
 
 </style>
@@ -723,529 +408,189 @@ button {
 <div id="alarm"></div>
 
 <div class="poem">
-
-    <div
-        class="poem-line left line1"
-        style="animation-delay:.2s"
-    >
+    <div class="poem-line left line1" style="animation-delay:.2s">
         Ellerimde değil artık,<br>
         aklımda kalan izin,
     </div>
-
-    <div
-        class="poem-line right line2"
-        style="animation-delay:.7s"
-    >
+    <div class="poem-line right line2" style="animation-delay:.7s">
         Sessizce büyür her gece,<br>
         saygım ve sevgim
     </div>
-
-    <div
-        class="poem-line left line3"
-        style="animation-delay:1.2s"
-    >
+    <div class="poem-line left line3" style="animation-delay:1.2s">
         İçimde büyüyen şeyin<br>
         adını koymadım
     </div>
-
-    <div
-        class="poem-line right line4"
-        style="animation-delay:1.7s"
-    >
+    <div class="poem-line right line4" style="animation-delay:1.7s">
         Lüzum yok bazı şeylere,<br>
         sen anlatmadan anladım
     </div>
-
-    <div
-        class="poem-line left line5"
-        style="animation-delay:2.2s"
-    >
+    <div class="poem-line left line5" style="animation-delay:2.2s">
         Adını anmadım ama<br>
         bilesin sen birtanesin.
     </div>
-
 </div>
 
-<div
-    class="card"
-    id="passwordScreen"
->
-
-    <div class="heart">
-        ♥
-    </div>
-
-    <h1>
-        Esila'm
-    </h1>
-
-    <input
-        id="password"
-        type="password"
-        inputmode="numeric"
-        maxlength="6"
-        autocomplete="off"
-        placeholder="Şifre"
-    >
-
-    <div
-        class="error"
-        id="error"
-    ></div>
-
+<div class="card" id="passwordScreen">
+    <div class="heart">♥</div>
+    <h1>Esila'm</h1>
+    <input id="password" type="password" inputmode="numeric" maxlength="6" autocomplete="off" placeholder="Şifre">
+    <div class="error" id="error"></div>
 </div>
 
-<div
-    class="card hidden"
-    id="questionScreen"
->
-
+<div class="card hidden" id="questionScreen">
     <div class="question">
-
         Özür dilerim yavrum 🥺<br>
-
         Barışalımmı?
-
     </div>
-
     <div class="buttons">
-
-        <button
-            class="yes"
-            id="yesButton"
-            type="button"
-        >
-            EVETTTTT 💚
-        </button>
-
-        <button
-            class="no"
-            id="noButton"
-            type="button"
-        >
-            HAYIR !
-        </button>
-
+        <button class="yes" id="yesButton" type="button">EVETTTTT 💚</button>
+        <button class="no" id="noButton" type="button">HAYIR !</button>
     </div>
-
-    <div
-        class="gif-container"
-        id="gifContainer"
-    >
-
-        <img
-            src="kedi.gif"
-            alt="Kedi"
-        >
-
+    <div class="gif-container" id="gifContainer">
+        <img src="kedi.gif" alt="Kedi">
         <div class="love">
-
             Biliyordum ki barışacağımızı<br>
-
             seni çoooook seviyorum ❤️
-
         </div>
-
     </div>
-
 </div>
 
 <script>
+// elementleri seçtik (getelementbyid ömrümü yedi)
+const sifre_kutusu = document.getElementById("password");
+const sifre_ekrani = document.getElementById("passwordScreen");
+const soru_ekrani = document.getElementById("questionScreen");
+const hata_mesaji = document.getElementById("error");
+const hayir_butonu = document.getElementById("noButton");
+const evet_butonu = document.getElementById("yesButton");
+const alarm_divi = document.getElementById("alarm");
+const soru_yazisi = document.querySelector(".question");
+const butonlar_alani = document.querySelector(".buttons");
+const kedi_gif = document.getElementById("gifContainer");
 
-const password =
-    document.getElementById(
-        "password"
-    );
+let kacti_mi = false; // hayir butonu kaçtı mı takibi için
 
-const passwordScreen =
-    document.getElementById(
-        "passwordScreen"
-    );
-
-const questionScreen =
-    document.getElementById(
-        "questionScreen"
-    );
-
-const error =
-    document.getElementById(
-        "error"
-    );
-
-const noButton =
-    document.getElementById(
-        "noButton"
-    );
-
-const yesButton =
-    document.getElementById(
-        "yesButton"
-    );
-
-const alarm =
-    document.getElementById(
-        "alarm"
-    );
-
-const question =
-    document.querySelector(
-        ".question"
-    );
-
-const buttons =
-    document.querySelector(
-        ".buttons"
-    );
-
-const gifContainer =
-    document.getElementById(
-        "gifContainer"
-    );
-
-let escaped = false;
-
-password.addEventListener(
-    "input",
-    function () {
-
-        if (
-            this.value ===
-            "160310"
-        ) {
-
-            passwordScreen
-                .classList
-                .add("hidden");
-
-            questionScreen
-                .classList
-                .remove("hidden");
-
-            return;
-        }
-
-        if (
-            this.value.length === 6
-        ) {
-
-            error.textContent =
-                "Şifre yanlış 🥺";
-
-            setTimeout(
-                function () {
-
-                    error.textContent =
-                        "";
-
-                    password.value =
-                        "";
-
-                },
-                1000
-            );
-        }
+sifre_kutusu.addEventListener("input", function () {
+    // şifre bizim özel tarih: 160310
+    if (this.value === "160310") {
+        sifre_ekrani.classList.add("hidden");
+        soru_ekrani.classList.remove("hidden");
+        return;
     }
-);
 
-function alarmVer() {
+    if (this.value.length === 6) {
+        hata_mesaji.textContent = "Şifre yanlış 🥺";
+        setTimeout(function () {
+            hata_mesaji.textContent = "";
+            sifre_kutusu.value = "";
+        }, 1000);
+    }
+});
 
-    alarm.classList.remove(
-        "active"
-    );
-
-    void alarm.offsetWidth;
-
-    alarm.classList.add(
-        "active"
-    );
+function alarmCaldir() {
+    alarm_divi.classList.remove("active");
+    void alarm_divi.offsetWidth;
+    alarm_divi.classList.add("active");
 }
 
-function moveNoButton() {
+// hayır butonunun kaçma matematiği (bunu stackoverflow'dan uyarladım kafama göre)
+function butonKactirici() {
+    const genislik = hayir_butonu.offsetWidth;
+    const yukseklik = hayir_butonu.offsetHeight;
+    const ekran_W = document.documentElement.clientWidth;
+    const ekran_H = document.documentElement.clientHeight;
 
-    const w =
-        noButton.offsetWidth;
+    const minX = Math.max(12, ekran_W * .10);
+    const maxX = Math.max(minX, ekran_W * .90 - genislik);
+    const minY = Math.max(70, ekran_H * .27);
+    const maxY = Math.max(minY, ekran_H * .73 - yukseklik);
 
-    const h =
-        noButton.offsetHeight;
+    const evet_konum = evet_butonu.getBoundingClientRect();
 
-    const W =
-        document.documentElement
-            .clientWidth;
+    let rastgele_x = minX;
+    let rastgele_y = minY;
+    let en_uzak_mesafe = -1;
 
-    const H =
-        document.documentElement
-            .clientHeight;
+    for (let i = 0; i < 150; i++) {
+        const x = minX + Math.random() * Math.max(1, maxX - minX);
+        const y = minY + Math.random() * Math.max(1, maxY - minY);
 
-    const minX =
-        Math.max(
-            12,
-            W * .10
-        );
+        const merkez_x = x + genislik / 2;
+        const merkez_y = y + yukseklik / 2;
+        const evet_x = evet_konum.left + evet_konum.width / 2;
+        const evet_y = evet_konum.top + evet_konum.height / 2;
 
-    const maxX =
-        Math.max(
-            minX,
-            W * .90 - w
-        );
+        const fark_x = merkez_x - evet_x;
+        const fark_y = merkez_y - evet_y;
+        const mesafe = Math.sqrt(fark_x * fark_x + fark_y * fark_y);
 
-    const minY =
-        Math.max(
-            70,
-            H * .27
-        );
-
-    const maxY =
-        Math.max(
-            minY,
-            H * .73 - h
-        );
-
-    const yesRect =
-        yesButton
-            .getBoundingClientRect();
-
-    let bestX =
-        minX;
-
-    let bestY =
-        minY;
-
-    let bestDistance =
-        -1;
-
-    for (
-        let i = 0;
-        i < 150;
-        i++
-    ) {
-
-        const x =
-            minX +
-            Math.random() *
-            Math.max(
-                1,
-                maxX - minX
-            );
-
-        const y =
-            minY +
-            Math.random() *
-            Math.max(
-                1,
-                maxY - minY
-            );
-
-        const centerX =
-            x + w / 2;
-
-        const centerY =
-            y + h / 2;
-
-        const yesX =
-            yesRect.left +
-            yesRect.width / 2;
-
-        const yesY =
-            yesRect.top +
-            yesRect.height / 2;
-
-        const dx =
-            centerX - yesX;
-
-        const dy =
-            centerY - yesY;
-
-        const distance =
-            Math.sqrt(
-                dx * dx +
-                dy * dy
-            );
-
-        if (
-            distance >
-            bestDistance
-        ) {
-
-            bestDistance =
-                distance;
-
-            bestX =
-                x;
-
-            bestY =
-                y;
+        if (mesafe > en_uzak_mesafe) {
+            en_uzak_mesafe = mesafe;
+            rastgele_x = x;
+            rastgele_y = y;
         }
     }
 
-    bestX =
-        Math.max(
-            10,
-            Math.min(
-                bestX,
-                W - w - 10
-            )
-        );
+    rastgele_x = Math.max(10, Math.min(rastgele_x, ekran_W - genislik - 10));
+    rastgele_y = Math.max(65, Math.min(rastgele_y, ekran_H - yukseklik - 65));
 
-    bestY =
-        Math.max(
-            65,
-            Math.min(
-                bestY,
-                H - h - 65
-            )
-        );
+    hayir_butonu.style.left = rastgele_x + "px";
+    hayir_butonu.style.top = rastgele_y + "px";
 
-    noButton.style.left =
-        bestX + "px";
-
-    noButton.style.top =
-        bestY + "px";
-
-    const rotation =
-        Math.random() * 5 - 2.5;
-
-    noButton.style.transform =
-        "rotate(" +
-        rotation +
-        "deg)";
+    const donus_aci = Math.random() * 5 - 2.5;
+    hayir_butonu.style.transform = "rotate(" + donus_aci + "deg)";
 }
 
-function escapeNoButton(e) {
-
+function hayiraTiklandiVeyaGeldi(e) {
     if (e) {
         e.preventDefault();
     }
+    alarmCaldir();
 
-    alarmVer();
+    if (!kacti_mi) {
+        const rect = hayir_butonu.getBoundingClientRect();
+        const ekran_W = document.documentElement.clientWidth;
+        const ekran_H = document.documentElement.clientHeight;
 
-    if (!escaped) {
+        const guvenli_x = Math.max(10, Math.min(rect.left, ekran_W - rect.width - 10));
+        const guvenli_y = Math.max(65, Math.min(rect.top, ekran_H - rect.height - 65));
 
-        const rect =
-            noButton
-                .getBoundingClientRect();
+        hayir_butonu.style.position = "fixed";
+        hayir_butonu.style.left = guvenli_x + "px";
+        hayir_butonu.style.top = guvenli_y + "px";
+        kacti_mi = true;
 
-        const W =
-            document.documentElement
-                .clientWidth;
-
-        const H =
-            document.documentElement
-                .clientHeight;
-
-        const safeX =
-            Math.max(
-                10,
-                Math.min(
-                    rect.left,
-                    W -
-                    rect.width -
-                    10
-                )
-            );
-
-        const safeY =
-            Math.max(
-                65,
-                Math.min(
-                    rect.top,
-                    H -
-                    rect.height -
-                    65
-                )
-            );
-
-        noButton.style.position =
-            "fixed";
-
-        noButton.style.left =
-            safeX + "px";
-
-        noButton.style.top =
-            safeY + "px";
-
-        escaped =
-            true;
-
-        requestAnimationFrame(
-            function () {
-
-                moveNoButton();
-
-            }
-        );
-
-    }
-
-    else {
-
-        moveNoButton();
-
+        requestAnimationFrame(function () {
+            butonKactirici();
+        });
+    } else {
+        butonKactirici();
     }
 }
 
-noButton.addEventListener(
-    "mouseenter",
-    escapeNoButton
-);
+hayir_butonu.addEventListener("mouseenter", hayiraTiklandiVeyaGeldi);
+hayir_butonu.addEventListener("touchstart", hayiraTiklandiVeyaGeldi, { passive: false });
 
-noButton.addEventListener(
-    "touchstart",
-    escapeNoButton,
-    {
-        passive: false
-    }
-);
+evet_butonu.addEventListener("click", function () {
+    // evete basınca ortalık pembeleşsin, çok tatlı duruyo
+    document.body.classList.add("pembe");
 
-yesButton.addEventListener(
-    "click",
-    function () {
+    const gecis_efekti = document.createElement("div");
+    gecis_efekti.className = "pembe-gecis";
+    document.body.appendChild(gecis_efekti);
 
-        document.body
-            .classList
-            .add("pembe");
+    soru_yazisi.style.display = "none";
+    butonlar_alani.style.display = "none";
+    hayir_butonu.style.display = "none";
 
-        const gecis =
-            document.createElement(
-                "div"
-            );
+    setTimeout(function () {
+        kedi_gif.style.display = "block";
+    }, 350);
 
-        gecis.className =
-            "pembe-gecis";
-
-        document.body.appendChild(
-            gecis
-        );
-
-        question.style.display =
-            "none";
-
-        buttons.style.display =
-            "none";
-
-        noButton.style.display =
-            "none";
-
-        setTimeout(
-            function () {
-
-                gifContainer.style.display =
-                    "block";
-
-            },
-            350
-        );
-
-        setTimeout(
-            function () {
-
-                gecis.remove();
-
-            },
-            1200
-        );
-
-    }
-);
+    setTimeout(function () {
+        gecis_efekti.remove();
+    }, 1200);
+});
 
 </script>
 
