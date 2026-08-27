@@ -2,11 +2,19 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+>
 
 <title>Esila'm</title>
 
 <style>
+
+/* =====================================
+   TEMEL
+===================================== */
 
 * {
     box-sizing: border-box;
@@ -22,6 +30,7 @@ body {
 
 body {
     min-height: 100svh;
+
     overflow: hidden;
 
     display: flex;
@@ -46,16 +55,19 @@ body {
 }
 
 
-/* =========================
+/* =====================================
    ŞİİR
-========================= */
+===================================== */
 
 .poem {
     position: fixed;
+
     inset: 0;
+
     z-index: 1;
 
     pointer-events: none;
+
     overflow: hidden;
 }
 
@@ -63,33 +75,45 @@ body {
     position: absolute;
 
     width: 43vw;
+
     max-width: 190px;
 
-    color: rgba(61, 94, 67, .38);
+    color:
+        rgba(61, 94, 67, .38);
 
     font-family: Georgia, serif;
-    font-size: clamp(11px, 3.4vw, 16px);
+
+    font-size:
+        clamp(11px, 3.4vw, 16px);
+
     line-height: 1.55;
 
     opacity: 0;
 
     animation-duration: 1.7s;
+
     animation-timing-function:
         cubic-bezier(.18, .75, .2, 1);
+
     animation-fill-mode: forwards;
 
-    transition: color 1s ease;
+    transition:
+        color 1s ease;
 }
 
 .left {
     left: 4vw;
+
     text-align: left;
+
     animation-name: soldan;
 }
 
 .right {
     right: 4vw;
+
     text-align: right;
+
     animation-name: sagdan;
 }
 
@@ -97,12 +121,16 @@ body {
 
     from {
         opacity: 0;
-        transform: translateX(-100vw);
+
+        transform:
+            translateX(-100vw);
     }
 
     to {
         opacity: 1;
-        transform: translateX(0);
+
+        transform:
+            translateX(0);
     }
 }
 
@@ -110,12 +138,16 @@ body {
 
     from {
         opacity: 0;
-        transform: translateX(100vw);
+
+        transform:
+            translateX(100vw);
     }
 
     to {
         opacity: 1;
-        transform: translateX(0);
+
+        transform:
+            translateX(0);
     }
 }
 
@@ -140,12 +172,13 @@ body {
 }
 
 
-/* =========================
-   KIRMIZI ALARM
-========================= */
+/* =====================================
+   ALARM
+===================================== */
 
 #alarm {
     position: fixed;
+
     inset: 0;
 
     z-index: 100;
@@ -162,48 +195,65 @@ body {
 }
 
 #alarm.active {
-    animation: alarm .45s ease;
+    animation:
+        alarm .45s ease;
 }
 
 @keyframes alarm {
 
     0% {
         opacity: 0;
-        background: rgba(220, 40, 40, 0);
+
+        background:
+            rgba(220, 40, 40, 0);
+
         border-width: 0;
     }
 
     20% {
         opacity: 1;
-        background: rgba(220, 40, 40, .17);
+
+        background:
+            rgba(220, 40, 40, .17);
+
         border-width: 8px;
     }
 
     45% {
         opacity: .5;
-        background: rgba(220, 40, 40, .07);
+
+        background:
+            rgba(220, 40, 40, .07);
+
         border-width: 4px;
     }
 
     70% {
         opacity: .8;
-        background: rgba(220, 40, 40, .12);
+
+        background:
+            rgba(220, 40, 40, .12);
+
         border-width: 7px;
     }
 
     100% {
         opacity: 0;
-        background: rgba(220, 40, 40, 0);
+
+        background:
+            rgba(220, 40, 40, 0);
+
         border-width: 0;
     }
 }
 
 
-/* =========================
+/* =====================================
    PEMBE TEMA
-========================= */
+===================================== */
 
 body.pembe {
+
     background:
         radial-gradient(
             circle at center,
@@ -216,54 +266,55 @@ body.pembe {
 
 /*
    ÖNEMLİ:
-   Buradaki kurallar sadece
-   body.pembe aktif olduktan sonra çalışır.
+   Bunlar yalnızca EVET'e basıldıktan
+   sonra çalışır.
 */
-
-
-/* Beyaz kartın içindeki yazılar siyah */
 
 body.pembe .question,
 body.pembe .love {
     color: #171717;
 }
 
-
-/* EVET butonu */
-
 body.pembe .yes {
     background: #ffffff;
+
     color: #171717;
 }
-
-
-/* HAYIR butonu */
 
 body.pembe .no {
     background: #ffffff;
+
     color: #171717;
-    border-color: #dddddd;
+
+    border-color:
+        #dddddd;
 }
 
 
-/* Pembe modda şiir açık renk */
+/* Pembe modda şiir */
 
 body.pembe .poem-line {
-    color: rgba(255, 255, 255, .68);
+    color:
+        rgba(255, 255, 255, .68);
 }
 
 
-/* Pembe geçiş */
+/* =====================================
+   PEMBE GEÇİŞ
+===================================== */
 
 .pembe-gecis {
+
     position: fixed;
+
     inset: 0;
 
     z-index: 200;
 
     pointer-events: none;
 
-    background: #e8bfc8;
+    background:
+        #e8bfc8;
 
     opacity: 0;
 
@@ -287,26 +338,32 @@ body.pembe .poem-line {
 }
 
 
-/* =========================
+/* =====================================
    KART
-========================= */
+===================================== */
 
 .card {
+
     position: relative;
 
     z-index: 10;
 
-    width: calc(100% - 28px);
+    width:
+        calc(100% - 28px);
+
     max-width: 380px;
 
-    padding: 30px 19px;
+    padding:
+        30px 19px;
 
     text-align: center;
 
-    background: rgba(255, 255, 255, .96);
+    background:
+        rgba(255, 255, 255, .96);
 
     border:
-        1px solid rgba(74, 110, 79, .15);
+        1px solid
+        rgba(74, 110, 79, .15);
 
     border-radius: 24px;
 
@@ -314,16 +371,21 @@ body.pembe .poem-line {
         0 20px 60px
         rgba(55, 83, 59, .17);
 
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter:
+        blur(10px);
 
-    animation: kart .6s ease;
+    -webkit-backdrop-filter:
+        blur(10px);
+
+    animation:
+        kart .6s ease;
 }
 
 @keyframes kart {
 
     from {
         opacity: 0;
+
         transform:
             translateY(12px)
             scale(.97);
@@ -331,6 +393,7 @@ body.pembe .poem-line {
 
     to {
         opacity: 1;
+
         transform:
             translateY(0)
             scale(1);
@@ -342,19 +405,23 @@ body.pembe .poem-line {
 }
 
 
-/* =========================
+/* =====================================
    KALP
-========================= */
+===================================== */
 
 .heart {
+
     width: 23px;
+
     height: 23px;
 
-    margin: 0 auto 3px;
+    margin:
+        0 auto 3px;
 
     color: #202620;
 
     font-size: 19px;
+
     line-height: 23px;
 
     animation:
@@ -365,11 +432,13 @@ body.pembe .poem-line {
 @keyframes donenKalp {
 
     from {
-        transform: rotate(0deg);
+        transform:
+            rotate(0deg);
     }
 
     to {
-        transform: rotate(360deg);
+        transform:
+            rotate(360deg);
     }
 }
 
@@ -377,6 +446,7 @@ body.pembe .poem-line {
 
     0%,
     100% {
+
         opacity: .65;
 
         filter:
@@ -387,6 +457,7 @@ body.pembe .poem-line {
     }
 
     50% {
+
         opacity: 1;
 
         filter:
@@ -398,42 +469,52 @@ body.pembe .poem-line {
 }
 
 
-/* =========================
+/* =====================================
    BAŞLIK
-========================= */
+===================================== */
 
 h1 {
-    margin: 0 0 23px;
 
-    color: #527659;
+    margin:
+        0 0 23px;
+
+    color:
+        #527659;
 
     font-size: 29px;
+
     font-weight: 650;
 }
 
 
-/* =========================
+/* =====================================
    ŞİFRE
-========================= */
+===================================== */
 
 input {
+
     display: block;
 
     width: 100%;
+
     height: 52px;
 
-    padding: 0 14px;
+    padding:
+        0 14px;
 
     border:
-        1px solid #bdd3bf;
+        1px solid
+        #bdd3bf;
 
     border-radius: 14px;
 
     outline: none;
 
-    background: #f8fbf8;
+    background:
+        #f8fbf8;
 
-    color: #38543d;
+    color:
+        #38543d;
 
     text-align: center;
 
@@ -443,12 +524,17 @@ input {
 }
 
 input::placeholder {
-    color: #a5b7a7;
+
+    color:
+        #a5b7a7;
+
     letter-spacing: 1px;
 }
 
 input:focus {
-    border-color: #80a786;
+
+    border-color:
+        #80a786;
 
     box-shadow:
         0 0 0 4px
@@ -456,77 +542,94 @@ input:focus {
 }
 
 .error {
+
     min-height: 18px;
 
     margin-top: 8px;
 
-    color: #718f76;
+    color:
+        #718f76;
 
     font-size: 13px;
 }
 
 
-/* =========================
+/* =====================================
    SORU
-========================= */
+===================================== */
 
 .question {
+
     margin-bottom: 27px;
 
-    color: #527659;
+    color:
+        #527659;
 
     font-size: 26px;
+
     line-height: 1.45;
 
     font-weight: 600;
 }
 
 
-/* =========================
-   BUTONLAR
-========================= */
+/* =====================================
+   BUTON ALANI
+===================================== */
 
 .buttons {
+
     position: relative;
 
     width: 100%;
+
     height: 54px;
 
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
     gap: 13px;
 }
 
 button {
+
     height: 50px;
 
-    padding: 0 18px;
+    padding:
+        0 18px;
 
     border: none;
+
     border-radius: 14px;
 
     font-family: inherit;
 
     font-size: 13px;
+
     font-weight: 700;
 
     cursor: pointer;
 
-    touch-action: manipulation;
+    touch-action:
+        manipulation;
 }
 
 
-/* EVET */
+/* =====================================
+   EVET
+===================================== */
 
 .yes {
+
     position: relative;
 
     z-index: 20;
 
-    background: #8fb793;
+    background:
+        #8fb793;
 
     color: white;
 
@@ -541,54 +644,78 @@ button {
 }
 
 .yes:active {
-    transform: scale(.96);
+
+    transform:
+        scale(.96);
 }
 
 
-/* HAYIR */
+/* =====================================
+   HAYIR
+===================================== */
 
 .no {
+
     position: relative;
 
     z-index: 30;
 
-    background: #eef5ee;
+    background:
+        #eef5ee;
 
-    color: #58745d;
+    color:
+        #58745d;
 
     border:
-        1px solid #c2d7c4;
+        1px solid
+        #c2d7c4;
 
     transition:
-        left .5s cubic-bezier(.22, .8, .2, 1),
-        top .5s cubic-bezier(.22, .8, .2, 1),
-        transform .5s cubic-bezier(.22, .8, .2, 1),
+        left .5s
+        cubic-bezier(.22, .8, .2, 1),
+
+        top .5s
+        cubic-bezier(.22, .8, .2, 1),
+
+        transform .5s
+        cubic-bezier(.22, .8, .2, 1),
+
         background .7s ease,
+
         color .7s ease;
 }
 
 
-/* =========================
+/* =====================================
    GIF
-========================= */
+===================================== */
 
 .gif-container {
+
     display: none;
 
-    margin-top: 24px;
+    width: 100%;
+
+    margin: 0;
+
+    text-align: center;
 
     animation:
         gifGiris .7s ease;
 }
 
 .gif-container img {
+
     display: block;
 
     width: 100%;
+
     max-width: 280px;
+
     max-height: 280px;
 
-    margin: 0 auto;
+    margin:
+        0 auto;
 
     object-fit: contain;
 
@@ -600,14 +727,19 @@ button {
 }
 
 .love {
+
     margin-top: 15px;
 
-    color: #527659;
+    color:
+        #527659;
 
     font-size: 18px;
+
     line-height: 1.45;
 
     font-weight: 600;
+
+    text-align: center;
 
     transition:
         color .7s ease;
@@ -616,6 +748,7 @@ button {
 @keyframes gifGiris {
 
     from {
+
         opacity: 0;
 
         transform:
@@ -624,6 +757,7 @@ button {
     }
 
     to {
+
         opacity: 1;
 
         transform:
@@ -633,14 +767,16 @@ button {
 }
 
 
-/* =========================
+/* =====================================
    TELEFON
-========================= */
+===================================== */
 
 @media (max-width: 420px) {
 
     .card {
-        width: calc(100% - 24px);
+
+        width:
+            calc(100% - 24px);
 
         padding:
             29px 18px;
@@ -655,6 +791,7 @@ button {
     }
 
     .poem-line {
+
         width: 40vw;
 
         font-size: 11px;
@@ -665,7 +802,9 @@ button {
 @media (max-width: 350px) {
 
     .card {
-        width: calc(100% - 20px);
+
+        width:
+            calc(100% - 20px);
 
         padding:
             26px 15px;
@@ -676,7 +815,10 @@ button {
     }
 
     button {
-        padding: 0 15px;
+
+        padding:
+            0 15px;
+
         font-size: 12px;
     }
 }
@@ -721,7 +863,9 @@ button {
 <div id="alarm"></div>
 
 
-<!-- ŞİİR -->
+<!-- ==================================
+     ŞİİR
+================================== -->
 
 <div class="poem">
 
@@ -772,9 +916,9 @@ button {
 </div>
 
 
-<!-- =========================
+<!-- ==================================
      ŞİFRE EKRANI
-========================= -->
+================================== -->
 
 <div
     class="card"
@@ -806,9 +950,9 @@ button {
 </div>
 
 
-<!-- =========================
+<!-- ==================================
      BARIŞMA EKRANI
-========================= -->
+================================== -->
 
 <div
     class="card hidden"
@@ -816,8 +960,11 @@ button {
 >
 
     <div class="question">
+
         Özür dilerim yavrum 🥺<br>
+
         Barışalımmı?
+
     </div>
 
 
@@ -843,6 +990,10 @@ button {
     </div>
 
 
+    <!-- ==================================
+         SON EKRAN
+    ================================== -->
+
     <div
         class="gif-container"
         id="gifContainer"
@@ -854,8 +1005,11 @@ button {
         >
 
         <div class="love">
+
             Biliyordum ki barışacağımızı<br>
+
             seni çoooook seviyorum ❤️
+
         </div>
 
     </div>
@@ -865,39 +1019,76 @@ button {
 
 <script>
 
+/* =====================================
+   ELEMANLAR
+===================================== */
+
 const password =
-    document.getElementById("password");
+    document.getElementById(
+        "password"
+    );
 
 const passwordScreen =
-    document.getElementById("passwordScreen");
+    document.getElementById(
+        "passwordScreen"
+    );
 
 const questionScreen =
-    document.getElementById("questionScreen");
+    document.getElementById(
+        "questionScreen"
+    );
 
 const error =
-    document.getElementById("error");
+    document.getElementById(
+        "error"
+    );
 
 const noButton =
-    document.getElementById("noButton");
+    document.getElementById(
+        "noButton"
+    );
 
 const yesButton =
-    document.getElementById("yesButton");
+    document.getElementById(
+        "yesButton"
+    );
 
 const alarm =
-    document.getElementById("alarm");
+    document.getElementById(
+        "alarm"
+    );
+
+const question =
+    document.querySelector(
+        ".question"
+    );
+
+const buttons =
+    document.querySelector(
+        ".buttons"
+    );
+
+const gifContainer =
+    document.getElementById(
+        "gifContainer"
+    );
+
 
 let escaped = false;
 
 
-/* =========================
+/* =====================================
    ŞİFRE
-========================= */
+===================================== */
 
 password.addEventListener(
     "input",
     function () {
 
-        if (this.value === "160826") {
+        if (
+            this.value ===
+            "160826"
+        ) {
 
             passwordScreen
                 .classList
@@ -911,17 +1102,22 @@ password.addEventListener(
         }
 
 
-        if (this.value.length === 6) {
+        if (
+            this.value.length === 6
+        ) {
 
             error.textContent =
                 "Şifre yanlış 🥺";
 
+
             setTimeout(
                 function () {
 
-                    error.textContent = "";
+                    error.textContent =
+                        "";
 
-                    password.value = "";
+                    password.value =
+                        "";
 
                 },
                 1000
@@ -931,23 +1127,29 @@ password.addEventListener(
 );
 
 
-/* =========================
+/* =====================================
    ALARM
-========================= */
+===================================== */
 
 function alarmVer() {
 
-    alarm.classList.remove("active");
+    alarm.classList.remove(
+        "active"
+    );
+
 
     void alarm.offsetWidth;
 
-    alarm.classList.add("active");
+
+    alarm.classList.add(
+        "active"
+    );
 }
 
 
-/* =========================
-   HAYIR BUTONUNU KAÇIR
-========================= */
+/* =====================================
+   HAYIR BUTONU
+===================================== */
 
 function moveNoButton() {
 
@@ -958,63 +1160,67 @@ function moveNoButton() {
         noButton.offsetHeight;
 
 
-    /*
-       Gerçek kullanılabilir ekran.
-    */
-
     const W =
-        document.documentElement.clientWidth;
+        document.documentElement
+            .clientWidth;
 
     const H =
-        document.documentElement.clientHeight;
+        document.documentElement
+            .clientHeight;
 
 
     /*
-       HAYIR'ın dolaşabileceği alan.
-       Kenarlardan uzak tutuluyor.
+       Ekranın kenarlarından
+       uzak güvenli alan.
     */
 
     const minX =
         Math.max(
             12,
-            W * 0.10
+            W * .10
         );
 
     const maxX =
         Math.max(
             minX,
-            W * 0.90 - w
+            W * .90 - w
         );
 
 
     const minY =
         Math.max(
             70,
-            H * 0.27
+            H * .27
         );
 
     const maxY =
         Math.max(
             minY,
-            H * 0.73 - h
+            H * .73 - h
         );
 
 
     /*
-       EVET'in mevcut konumu.
+       EVET'in yeri.
     */
 
     const yesRect =
-        yesButton.getBoundingClientRect();
+        yesButton
+            .getBoundingClientRect();
 
 
-    let bestX = minX;
-    let bestY = minY;
-    let bestDistance = -1;
+    let bestX =
+        minX;
+
+    let bestY =
+        minY;
+
+    let bestDistance =
+        -1;
 
 
     /*
-       Güvenli nokta ara.
+       150 güvenli nokta deniyoruz.
     */
 
     for (
@@ -1079,15 +1285,19 @@ function moveNoButton() {
             bestDistance =
                 distance;
 
-            bestX = x;
-            bestY = y;
+            bestX =
+                x;
+
+            bestY =
+                y;
         }
     }
 
 
     /*
-       SON GÜVENLİK KİLİDİ.
-       Buton viewport dışına çıkamaz.
+       SON SINIR KONTROLÜ.
+       Buton kesinlikle
+       ekran dışına çıkamaz.
     */
 
     bestX =
@@ -1113,12 +1323,14 @@ function moveNoButton() {
     noButton.style.left =
         bestX + "px";
 
+
     noButton.style.top =
         bestY + "px";
 
 
     const rotation =
         Math.random() * 5 - 2.5;
+
 
     noButton.style.transform =
         "rotate(" +
@@ -1127,9 +1339,9 @@ function moveNoButton() {
 }
 
 
-/* =========================
-   HAYIR'A BASILINCA
-========================= */
+/* =====================================
+   HAYIR'A DOKUNMA
+===================================== */
 
 function escapeNoButton(e) {
 
@@ -1142,33 +1354,34 @@ function escapeNoButton(e) {
 
 
     /*
-       İlk kaçış.
+       İlk kaçışta relative
+       konumdan fixed konuma geçiyoruz.
     */
 
     if (!escaped) {
 
         const rect =
-            noButton.getBoundingClientRect();
+            noButton
+                .getBoundingClientRect();
 
 
         const W =
-            document.documentElement.clientWidth;
+            document.documentElement
+                .clientWidth;
 
         const H =
-            document.documentElement.clientHeight;
+            document.documentElement
+                .clientHeight;
 
-
-        /*
-           Mevcut konumu önce güvenli
-           viewport sınırlarına kilitle.
-        */
 
         const safeX =
             Math.max(
                 10,
                 Math.min(
                     rect.left,
-                    W - rect.width - 10
+                    W -
+                    rect.width -
+                    10
                 )
             );
 
@@ -1178,7 +1391,9 @@ function escapeNoButton(e) {
                 65,
                 Math.min(
                     rect.top,
-                    H - rect.height - 65
+                    H -
+                    rect.height -
+                    65
                 )
             );
 
@@ -1195,7 +1410,8 @@ function escapeNoButton(e) {
             safeY + "px";
 
 
-        escaped = true;
+        escaped =
+            true;
 
 
         requestAnimationFrame(
@@ -1211,11 +1427,15 @@ function escapeNoButton(e) {
     else {
 
         moveNoButton();
+
     }
 }
 
 
-/* Bilgisayarda */
+/*
+   Bilgisayarda mouse
+   yaklaşınca kaçar.
+*/
 
 noButton.addEventListener(
     "mouseenter",
@@ -1223,7 +1443,9 @@ noButton.addEventListener(
 );
 
 
-/* Telefonda */
+/*
+   Telefonda dokununca kaçar.
+*/
 
 noButton.addEventListener(
     "touchstart",
@@ -1234,16 +1456,16 @@ noButton.addEventListener(
 );
 
 
-/* =========================
+/* =====================================
    EVET
-========================= */
+===================================== */
 
 yesButton.addEventListener(
     "click",
     function () {
 
         /*
-           Önce pembe tema aktif.
+           Pembe temayı aç.
         */
 
         document.body
@@ -1256,10 +1478,13 @@ yesButton.addEventListener(
         */
 
         const gecis =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
 
         gecis.className =
             "pembe-gecis";
+
 
         document.body.appendChild(
             gecis
@@ -1267,7 +1492,25 @@ yesButton.addEventListener(
 
 
         /*
-           HAYIR tamamen kaldır.
+           ÖZÜR DİLERİM / BARIŞALIM
+           yazısını kaldır.
+        */
+
+        question.style.display =
+            "none";
+
+
+        /*
+           İki butonu kaldır.
+        */
+
+        buttons.style.display =
+            "none";
+
+
+        /*
+           HAYIR butonunu tamamen
+           görünmez yap.
         */
 
         noButton.style.display =
@@ -1275,21 +1518,17 @@ yesButton.addEventListener(
 
 
         /*
-           GIF.
+           GIF ve son mesajı göster.
         */
 
         setTimeout(
             function () {
 
-                document
-                    .getElementById(
-                        "gifContainer"
-                    )
-                    .style.display =
+                gifContainer.style.display =
                     "block";
 
             },
-            450
+            350
         );
 
 
