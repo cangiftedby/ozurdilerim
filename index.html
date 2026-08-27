@@ -1,819 +1,821 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#dff0df">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#dcebdc">
 
-  <title>Esila'm 💚</title>
+<title>Esila'm 💚</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      -webkit-tap-highlight-color: transparent;
+<style>
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    min-height: 100svh;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+    background:
+        radial-gradient(circle at 50% 45%, #f8fcf7 0%, #e8f2e7 48%, #d5e6d5 100%);
+
+    color: #334b38;
+}
+
+
+/* =========================================
+   ŞİİR
+   Her dize ayrı ayrı sağdan / soldan gelir
+   ========================================= */
+
+.poem {
+    position: fixed;
+    inset: 0;
+
+    z-index: 0;
+    pointer-events: none;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    gap: 17px;
+
+    overflow: hidden;
+
+    padding: 20px 0;
+}
+
+.line {
+    width: max-content;
+    max-width: 92%;
+
+    color: rgba(60, 91, 66, 0.31);
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(14px, 4vw, 19px);
+    line-height: 1.5;
+
+    white-space: nowrap;
+
+    opacity: 0;
+
+    animation-duration: 1.7s;
+    animation-timing-function: cubic-bezier(.22, .75, .2, 1);
+    animation-fill-mode: forwards;
+}
+
+
+/* Sağdan gelenler */
+
+.from-right {
+    align-self: flex-end;
+    padding-right: 4%;
+
+    animation-name: fromRight;
+}
+
+
+/* Soldan gelenler */
+
+.from-left {
+    align-self: flex-start;
+    padding-left: 4%;
+
+    animation-name: fromLeft;
+}
+
+
+@keyframes fromRight {
+    from {
+        opacity: 0;
+        transform: translateX(110vw);
     }
 
-    html, body {
-      width: 100%;
-      min-height: 100%;
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+@keyframes fromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-110vw);
     }
 
-    body {
-      margin: 0;
-      min-height: 100vh;
-      min-height: 100svh;
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
 
-      overflow: hidden;
+/* =========================================
+   ANA KART
+   ========================================= */
 
-      font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
+.card {
+    position: relative;
+    z-index: 5;
 
-      color: #26352b;
+    width: calc(100% - 28px);
+    max-width: 390px;
 
-      background:
-        radial-gradient(
-          circle at 50% 35%,
-          #f7fff7 0%,
-          #e8f5e8 45%,
-          #d5e9d6 100%
-        );
+    padding: 32px 21px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.94);
+
+    border: 1px solid rgba(84, 119, 89, .18);
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 20px 60px rgba(57, 83, 61, .17);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    animation: cardIn .7s ease;
+}
+
+
+@keyframes cardIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(.97);
     }
 
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
 
-    /* =========================
-       ARKA PLAN ŞİİRİ
-       ========================= */
 
-    .poem-layer {
-      position: fixed;
-      inset: 0;
+.hidden {
+    display: none !important;
+}
 
-      display: flex;
-      justify-content: center;
-      align-items: center;
 
-      pointer-events: none;
+/* =========================================
+   ŞİFRE
+   ========================================= */
 
-      overflow: hidden;
+h1 {
+    margin: 0 0 23px;
 
-      z-index: 0;
+    color: #527659;
+
+    font-size: 30px;
+    font-weight: 650;
+
+    letter-spacing: -.5px;
+}
+
+
+input {
+    width: 100%;
+    height: 52px;
+
+    border-radius: 14px;
+
+    border: 1px solid #b9cfba;
+
+    outline: none;
+
+    background: #f8fbf8;
+
+    color: #38523d;
+
+    text-align: center;
+
+    font-size: 19px;
+
+    letter-spacing: 6px;
+
+    transition: .2s;
+}
+
+
+input:focus {
+    border-color: #7fa885;
+
+    box-shadow:
+        0 0 0 4px rgba(127, 168, 133, .12);
+}
+
+
+input::placeholder {
+    color: #a1b3a3;
+    letter-spacing: 1px;
+}
+
+
+.error {
+    min-height: 18px;
+
+    margin-top: 8px;
+
+    color: #729177;
+
+    font-size: 13px;
+}
+
+
+/* =========================================
+   SORU
+   ========================================= */
+
+.question {
+    margin-bottom: 28px;
+
+    color: #527659;
+
+    font-size: 27px;
+    line-height: 1.45;
+
+    font-weight: 600;
+}
+
+
+/* =========================================
+   BUTONLAR
+   ========================================= */
+
+.buttons {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 14px;
+
+    height: 54px;
+}
+
+
+button {
+    height: 50px;
+
+    padding: 0 20px;
+
+    border-radius: 14px;
+
+    border: none;
+
+    font-family: inherit;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+.yes {
+    position: relative;
+    z-index: 10;
+
+    background: #8fb894;
+
+    color: white;
+
+    box-shadow:
+        0 8px 20px rgba(78, 116, 84, .16);
+
+    transition: .2s;
+}
+
+
+.yes:hover {
+    background: #80a985;
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   HAYIR BUTONU
+
+   Başlangıçta normal.
+   Kaçınca fixed olur.
+   Kaybolmaz.
+   Yumuşak şekilde hareket eder.
+   ========================================= */
+
+.no {
+    position: relative;
+    z-index: 20;
+
+    background: #edf5ed;
+
+    color: #57725c;
+
+    border: 1px solid #c1d7c3;
+
+    transition:
+        left .55s cubic-bezier(.22, .8, .2, 1),
+        top .55s cubic-bezier(.22, .8, .2, 1),
+        transform .55s cubic-bezier(.22, .8, .2, 1);
+}
+
+
+/* =========================================
+   GIF
+   ========================================= */
+
+.gif-container {
+    display: none;
+
+    margin-top: 25px;
+
+    animation: gifIn .7s ease;
+}
+
+
+.gif-container img {
+    display: block;
+
+    width: 100%;
+    max-width: 290px;
+    max-height: 290px;
+
+    object-fit: contain;
+
+    margin: auto;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 15px 40px rgba(60, 88, 64, .18);
+}
+
+
+.love {
+    margin-top: 16px;
+
+    color: #527659;
+
+    font-size: 18px;
+
+    font-weight: 600;
+}
+
+
+@keyframes gifIn {
+    from {
+        opacity: 0;
+        transform: scale(.92) translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+
+/* =========================================
+   TELEFON
+   ========================================= */
+
+@media (max-width: 420px) {
+
+    .card {
+        width: calc(100% - 22px);
+        padding: 29px 18px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .question {
+        font-size: 25px;
+    }
+
+    button {
+        padding: 0 17px;
+        font-size: 13px;
+    }
+
+    .line {
+        font-size: 14px;
+        gap: 0;
     }
 
     .poem {
-      width: min(92%, 520px);
-
-      text-align: center;
-
-      color: rgba(68, 104, 75, 0.27);
-
-      font-family: Georgia, serif;
-
-      font-size: clamp(15px, 4vw, 20px);
-
-      line-height: 2;
-
-      letter-spacing: 0.15px;
-
-      animation:
-        poemFloat 16s ease-in-out infinite alternate;
-
-      filter: blur(0.15px);
+        gap: 18px;
     }
-
-    @keyframes poemFloat {
-
-      0% {
-        transform:
-          translate3d(-8px, 18px, 0)
-          scale(0.98);
-
-        opacity: 0.45;
-      }
-
-      50% {
-        opacity: 0.85;
-      }
-
-      100% {
-        transform:
-          translate3d(8px, -18px, 0)
-          scale(1.02);
-
-        opacity: 0.6;
-      }
-    }
+}
 
 
-    /* =========================
-       ANA KART
-       ========================= */
+@media (max-height: 650px) {
 
     .card {
-
-      position: relative;
-
-      z-index: 2;
-
-      width: calc(100% - 30px);
-
-      max-width: 390px;
-
-      padding: 34px 23px;
-
-      text-align: center;
-
-      background:
-        rgba(255, 255, 255, 0.91);
-
-      border:
-        1px solid rgba(104, 146, 109, 0.24);
-
-      border-radius: 26px;
-
-      box-shadow:
-        0 18px 55px rgba(65, 94, 69, 0.16);
-
-      backdrop-filter: blur(12px);
-
-      -webkit-backdrop-filter: blur(12px);
-
-      animation: cardIn .7s ease;
-    }
-
-    @keyframes cardIn {
-
-      from {
-        opacity: 0;
-        transform: translateY(12px) scale(.98);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-    }
-
-
-    /* =========================
-       BAŞLIK
-       ========================= */
-
-    h1 {
-
-      margin: 0 0 24px;
-
-      color: #557d5b;
-
-      font-size: 32px;
-
-      font-weight: 650;
-
-      letter-spacing: -0.5px;
-    }
-
-
-    /* =========================
-       ŞİFRE
-       ========================= */
-
-    input {
-
-      width: 100%;
-
-      height: 52px;
-
-      border:
-        1px solid #b9d3bb;
-
-      border-radius: 14px;
-
-      outline: none;
-
-      background: #f7fbf7;
-
-      color: #304a35;
-
-      text-align: center;
-
-      font-size: 19px;
-
-      letter-spacing: 6px;
-
-      transition: .25s ease;
-    }
-
-    input::placeholder {
-
-      color: #9aad9d;
-
-      letter-spacing: 1px;
-    }
-
-    input:focus {
-
-      border-color: #769d7b;
-
-      background: #fff;
-
-      box-shadow:
-        0 0 0 4px rgba(118, 157, 123, .10);
-    }
-
-    .error {
-
-      min-height: 20px;
-
-      margin-top: 9px;
-
-      color: #78947c;
-
-      font-size: 13px;
-    }
-
-
-    /* =========================
-       BARIŞMA EKRANI
-       ========================= */
-
-    .question {
-
-      color: #557d5b;
-
-      font-size: 28px;
-
-      line-height: 1.45;
-
-      margin-bottom: 30px;
-
-      font-weight: 600;
-    }
-
-
-    .buttons {
-
-      position: relative;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      gap: 13px;
-
-      width: 100%;
-
-      height: 56px;
-    }
-
-
-    button {
-
-      height: 52px;
-
-      border: none;
-
-      border-radius: 14px;
-
-      padding: 0 21px;
-
-      font-size: 15px;
-
-      font-weight: 700;
-
-      cursor: pointer;
-
-      font-family: inherit;
-    }
-
-
-    .yes {
-
-      position: relative;
-
-      z-index: 3;
-
-      background: #91b995;
-
-      color: #fff;
-
-      box-shadow:
-        0 7px 18px rgba(91, 130, 97, .18);
-
-      transition:
-        transform .2s ease,
-        background .2s ease;
-    }
-
-    .yes:hover {
-
-      background: #82aa87;
-
-      transform: translateY(-2px);
-    }
-
-
-    /* =========================
-       KAÇAN HAYIR
-       ========================= */
-
-    .no {
-
-      position: relative;
-
-      z-index: 4;
-
-      background: #eef6ee;
-
-      color: #58745d;
-
-      border:
-        1px solid #c5dcc7;
-
-      transition:
-        left .45s cubic-bezier(.22, .8, .25, 1),
-        top .45s cubic-bezier(.22, .8, .25, 1),
-        transform .45s ease;
-    }
-
-
-    /* =========================
-       GIF
-       ========================= */
-
-    .gif-container {
-
-      display: none;
-
-      margin-top: 26px;
-
-      animation: gifIn .7s cubic-bezier(.2,.8,.2,1);
-    }
-
-    @keyframes gifIn {
-
-      from {
-        opacity: 0;
-        transform: translateY(12px) scale(.96);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-    }
-
-    .gif-container img {
-
-      display: block;
-
-      width: 100%;
-
-      max-width: 290px;
-
-      max-height: 290px;
-
-      object-fit: contain;
-
-      margin: 0 auto;
-
-      border-radius: 18px;
-
-      box-shadow:
-        0 14px 35px rgba(63, 91, 67, .16);
-    }
-
-    .love {
-
-      margin-top: 17px;
-
-      color: #557d5b;
-
-      font-size: 18px;
-
-      font-weight: 600;
-    }
-
-
-    .hidden {
-      display: none !important;
-    }
-
-
-    /* =========================
-       TELEFON
-       ========================= */
-
-    @media (max-width: 420px) {
-
-      .card {
-
-        width: calc(100% - 24px);
-
-        padding:
-          30px 18px;
-      }
-
-      h1 {
-
-        font-size: 29px;
-
-        margin-bottom: 22px;
-      }
-
-      .question {
-
-        font-size: 25px;
-
-        margin-bottom: 26px;
-      }
-
-      button {
-
-        padding: 0 17px;
-
-        font-size: 14px;
-      }
-
-      .poem {
-
-        font-size: 14px;
-
-        line-height: 1.9;
-
-        width: 88%;
-      }
-    }
-
-
-    @media (max-height: 650px) {
-
-      .card {
-
         padding-top: 24px;
-
         padding-bottom: 24px;
-      }
-
-      .poem {
-
-        font-size: 13px;
-      }
     }
 
-  </style>
+    .poem {
+        gap: 10px;
+    }
+
+    .line {
+        font-size: 13px;
+    }
+}
+
+</style>
 </head>
 
 
 <body>
 
 
-  <!--
-    ARKA PLAN ŞİİRİ
-  -->
+<!-- =========================================
+     ARKA PLAN ŞİİRİ
+     ========================================= -->
 
-  <div class="poem-layer">
+<div class="poem">
 
-    <div class="poem">
-
-      Ellerimde değil artık, aklımda kalan izin,<br>
-
-      Sessizce büyür her gece, saygım ve sevgim<br>
-
-      İçimde büyüyen şeyin adını koymadım<br>
-
-      Lüzum yok bazı şeylere sen anlatmadan anladım<br>
-
-      Adını anmadım ama bilesin sen birtanesin.
-
+    <div class="line from-left" style="animation-delay:.2s">
+        Ellerimde değil artık, aklımda kalan izin,
     </div>
 
-  </div>
+    <div class="line from-right" style="animation-delay:.7s">
+        Sessizce büyür her gece, saygım ve sevgim
+    </div>
+
+    <div class="line from-left" style="animation-delay:1.2s">
+        İçimde büyüyen şeyin adını koymadım
+    </div>
+
+    <div class="line from-right" style="animation-delay:1.7s">
+        Lüzum yok bazı şeylere sen anlatmadan anladım
+    </div>
+
+    <div class="line from-left" style="animation-delay:2.2s">
+        Adını anmadım ama bilesin sen birtanesin.
+    </div>
+
+</div>
 
 
-  <!--
-    ŞİFRE EKRANI
-  -->
+<!-- =========================================
+     ŞİFRE EKRANI
+     ========================================= -->
 
-  <div
-    class="card"
-    id="passwordScreen"
-  >
+<div class="card" id="passwordScreen">
 
-    <h1>
-      Esila'm 💗
-    </h1>
+    <h1>Esila'm</h1>
 
     <input
-      id="password"
-      type="password"
-      inputmode="numeric"
-      maxlength="6"
-      autocomplete="off"
-      placeholder="Şifre"
+        id="password"
+        type="password"
+        inputmode="numeric"
+        maxlength="6"
+        autocomplete="off"
+        placeholder="Şifre"
     >
 
-    <div
-      class="error"
-      id="error"
-    ></div>
+    <div class="error" id="error"></div>
 
-  </div>
+</div>
 
 
-  <!--
-    BARIŞMA EKRANI
-  -->
+<!-- =========================================
+     BARIŞMA EKRANI
+     ========================================= -->
 
-  <div
-    class="card hidden"
-    id="questionScreen"
-  >
+<div class="card hidden" id="questionScreen">
 
     <div class="question">
-
-      Özür dilerim yavrum 🥺<br>
-
-      Barışalımmı?
-
+        Özür dilerim yavrum 🥺<br>
+        Barışalımmı?
     </div>
 
 
     <div class="buttons">
 
-      <button
-        class="yes"
-        id="yesButton"
-        onclick="yesClicked()"
-      >
-        EVETTTTT 💚
-      </button>
+        <button
+            class="yes"
+            id="yesButton"
+            onclick="yesClicked()"
+        >
+            EVETTTTT 💚
+        </button>
 
 
-      <button
-        class="no"
-        id="noButton"
-        onmouseenter="moveNoButton()"
-        ontouchstart="moveNoButton(event)"
-      >
-        HAYIR !
-      </button>
+        <button
+            class="no"
+            id="noButton"
+        >
+            HAYIR !
+        </button>
 
     </div>
 
 
     <div
-      class="gif-container"
-      id="gifContainer"
+        class="gif-container"
+        id="gifContainer"
     >
 
-      <img
-        src="kedi.gif"
-        alt="Kedi"
-      >
+        <img
+            src="kedi.gif"
+            alt="Kedi"
+        >
 
-      <div class="love">
-        Biliyordum yavrum barışacağımızı.
-      </div>
+        <div class="love">
+            Biliyordum yavrum barışacağımızı.
+        </div>
 
     </div>
 
-  </div>
+</div>
 
 
-  <script>
-
-    const password =
-      document.getElementById("password");
-
-    const passwordScreen =
-      document.getElementById("passwordScreen");
-
-    const questionScreen =
-      document.getElementById("questionScreen");
-
-    const error =
-      document.getElementById("error");
+<script>
 
 
-    /*
-      ŞİFRE:
-      160826 yazıldığı anda otomatik açılır.
-    */
+/* =========================================
+   ŞİFRE
 
-    password.addEventListener(
-      "input",
-      function () {
+   160826 yazıldığı anda geçer.
+   ========================================= */
 
-        if (this.value === "160826") {
+const password =
+    document.getElementById("password");
 
-          passwordScreen.classList.add("hidden");
+const passwordScreen =
+    document.getElementById("passwordScreen");
 
-          questionScreen.classList.remove("hidden");
+const questionScreen =
+    document.getElementById("questionScreen");
 
-        }
+const error =
+    document.getElementById("error");
 
-        else if (this.value.length === 6) {
 
-          error.textContent =
+password.addEventListener("input", function() {
+
+    if (this.value === "160826") {
+
+        passwordScreen.classList.add("hidden");
+
+        questionScreen.classList.remove("hidden");
+
+    }
+
+    else if (this.value.length === 6) {
+
+        error.textContent =
             "Şifre yanlış 🥺";
 
-          setTimeout(() => {
-
+        setTimeout(() => {
             error.textContent = "";
+        }, 1400);
 
-          }, 1400);
+    }
 
-        }
+});
 
-      }
-    );
+
+/* =========================================
+   KAÇAN HAYIR BUTONU
+   ========================================= */
+
+const noButton =
+    document.getElementById("noButton");
+
+
+let escaped = false;
+
+
+/*
+   Masaüstünde fare butona gerçekten
+   yaklaştığında kaçıyor.
+*/
+
+noButton.addEventListener("mouseenter", function() {
+
+    escapeButton();
+
+});
+
+
+/*
+   Telefonda dokunulduğunda kaçıyor.
+   Ama buton yok olmuyor.
+*/
+
+noButton.addEventListener("touchstart", function(e) {
+
+    e.preventDefault();
+
+    escapeButton();
+
+}, { passive: false });
+
+
+function escapeButton() {
+
+    const buttonWidth =
+        noButton.offsetWidth;
+
+    const buttonHeight =
+        noButton.offsetHeight;
 
 
     /*
-      HAYIR BUTONU
-      Kaybolmaz.
-      Yumuşak şekilde farklı yerlere gider.
+       İlk hareketten önce mevcut
+       konumunu koruyoruz.
     */
 
-    function moveNoButton(event) {
-
-      if (event) {
-        event.preventDefault();
-      }
-
-      const button =
-        document.getElementById("noButton");
-
-
-      /*
-        İlk kaçıştan sonra
-        fixed konuma geçiyoruz.
-      */
-
-      if (
-        getComputedStyle(button).position !== "fixed"
-      ) {
+    if (!escaped) {
 
         const rect =
-          button.getBoundingClientRect();
+            noButton.getBoundingClientRect();
 
-        button.style.position = "fixed";
+        noButton.style.position = "fixed";
 
-        button.style.left =
-          rect.left + "px";
+        noButton.style.left =
+            rect.left + "px";
 
-        button.style.top =
-          rect.top + "px";
-      }
+        noButton.style.top =
+            rect.top + "px";
+
+        escaped = true;
+
+        /*
+           Browser'ın ilk pozisyonu
+           uygulaması için küçük gecikme.
+        */
+
+        requestAnimationFrame(() => {
+            moveButton(buttonWidth, buttonHeight);
+        });
+
+    }
+
+    else {
+
+        moveButton(buttonWidth, buttonHeight);
+
+    }
+
+}
 
 
-      const margin = 18;
+function moveButton(width, height) {
 
+    const padding = 18;
 
-      const maxX =
+    const maxX =
         window.innerWidth -
-        button.offsetWidth -
-        margin;
+        width -
+        padding;
 
-
-      const maxY =
+    const maxY =
         window.innerHeight -
-        button.offsetHeight -
-        margin;
+        height -
+        padding;
 
 
-      /*
-        Kartın tam üstüne gelmesini
-        azaltmak için güvenli bölgeler.
-      */
+    /*
+       Kartın bulunduğu orta bölgeden
+       uzak yerlere kaçmasını sağlıyoruz.
+    */
 
-      let x;
-      let y;
+    let x;
+    let y;
 
-      const side =
+    const side =
         Math.floor(Math.random() * 4);
 
 
-      if (side === 0) {
+    if (side === 0) {
+
+        // SOL
 
         x =
-          margin +
-          Math.random() *
-          Math.max(1, maxX - margin);
+            padding +
+            Math.random() * 75;
 
         y =
-          margin +
-          Math.random() *
-          Math.min(
-            120,
-            Math.max(1, maxY - margin)
-          );
+            70 +
+            Math.random() * Math.max(50, maxY - 140);
 
-      }
-
-      else if (side === 1) {
-
-        x =
-          margin +
-          Math.random() *
-          Math.max(1, maxX - margin);
-
-        y =
-          Math.max(
-            120,
-            maxY -
-            Math.random() * 100
-          );
-
-      }
-
-      else if (side === 2) {
-
-        x =
-          margin +
-          Math.random() *
-          Math.min(
-            110,
-            Math.max(1, maxX - margin)
-          );
-
-        y =
-          margin +
-          Math.random() *
-          Math.max(1, maxY - margin);
-
-      }
-
-      else {
-
-        x =
-          Math.max(
-            110,
-            maxX -
-            Math.random() * 100
-          );
-
-        y =
-          margin +
-          Math.random() *
-          Math.max(1, maxY - margin);
-      }
-
-
-      button.style.left =
-        Math.max(
-          margin,
-          Math.min(x, maxX)
-        ) + "px";
-
-
-      button.style.top =
-        Math.max(
-          margin,
-          Math.min(y, maxY)
-        ) + "px";
-
-
-      /*
-        Hafif bir hareket hissi.
-      */
-
-      button.style.transform =
-        `rotate(${(Math.random() * 6 - 3).toFixed(1)}deg)`;
     }
+
+    else if (side === 1) {
+
+        // SAĞ
+
+        x =
+            maxX -
+            Math.random() * 75;
+
+        y =
+            70 +
+            Math.random() * Math.max(50, maxY - 140);
+
+    }
+
+    else if (side === 2) {
+
+        // ÜST
+
+        x =
+            padding +
+            Math.random() * Math.max(50, maxX - 50);
+
+        y =
+            padding +
+            Math.random() * 80;
+
+    }
+
+    else {
+
+        // ALT
+
+        x =
+            padding +
+            Math.random() * Math.max(50, maxX - 50);
+
+        y =
+            maxY -
+            Math.random() * 80;
+
+    }
+
+
+    x = Math.max(
+        padding,
+        Math.min(x, maxX)
+    );
+
+    y = Math.max(
+        padding,
+        Math.min(y, maxY)
+    );
+
+
+    noButton.style.left =
+        x + "px";
+
+    noButton.style.top =
+        y + "px";
 
 
     /*
-      EVET
+       Çok hafif yön değişimi.
+       Sert dönmüyor.
     */
 
-    function yesClicked() {
+    const rotation =
+        Math.random() * 4 - 2;
 
-      const noButton =
-        document.getElementById("noButton");
-
-      const gifContainer =
-        document.getElementById("gifContainer");
+    noButton.style.transform =
+        `rotate(${rotation}deg)`;
+}
 
 
-      noButton.style.display =
+/* =========================================
+   EVET
+   ========================================= */
+
+function yesClicked() {
+
+    noButton.style.display =
         "none";
 
+    document
+        .getElementById("gifContainer")
+        .style.display = "block";
 
-      gifContainer.style.display =
-        "block";
+}
 
-    }
-
-  </script>
+</script>
 
 </body>
 </html>
