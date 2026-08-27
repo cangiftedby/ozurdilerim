@@ -7,6 +7,7 @@
 <title>Esila'm</title>
 
 <style>
+
 * {
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
@@ -21,9 +22,11 @@ body {
 
 body {
     min-height: 100svh;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     overflow: hidden;
 
     font-family: Arial, sans-serif;
@@ -37,6 +40,8 @@ body {
         );
 
     color: #405b45;
+
+    transition: background 1.2s ease;
 }
 
 
@@ -47,9 +52,11 @@ body {
 .poem {
     position: fixed;
     inset: 0;
+
     z-index: 1;
 
     pointer-events: none;
+
     overflow: hidden;
 }
 
@@ -61,29 +68,37 @@ body {
     color: rgba(61, 94, 67, 0.38);
 
     font-family: Georgia, serif;
+
     font-size: clamp(12px, 3.5vw, 17px);
+
     line-height: 1.55;
 
     opacity: 0;
 
     animation-duration: 1.7s;
-    animation-timing-function: cubic-bezier(.18,.75,.2,1);
+
+    animation-timing-function:
+        cubic-bezier(.18, .75, .2, 1);
+
     animation-fill-mode: forwards;
 }
 
 .left {
     left: 4vw;
     text-align: left;
+
     animation-name: soldan;
 }
 
 .right {
     right: 4vw;
     text-align: right;
+
     animation-name: sagdan;
 }
 
 @keyframes soldan {
+
     from {
         opacity: 0;
         transform: translateX(-100vw);
@@ -96,6 +111,7 @@ body {
 }
 
 @keyframes sagdan {
+
     from {
         opacity: 0;
         transform: translateX(100vw);
@@ -155,32 +171,93 @@ body {
 
     0% {
         opacity: 0;
-        background: rgba(220, 40, 40, 0);
+
+        background:
+            rgba(220, 40, 40, 0);
+
         border-width: 0;
     }
 
     20% {
         opacity: 1;
-        background: rgba(220, 40, 40, .18);
+
+        background:
+            rgba(220, 40, 40, .18);
+
         border-width: 9px;
     }
 
     45% {
         opacity: .5;
-        background: rgba(220, 40, 40, .08);
+
+        background:
+            rgba(220, 40, 40, .08);
+
         border-width: 5px;
     }
 
     70% {
         opacity: .9;
-        background: rgba(220, 40, 40, .13);
+
+        background:
+            rgba(220, 40, 40, .13);
+
         border-width: 8px;
     }
 
     100% {
         opacity: 0;
-        background: rgba(220, 40, 40, 0);
+
+        background:
+            rgba(220, 40, 40, 0);
+
         border-width: 0;
+    }
+}
+
+
+/* =========================
+   PEMBE GEÇİŞ
+========================= */
+
+body.pembe {
+    background:
+        radial-gradient(
+            circle at center,
+            #fffafa 0%,
+            #f7e4e8 50%,
+            #edcbd2 100%
+        );
+}
+
+.pembe-gecis {
+    position: fixed;
+    inset: 0;
+
+    z-index: 200;
+
+    pointer-events: none;
+
+    background: #e8bfc8;
+
+    opacity: 0;
+
+    animation:
+        pembeGecis 1.1s ease forwards;
+}
+
+@keyframes pembeGecis {
+
+    0% {
+        opacity: 0;
+    }
+
+    35% {
+        opacity: .72;
+    }
+
+    100% {
+        opacity: 0;
     }
 }
 
@@ -191,38 +268,52 @@ body {
 
 .card {
     position: relative;
+
     z-index: 10;
 
     width: calc(100% - 26px);
+
     max-width: 380px;
 
     padding: 30px 19px;
 
     text-align: center;
 
-    background: rgba(255,255,255,.96);
+    background:
+        rgba(255, 255, 255, .96);
 
-    border: 1px solid rgba(74,110,79,.15);
+    border:
+        1px solid rgba(74, 110, 79, .15);
+
     border-radius: 24px;
 
     box-shadow:
-        0 20px 60px rgba(55,83,59,.17);
+        0 20px 60px
+        rgba(55, 83, 59, .17);
 
     backdrop-filter: blur(10px);
+
     -webkit-backdrop-filter: blur(10px);
 
     animation: kart .6s ease;
 }
 
 @keyframes kart {
+
     from {
         opacity: 0;
-        transform: translateY(12px) scale(.97);
+
+        transform:
+            translateY(12px)
+            scale(.97);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0) scale(1);
+
+        transform:
+            translateY(0)
+            scale(1);
     }
 }
 
@@ -239,11 +330,13 @@ body {
     width: 23px;
     height: 23px;
 
-    margin: 0 auto 3px;
+    margin:
+        0 auto 3px;
 
     color: #202620;
 
     font-size: 19px;
+
     line-height: 23px;
 
     animation:
@@ -271,7 +364,7 @@ body {
         filter:
             drop-shadow(
                 0 0 0
-                rgba(30,40,30,0)
+                rgba(30, 40, 30, 0)
             );
     }
 
@@ -281,7 +374,7 @@ body {
         filter:
             drop-shadow(
                 0 0 7px
-                rgba(30,40,30,.28)
+                rgba(30, 40, 30, .28)
             );
     }
 }
@@ -292,11 +385,13 @@ body {
 ========================= */
 
 h1 {
-    margin: 0 0 23px;
+    margin:
+        0 0 23px;
 
     color: #527659;
 
     font-size: 29px;
+
     font-weight: 650;
 }
 
@@ -313,17 +408,21 @@ input {
 
     padding: 0 14px;
 
-    border: 1px solid #bdd3bf;
+    border:
+        1px solid #bdd3bf;
+
     border-radius: 14px;
 
     outline: none;
 
     background: #f8fbf8;
+
     color: #38543d;
 
     text-align: center;
 
     font-size: 19px;
+
     letter-spacing: 6px;
 
     transition: .2s;
@@ -331,6 +430,7 @@ input {
 
 input::placeholder {
     color: #a5b7a7;
+
     letter-spacing: 1px;
 }
 
@@ -341,7 +441,7 @@ input:focus {
 
     box-shadow:
         0 0 0 4px
-        rgba(128,167,134,.11);
+        rgba(128, 167, 134, .11);
 }
 
 .error {
@@ -365,6 +465,7 @@ input:focus {
     color: #527659;
 
     font-size: 26px;
+
     line-height: 1.45;
 
     font-weight: 600;
@@ -377,10 +478,13 @@ input:focus {
 
 .buttons {
     width: 100%;
+
     height: 54px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     gap: 13px;
@@ -389,16 +493,21 @@ input:focus {
 button {
     height: 50px;
 
-    padding: 0 18px;
+    padding:
+        0 18px;
 
     border: none;
+
     border-radius: 14px;
 
     font-family: inherit;
+
     font-size: 13px;
+
     font-weight: 700;
 
     cursor: pointer;
+
     touch-action: manipulation;
 }
 
@@ -407,14 +516,16 @@ button {
 
 .yes {
     position: relative;
+
     z-index: 20;
 
     background: #8fb793;
+
     color: white;
 
     box-shadow:
         0 8px 20px
-        rgba(75,113,81,.16);
+        rgba(75, 113, 81, .16);
 
     transition:
         transform .2s ease,
@@ -429,7 +540,8 @@ button {
 }
 
 .yes:active {
-    transform: scale(.96);
+    transform:
+        scale(.96);
 }
 
 
@@ -437,6 +549,7 @@ button {
 
 .no {
     position: relative;
+
     z-index: 30;
 
     background: #eef5ee;
@@ -447,9 +560,14 @@ button {
         1px solid #c2d7c4;
 
     transition:
-        left .55s cubic-bezier(.22,.8,.2,1),
-        top .55s cubic-bezier(.22,.8,.2,1),
-        transform .55s cubic-bezier(.22,.8,.2,1);
+        left .55s
+        cubic-bezier(.22,.8,.2,1),
+
+        top .55s
+        cubic-bezier(.22,.8,.2,1),
+
+        transform .55s
+        cubic-bezier(.22,.8,.2,1);
 }
 
 
@@ -470,7 +588,9 @@ button {
     display: block;
 
     width: 100%;
+
     max-width: 280px;
+
     max-height: 280px;
 
     margin: 0 auto;
@@ -481,7 +601,7 @@ button {
 
     box-shadow:
         0 15px 40px
-        rgba(59,89,64,.17);
+        rgba(59, 89, 64, .17);
 }
 
 .love {
@@ -490,6 +610,7 @@ button {
     color: #527659;
 
     font-size: 18px;
+
     line-height: 1.45;
 
     font-weight: 600;
@@ -538,12 +659,11 @@ button {
 
     .poem-line {
         max-width: 42vw;
+
         font-size: 11.5px;
     }
 }
 
-
-/* Küçük telefon */
 
 @media (max-width: 350px) {
 
@@ -556,6 +676,7 @@ button {
 
     .poem-line {
         max-width: 40vw;
+
         font-size: 10.5px;
     }
 
@@ -564,13 +685,13 @@ button {
     }
 
     button {
-        padding: 0 15px;
+        padding:
+            0 15px;
+
         font-size: 12px;
     }
 }
 
-
-/* Kısa ekran */
 
 @media (max-height: 680px) {
 
@@ -606,7 +727,7 @@ button {
 <body>
 
 
-<!-- KIRMIZI ALARM -->
+<!-- ALARM -->
 
 <div id="alarm"></div>
 
@@ -662,7 +783,7 @@ button {
 </div>
 
 
-<!-- ŞİFRE EKRANI -->
+<!-- ŞİFRE -->
 
 <div
     class="card"
@@ -673,11 +794,9 @@ button {
         ♥
     </div>
 
-
     <h1>
         Esila'm
     </h1>
-
 
     <input
         id="password"
@@ -688,7 +807,6 @@ button {
         placeholder="Şifre"
     >
 
-
     <div
         class="error"
         id="error"
@@ -697,7 +815,7 @@ button {
 </div>
 
 
-<!-- BARIŞMA EKRANI -->
+<!-- SORU -->
 
 <div
     class="card hidden"
@@ -741,7 +859,6 @@ button {
             src="kedi.gif"
             alt="Kedi"
         >
-
 
         <div class="love">
             Biliyordum ki barışacağımızı<br>
@@ -808,29 +925,28 @@ password.addEventListener(
             error.textContent =
                 "Şifre yanlış 🥺";
 
-            setTimeout(function () {
+            setTimeout(
+                function () {
 
-                error.textContent = "";
+                    error.textContent = "";
 
-                password.value = "";
+                    password.value = "";
 
-            }, 1000);
+                },
+                1000
+            );
         }
     }
 );
 
 
 /* =========================
-   KIRMIZI ALARM
+   ALARM
 ========================= */
 
 function showAlarm() {
 
     alarm.classList.remove("active");
-
-    /*
-       Animasyonu yeniden başlatır.
-    */
 
     void alarm.offsetWidth;
 
@@ -839,164 +955,151 @@ function showAlarm() {
 
 
 /* =========================
-   HAYIR BUTONU
+   HAYIR'I KAÇIR
 ========================= */
 
 function moveNoButton() {
 
-    const buttonWidth =
+    const w =
         noButton.offsetWidth;
 
-    const buttonHeight =
+    const h =
         noButton.offsetHeight;
 
-    const padding = 20;
+    const screenW =
+        window.innerWidth;
+
+    const screenH =
+        window.innerHeight;
 
 
     /*
-       Buton ekranın kenarlarına
-       kadar gitmeyecek.
+       Sadece orta bölge.
+       Kenarlara gitmiyor.
     */
 
-    const minX =
+    const leftLimit =
         Math.max(
-            padding,
-            window.innerWidth * 0.16
+            12,
+            screenW * 0.08
         );
 
-    const maxX =
-        Math.min(
-            window.innerWidth -
-            buttonWidth -
-            padding,
-
-            window.innerWidth * 0.84 -
-            buttonWidth
-        );
-
-
-    const minY =
+    const rightLimit =
         Math.max(
-            padding,
-            window.innerHeight * 0.18
-        );
-
-    const maxY =
-        Math.min(
-            window.innerHeight -
-            buttonHeight -
-            padding,
-
-            window.innerHeight * 0.82 -
-            buttonHeight
+            leftLimit,
+            screenW * 0.92 - w
         );
 
 
-    /*
-       EVET butonunun konumu.
-    */
+    const topLimit =
+        Math.max(
+            70,
+            screenH * 0.27
+        );
 
-    const yesRect =
+    const bottomLimit =
+        Math.max(
+            topLimit,
+            screenH * 0.73 - h
+        );
+
+
+    const yes =
         yesButton.getBoundingClientRect();
 
 
-    let x;
-    let y;
-
-    let tries = 0;
+    let x = leftLimit;
+    let y = topLimit;
 
 
     /*
-       EVET'in çevresinde boşluk.
+       100 farklı nokta deniyoruz.
     */
 
-    const safeX = 35;
-    const safeY = 30;
+    for (let i = 0; i < 100; i++) {
 
-
-    /*
-       Uygun bir konum bulana kadar
-       birkaç kere deniyoruz.
-    */
-
-    do {
-
-        x =
-            minX +
+        const yeniX =
+            leftLimit +
             Math.random() *
             Math.max(
                 1,
-                maxX - minX
+                rightLimit - leftLimit
             );
 
-        y =
-            minY +
+
+        const yeniY =
+            topLimit +
             Math.random() *
             Math.max(
                 1,
-                maxY - minY
+                bottomLimit - topLimit
             );
 
 
-        tries++;
+        const noCenterX =
+            yeniX + w / 2;
+
+        const noCenterY =
+            yeniY + h / 2;
 
 
-        const noLeft = x;
-        const noRight =
-            x + buttonWidth;
+        const yesCenterX =
+            yes.left + yes.width / 2;
 
-        const noTop = y;
-        const noBottom =
-            y + buttonHeight;
+        const yesCenterY =
+            yes.top + yes.height / 2;
 
 
-        const overlapsYes =
-            noRight >
-                yesRect.left - safeX &&
+        const dx =
+            Math.abs(
+                noCenterX - yesCenterX
+            );
 
-            noLeft <
-                yesRect.right + safeX &&
-
-            noBottom >
-                yesRect.top - safeY &&
-
-            noTop <
-                yesRect.bottom + safeY;
+        const dy =
+            Math.abs(
+                noCenterY - yesCenterY
+            );
 
 
-        if (!overlapsYes) {
+        /*
+           EVET'in çok yakınına gitmesin.
+        */
+
+        if (
+            dx > 80 ||
+            dy > 75
+        ) {
+
+            x = yeniX;
+            y = yeniY;
+
             break;
         }
-
     }
-    while (tries < 80);
 
 
     /*
-       Son güvenlik:
-       ekran dışına çıkamaz.
+       En son güvenlik.
+       Buton hiçbir zaman viewport
+       dışına çıkamaz.
     */
 
     x =
         Math.max(
-            padding,
+            10,
             Math.min(
                 x,
-                window.innerWidth -
-                buttonWidth -
-                padding
+                screenW - w - 10
             )
         );
 
 
     y =
         Math.max(
-            padding,
+            65,
             Math.min(
                 y,
-                window.innerHeight -
-                buttonHeight -
-                padding
+                screenH - h - 65
             )
         );
 
@@ -1008,41 +1111,32 @@ function moveNoButton() {
         y + "px";
 
 
-    /*
-       Ufak bir dönüş.
-    */
-
-    const rotation =
-        Math.random() * 6 - 3;
+    const angle =
+        Math.random() * 5 - 2.5;
 
     noButton.style.transform =
         "rotate(" +
-        rotation +
+        angle +
         "deg)";
 }
 
 
 /* =========================
-   KAÇIŞ
+   HAYIR TIKLANINCA
 ========================= */
 
-function escapeNoButton(event) {
+function escapeNoButton(e) {
 
-    if (event) {
-        event.preventDefault();
+    if (e) {
+        e.preventDefault();
     }
 
-
-    /*
-       Her basışta kırmızı alarm.
-    */
 
     showAlarm();
 
 
     /*
-       İlk hareket:
-       Buton bir anda yok olmasın.
+       İlk kaçışta normal akıştan çıkar.
     */
 
     if (!escaped) {
@@ -1054,8 +1148,10 @@ function escapeNoButton(event) {
         noButton.style.position =
             "fixed";
 
+
         noButton.style.left =
             rect.left + "px";
+
 
         noButton.style.top =
             rect.top + "px";
@@ -1065,20 +1161,15 @@ function escapeNoButton(event) {
 
 
         /*
-           Önce mevcut konumu çiz,
-           sonra smooth hareket ettir.
+           Mevcut yerden yeni yere
+           smooth geçiş.
         */
 
         requestAnimationFrame(
             function () {
 
-                requestAnimationFrame(
-                    function () {
+                moveNoButton();
 
-                        moveNoButton();
-
-                    }
-                );
             }
         );
 
@@ -1118,89 +1209,69 @@ yesButton.addEventListener(
     "click",
     function () {
 
+        /*
+           Temayı pembeye çevir.
+        */
+
+        document.body
+            .classList
+            .add("pembe");
+
+
+        /*
+           Kısa pembe ışık.
+        */
+
+        const gecis =
+            document.createElement("div");
+
+        gecis.className =
+            "pembe-gecis";
+
+        document.body.appendChild(
+            gecis
+        );
+
+
+        /*
+           Hayır tamamen gider.
+        */
+
         noButton.style.display =
             "none";
 
 
-        document
-            .getElementById("gifContainer")
-            .style.display =
-            "block";
-    }
-);
+        /*
+           GIF biraz sonra gelir.
+        */
+
+        setTimeout(
+            function () {
+
+                document
+                    .getElementById(
+                        "gifContainer"
+                    )
+                    .style.display =
+                    "block";
+
+            },
+            450
+        );
 
 
-/* =========================
-   EKRAN BOYUTU DEĞİŞİRSE
-========================= */
+        /*
+           Geçiş katmanını temizle.
+        */
 
-window.addEventListener(
-    "resize",
-    function () {
+        setTimeout(
+            function () {
 
-        if (!escaped) {
-            return;
-        }
+                gecis.remove();
 
-
-        const width =
-            noButton.offsetWidth;
-
-        const height =
-            noButton.offsetHeight;
-
-        const padding = 15;
-
-
-        const maxX =
-            window.innerWidth -
-            width -
-            padding;
-
-        const maxY =
-            window.innerHeight -
-            height -
-            padding;
-
-
-        let x =
-            parseFloat(
-                noButton.style.left
-            );
-
-        let y =
-            parseFloat(
-                noButton.style.top
-            );
-
-
-        if (Number.isNaN(x)) {
-            x = padding;
-        }
-
-        if (Number.isNaN(y)) {
-            y = padding;
-        }
-
-
-        x =
-            Math.max(
-                padding,
-                Math.min(x, maxX)
-            );
-
-        y =
-            Math.max(
-                padding,
-                Math.min(y, maxY)
-            );
-
-
-        noButton.style.left =
-            x + "px";
-
-        noButton.style.top =
-            y + "px";
+            },
+            1200
+        );
     }
 );
 
