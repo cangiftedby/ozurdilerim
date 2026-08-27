@@ -7,7 +7,6 @@
 <title>Esila'm</title>
 
 <style>
-
 * {
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
@@ -22,12 +21,11 @@ body {
 
 body {
     min-height: 100svh;
+    overflow: hidden;
 
     display: flex;
     align-items: center;
     justify-content: center;
-
-    overflow: hidden;
 
     font-family: Arial, sans-serif;
 
@@ -41,7 +39,9 @@ body {
 
     color: #405b45;
 
-    transition: background 1.2s ease;
+    transition:
+        background 1.2s ease,
+        color 1s ease;
 }
 
 
@@ -52,35 +52,33 @@ body {
 .poem {
     position: fixed;
     inset: 0;
-
     z-index: 1;
 
     pointer-events: none;
-
     overflow: hidden;
 }
 
 .poem-line {
     position: absolute;
 
-    max-width: 43vw;
+    width: 43vw;
+    max-width: 190px;
 
-    color: rgba(61, 94, 67, 0.38);
+    color: rgba(61, 94, 67, .38);
 
     font-family: Georgia, serif;
-
-    font-size: clamp(12px, 3.5vw, 17px);
-
+    font-size: clamp(11px, 3.4vw, 16px);
     line-height: 1.55;
 
     opacity: 0;
 
     animation-duration: 1.7s;
-
     animation-timing-function:
-        cubic-bezier(.18, .75, .2, 1);
-
+        cubic-bezier(.18,.75,.2,1);
     animation-fill-mode: forwards;
+
+    transition:
+        color 1s ease;
 }
 
 .left {
@@ -145,7 +143,7 @@ body {
 
 
 /* =========================
-   KIRMIZI ALARM
+   ALARM
 ========================= */
 
 #alarm {
@@ -156,11 +154,13 @@ body {
 
     pointer-events: none;
 
-    background: rgba(220, 40, 40, 0);
-
-    border: 0 solid rgba(220, 40, 40, 0);
-
     opacity: 0;
+
+    background:
+        rgba(220, 40, 40, 0);
+
+    border:
+        0 solid rgba(220, 40, 40, 0);
 }
 
 #alarm.active {
@@ -171,53 +171,38 @@ body {
 
     0% {
         opacity: 0;
-
-        background:
-            rgba(220, 40, 40, 0);
-
+        background: rgba(220,40,40,0);
         border-width: 0;
     }
 
     20% {
         opacity: 1;
-
-        background:
-            rgba(220, 40, 40, .18);
-
-        border-width: 9px;
+        background: rgba(220,40,40,.17);
+        border-width: 8px;
     }
 
     45% {
         opacity: .5;
-
-        background:
-            rgba(220, 40, 40, .08);
-
-        border-width: 5px;
+        background: rgba(220,40,40,.07);
+        border-width: 4px;
     }
 
     70% {
-        opacity: .9;
-
-        background:
-            rgba(220, 40, 40, .13);
-
-        border-width: 8px;
+        opacity: .8;
+        background: rgba(220,40,40,.12);
+        border-width: 7px;
     }
 
     100% {
         opacity: 0;
-
-        background:
-            rgba(220, 40, 40, 0);
-
+        background: rgba(220,40,40,0);
         border-width: 0;
     }
 }
 
 
 /* =========================
-   PEMBE GEÇİŞ
+   PEMBE TEMA
 ========================= */
 
 body.pembe {
@@ -225,10 +210,55 @@ body.pembe {
         radial-gradient(
             circle at center,
             #fffafa 0%,
-            #f7e4e8 50%,
+            #f7e4e8 52%,
             #edcbd2 100%
         );
 }
+
+
+/*
+   Pembe temada yeşil görünen
+   her şey beyaza dönüyor.
+*/
+
+body.pembe .question,
+body.pembe .love {
+    color: #ffffff;
+}
+
+body.pembe .poem-line {
+    color: rgba(255,255,255,.68);
+}
+
+body.pembe .card {
+    background: rgba(255,255,255,.94);
+
+    box-shadow:
+        0 20px 60px
+        rgba(130,70,80,.15);
+}
+
+body.pembe .yes {
+    background: #ffffff;
+    color: #a76d79;
+}
+
+body.pembe .yes:hover {
+    background: #fffafb;
+}
+
+body.pembe .no {
+    background: #ffffff;
+    color: #a76d79;
+    border-color: #ffffff;
+}
+
+body.pembe .gif-container {
+    color: white;
+}
+
+
+/* PEMBE GEÇİŞ */
 
 .pembe-gecis {
     position: fixed;
@@ -253,7 +283,7 @@ body.pembe {
     }
 
     35% {
-        opacity: .72;
+        opacity: .7;
     }
 
     100% {
@@ -271,28 +301,25 @@ body.pembe {
 
     z-index: 10;
 
-    width: calc(100% - 26px);
-
+    width: calc(100% - 28px);
     max-width: 380px;
 
     padding: 30px 19px;
 
     text-align: center;
 
-    background:
-        rgba(255, 255, 255, .96);
+    background: rgba(255,255,255,.96);
 
     border:
-        1px solid rgba(74, 110, 79, .15);
+        1px solid rgba(74,110,79,.15);
 
     border-radius: 24px;
 
     box-shadow:
         0 20px 60px
-        rgba(55, 83, 59, .17);
+        rgba(55,83,59,.17);
 
     backdrop-filter: blur(10px);
-
     -webkit-backdrop-filter: blur(10px);
 
     animation: kart .6s ease;
@@ -302,7 +329,6 @@ body.pembe {
 
     from {
         opacity: 0;
-
         transform:
             translateY(12px)
             scale(.97);
@@ -310,7 +336,6 @@ body.pembe {
 
     to {
         opacity: 1;
-
         transform:
             translateY(0)
             scale(1);
@@ -330,13 +355,11 @@ body.pembe {
     width: 23px;
     height: 23px;
 
-    margin:
-        0 auto 3px;
+    margin: 0 auto 3px;
 
     color: #202620;
 
     font-size: 19px;
-
     line-height: 23px;
 
     animation:
@@ -364,7 +387,7 @@ body.pembe {
         filter:
             drop-shadow(
                 0 0 0
-                rgba(30, 40, 30, 0)
+                rgba(30,40,30,0)
             );
     }
 
@@ -374,7 +397,7 @@ body.pembe {
         filter:
             drop-shadow(
                 0 0 7px
-                rgba(30, 40, 30, .28)
+                rgba(30,40,30,.28)
             );
     }
 }
@@ -385,13 +408,11 @@ body.pembe {
 ========================= */
 
 h1 {
-    margin:
-        0 0 23px;
+    margin: 0 0 23px;
 
     color: #527659;
 
     font-size: 29px;
-
     font-weight: 650;
 }
 
@@ -424,24 +445,19 @@ input {
     font-size: 19px;
 
     letter-spacing: 6px;
-
-    transition: .2s;
 }
 
 input::placeholder {
     color: #a5b7a7;
-
     letter-spacing: 1px;
 }
 
 input:focus {
     border-color: #80a786;
 
-    background: white;
-
     box-shadow:
         0 0 0 4px
-        rgba(128, 167, 134, .11);
+        rgba(128,167,134,.11);
 }
 
 .error {
@@ -465,7 +481,6 @@ input:focus {
     color: #527659;
 
     font-size: 26px;
-
     line-height: 1.45;
 
     font-weight: 600;
@@ -477,14 +492,14 @@ input:focus {
 ========================= */
 
 .buttons {
-    width: 100%;
+    position: relative;
 
+    width: 100%;
     height: 54px;
 
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
     gap: 13px;
@@ -493,17 +508,14 @@ input:focus {
 button {
     height: 50px;
 
-    padding:
-        0 18px;
+    padding: 0 18px;
 
     border: none;
-
     border-radius: 14px;
 
     font-family: inherit;
 
     font-size: 13px;
-
     font-weight: 700;
 
     cursor: pointer;
@@ -525,23 +537,16 @@ button {
 
     box-shadow:
         0 8px 20px
-        rgba(75, 113, 81, .16);
+        rgba(75,113,81,.16);
 
     transition:
         transform .2s ease,
-        background .2s ease;
-}
-
-.yes:hover {
-    background: #80a985;
-
-    transform:
-        translateY(-2px);
+        background .7s ease,
+        color .7s ease;
 }
 
 .yes:active {
-    transform:
-        scale(.96);
+    transform: scale(.96);
 }
 
 
@@ -560,14 +565,11 @@ button {
         1px solid #c2d7c4;
 
     transition:
-        left .55s
-        cubic-bezier(.22,.8,.2,1),
-
-        top .55s
-        cubic-bezier(.22,.8,.2,1),
-
-        transform .55s
-        cubic-bezier(.22,.8,.2,1);
+        left .5s cubic-bezier(.22,.8,.2,1),
+        top .5s cubic-bezier(.22,.8,.2,1),
+        transform .5s cubic-bezier(.22,.8,.2,1),
+        background .7s ease,
+        color .7s ease;
 }
 
 
@@ -588,9 +590,7 @@ button {
     display: block;
 
     width: 100%;
-
     max-width: 280px;
-
     max-height: 280px;
 
     margin: 0 auto;
@@ -601,7 +601,7 @@ button {
 
     box-shadow:
         0 15px 40px
-        rgba(59, 89, 64, .17);
+        rgba(59,89,64,.17);
 }
 
 .love {
@@ -610,10 +610,12 @@ button {
     color: #527659;
 
     font-size: 18px;
-
     line-height: 1.45;
 
     font-weight: 600;
+
+    transition:
+        color .7s ease;
 }
 
 @keyframes gifGiris {
@@ -658,9 +660,9 @@ button {
     }
 
     .poem-line {
-        max-width: 42vw;
+        width: 40vw;
 
-        font-size: 11.5px;
+        font-size: 11px;
     }
 }
 
@@ -674,49 +676,13 @@ button {
             26px 15px;
     }
 
-    .poem-line {
-        max-width: 40vw;
-
-        font-size: 10.5px;
-    }
-
     .question {
         font-size: 23px;
     }
 
     button {
-        padding:
-            0 15px;
-
+        padding: 0 15px;
         font-size: 12px;
-    }
-}
-
-
-@media (max-height: 680px) {
-
-    .poem-line {
-        font-size: 10.5px;
-    }
-
-    .line1 {
-        top: 5%;
-    }
-
-    .line2 {
-        top: 16%;
-    }
-
-    .line3 {
-        bottom: 25%;
-    }
-
-    .line4 {
-        bottom: 13%;
-    }
-
-    .line5 {
-        bottom: 3%;
     }
 }
 
@@ -726,8 +692,6 @@ button {
 
 <body>
 
-
-<!-- ALARM -->
 
 <div id="alarm"></div>
 
@@ -872,8 +836,6 @@ button {
 
 <script>
 
-/* ELEMENTLER */
-
 const password =
     document.getElementById("password");
 
@@ -944,7 +906,7 @@ password.addEventListener(
    ALARM
 ========================= */
 
-function showAlarm() {
+function alarmVer() {
 
     alarm.classList.remove("active");
 
@@ -955,10 +917,14 @@ function showAlarm() {
 
 
 /* =========================
-   HAYIR'I KAÇIR
+   HAYIR BUTONU
 ========================= */
 
 function moveNoButton() {
+
+    /*
+       Butonun gerçek boyutunu al.
+    */
 
     const w =
         noButton.offsetWidth;
@@ -966,163 +932,200 @@ function moveNoButton() {
     const h =
         noButton.offsetHeight;
 
-    const screenW =
-        window.innerWidth;
 
-    const screenH =
-        window.innerHeight;
+    /*
+       Viewport boyutu.
+    */
+
+    const W =
+        document.documentElement
+            .clientWidth;
+
+    const H =
+        document.documentElement
+            .clientHeight;
 
 
     /*
-       Sadece orta bölge.
-       Kenarlara gitmiyor.
+       Çok önemli:
+       Butonu ekranın tamamında
+       gezdirmiyoruz.
+
+       Sadece ortadaki güvenli
+       bir alan içerisinde hareket ediyor.
     */
 
-    const leftLimit =
+    const minX =
         Math.max(
-            12,
-            screenW * 0.08
+            15,
+            W * .12
         );
 
-    const rightLimit =
+    const maxX =
         Math.max(
-            leftLimit,
-            screenW * 0.92 - w
-        );
-
-
-    const topLimit =
-        Math.max(
-            70,
-            screenH * 0.27
-        );
-
-    const bottomLimit =
-        Math.max(
-            topLimit,
-            screenH * 0.73 - h
+            minX,
+            W * .88 - w
         );
 
 
-    const yes =
+    const minY =
+        Math.max(
+            90,
+            H * .30
+        );
+
+    const maxY =
+        Math.max(
+            minY,
+            H * .70 - h
+        );
+
+
+    /*
+       EVET'in konumunu al.
+    */
+
+    const yesRect =
         yesButton.getBoundingClientRect();
 
 
-    let x = leftLimit;
-    let y = topLimit;
+    let bestX =
+        minX;
+
+    let bestY =
+        minY;
+
+
+    let bestDistance =
+        0;
 
 
     /*
-       100 farklı nokta deniyoruz.
+       150 farklı konumdan
+       en güvenlisini seç.
     */
 
-    for (let i = 0; i < 100; i++) {
+    for (
+        let i = 0;
+        i < 150;
+        i++
+    ) {
 
-        const yeniX =
-            leftLimit +
+        const x =
+            minX +
             Math.random() *
             Math.max(
                 1,
-                rightLimit - leftLimit
+                maxX - minX
             );
 
 
-        const yeniY =
-            topLimit +
+        const y =
+            minY +
             Math.random() *
             Math.max(
                 1,
-                bottomLimit - topLimit
-            );
-
-
-        const noCenterX =
-            yeniX + w / 2;
-
-        const noCenterY =
-            yeniY + h / 2;
-
-
-        const yesCenterX =
-            yes.left + yes.width / 2;
-
-        const yesCenterY =
-            yes.top + yes.height / 2;
-
-
-        const dx =
-            Math.abs(
-                noCenterX - yesCenterX
-            );
-
-        const dy =
-            Math.abs(
-                noCenterY - yesCenterY
+                maxY - minY
             );
 
 
         /*
-           EVET'in çok yakınına gitmesin.
+           Yeni butonun merkezi.
         */
 
+        const centerX =
+            x + w / 2;
+
+        const centerY =
+            y + h / 2;
+
+
+        /*
+           EVET'in merkezi.
+        */
+
+        const yesX =
+            yesRect.left +
+            yesRect.width / 2;
+
+        const yesY =
+            yesRect.top +
+            yesRect.height / 2;
+
+
+        const dx =
+            centerX - yesX;
+
+        const dy =
+            centerY - yesY;
+
+
+        const distance =
+            Math.sqrt(
+                dx * dx +
+                dy * dy
+            );
+
+
         if (
-            dx > 80 ||
-            dy > 75
+            distance >
+            bestDistance
         ) {
 
-            x = yeniX;
-            y = yeniY;
+            bestDistance =
+                distance;
 
-            break;
+            bestX = x;
+            bestY = y;
         }
     }
 
 
     /*
-       En son güvenlik.
-       Buton hiçbir zaman viewport
-       dışına çıkamaz.
+       MUTLAK SON SINIR.
+       Buradan sonra dışarı çıkması
+       matematiksel olarak mümkün değil.
     */
 
-    x =
+    bestX =
         Math.max(
             10,
             Math.min(
-                x,
-                screenW - w - 10
+                bestX,
+                W - w - 10
             )
         );
 
 
-    y =
+    bestY =
         Math.max(
-            65,
+            70,
             Math.min(
-                y,
-                screenH - h - 65
+                bestY,
+                H - h - 70
             )
         );
 
 
     noButton.style.left =
-        x + "px";
+        bestX + "px";
 
     noButton.style.top =
-        y + "px";
+        bestY + "px";
 
 
-    const angle =
+    const rotation =
         Math.random() * 5 - 2.5;
 
     noButton.style.transform =
         "rotate(" +
-        angle +
+        rotation +
         "deg)";
 }
 
 
 /* =========================
-   HAYIR TIKLANINCA
+   KAÇIŞ
 ========================= */
 
 function escapeNoButton(e) {
@@ -1132,11 +1135,12 @@ function escapeNoButton(e) {
     }
 
 
-    showAlarm();
+    alarmVer();
 
 
     /*
-       İlk kaçışta normal akıştan çıkar.
+       İlk seferde mevcut konumu
+       kaybetme.
     */
 
     if (!escaped) {
@@ -1145,25 +1149,58 @@ function escapeNoButton(e) {
             noButton.getBoundingClientRect();
 
 
+        /*
+           İlk konumu da viewport
+           sınırları içinde kilitle.
+        */
+
+        const W =
+            document.documentElement
+                .clientWidth;
+
+        const H =
+            document.documentElement
+                .clientHeight;
+
+
+        const safeX =
+            Math.max(
+                10,
+                Math.min(
+                    rect.left,
+                    W -
+                    rect.width -
+                    10
+                )
+            );
+
+
+        const safeY =
+            Math.max(
+                70,
+                Math.min(
+                    rect.top,
+                    H -
+                    rect.height -
+                    70
+                )
+            );
+
+
         noButton.style.position =
             "fixed";
 
 
         noButton.style.left =
-            rect.left + "px";
+            safeX + "px";
 
 
         noButton.style.top =
-            rect.top + "px";
+            safeY + "px";
 
 
         escaped = true;
 
-
-        /*
-           Mevcut yerden yeni yere
-           smooth geçiş.
-        */
 
         requestAnimationFrame(
             function () {
@@ -1173,16 +1210,16 @@ function escapeNoButton(e) {
             }
         );
 
-    }
-
-    else {
+    } else {
 
         moveNoButton();
     }
 }
 
 
-/* Bilgisayar */
+/*
+   Bilgisayarda mouse yaklaşınca.
+*/
 
 noButton.addEventListener(
     "mouseenter",
@@ -1190,7 +1227,9 @@ noButton.addEventListener(
 );
 
 
-/* Telefon */
+/*
+   Telefonda dokununca.
+*/
 
 noButton.addEventListener(
     "touchstart",
@@ -1210,7 +1249,7 @@ yesButton.addEventListener(
     function () {
 
         /*
-           Temayı pembeye çevir.
+           Pembe temaya geç.
         */
 
         document.body
@@ -1234,7 +1273,7 @@ yesButton.addEventListener(
 
 
         /*
-           Hayır tamamen gider.
+           HAYIR artık yok.
         */
 
         noButton.style.display =
@@ -1242,7 +1281,7 @@ yesButton.addEventListener(
 
 
         /*
-           GIF biraz sonra gelir.
+           GIF'i biraz gecikmeli göster.
         */
 
         setTimeout(
@@ -1259,10 +1298,6 @@ yesButton.addEventListener(
             450
         );
 
-
-        /*
-           Geçiş katmanını temizle.
-        */
 
         setTimeout(
             function () {
