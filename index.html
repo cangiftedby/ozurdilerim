@@ -263,13 +263,6 @@ body.pembe {
         );
 }
 
-
-/*
-   ÖNEMLİ:
-   Bunlar yalnızca EVET'e basıldıktan
-   sonra çalışır.
-*/
-
 body.pembe .question,
 body.pembe .love {
     color: #171717;
@@ -289,9 +282,6 @@ body.pembe .no {
     border-color:
         #dddddd;
 }
-
-
-/* Pembe modda şiir */
 
 body.pembe .poem-line {
     color:
@@ -1087,7 +1077,7 @@ password.addEventListener(
 
         if (
             this.value ===
-            "160826"
+            "230626"
         ) {
 
             passwordScreen
@@ -1169,11 +1159,6 @@ function moveNoButton() {
             .clientHeight;
 
 
-    /*
-       Ekranın kenarlarından
-       uzak güvenli alan.
-    */
-
     const minX =
         Math.max(
             12,
@@ -1200,10 +1185,6 @@ function moveNoButton() {
         );
 
 
-    /*
-       EVET'in yeri.
-    */
-
     const yesRect =
         yesButton
             .getBoundingClientRect();
@@ -1218,10 +1199,6 @@ function moveNoButton() {
     let bestDistance =
         -1;
 
-
-    /*
-       150 güvenli nokta deniyoruz.
-    */
 
     for (
         let i = 0;
@@ -1294,12 +1271,6 @@ function moveNoButton() {
     }
 
 
-    /*
-       SON SINIR KONTROLÜ.
-       Buton kesinlikle
-       ekran dışına çıkamaz.
-    */
-
     bestX =
         Math.max(
             10,
@@ -1352,11 +1323,6 @@ function escapeNoButton(e) {
 
     alarmVer();
 
-
-    /*
-       İlk kaçışta relative
-       konumdan fixed konuma geçiyoruz.
-    */
 
     if (!escaped) {
 
@@ -1432,20 +1398,11 @@ function escapeNoButton(e) {
 }
 
 
-/*
-   Bilgisayarda mouse
-   yaklaşınca kaçar.
-*/
-
 noButton.addEventListener(
     "mouseenter",
     escapeNoButton
 );
 
-
-/*
-   Telefonda dokununca kaçar.
-*/
 
 noButton.addEventListener(
     "touchstart",
@@ -1464,18 +1421,10 @@ yesButton.addEventListener(
     "click",
     function () {
 
-        /*
-           Pembe temayı aç.
-        */
-
         document.body
             .classList
             .add("pembe");
 
-
-        /*
-           Yumuşak pembe geçiş.
-        */
 
         const gecis =
             document.createElement(
@@ -1491,35 +1440,17 @@ yesButton.addEventListener(
         );
 
 
-        /*
-           ÖZÜR DİLERİM / BARIŞALIM
-           yazısını kaldır.
-        */
-
         question.style.display =
             "none";
 
-
-        /*
-           İki butonu kaldır.
-        */
 
         buttons.style.display =
             "none";
 
 
-        /*
-           HAYIR butonunu tamamen
-           görünmez yap.
-        */
-
         noButton.style.display =
             "none";
 
-
-        /*
-           GIF ve son mesajı göster.
-        */
 
         setTimeout(
             function () {
@@ -1531,10 +1462,6 @@ yesButton.addEventListener(
             350
         );
 
-
-        /*
-           Geçiş katmanını temizle.
-        */
 
         setTimeout(
             function () {
