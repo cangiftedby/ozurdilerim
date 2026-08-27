@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Esilaaaaa 💗</title>
+  <title>Esilaaaaa Birtanemm 💗</title>
 
   <style>
     * {
@@ -18,61 +18,162 @@
       justify-content: center;
       align-items: center;
       font-family: Arial, sans-serif;
-      background: #24151d;
+      background:
+        radial-gradient(circle at center, #38232d 0%, #21141b 70%);
       color: white;
       overflow: hidden;
     }
 
-    .card {
-      width: calc(100% - 35px);
-      max-width: 390px;
-      padding: 35px 25px;
+    /* ARKA PLAN ŞİİRİ */
+    .poem {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .poem-text {
+      width: 90%;
+      max-width: 500px;
       text-align: center;
+      color: rgba(255, 225, 235, 0.12);
+      font-size: clamp(15px, 4vw, 20px);
+      line-height: 2;
+      font-weight: 400;
+      animation: poemMove 18s ease-in-out infinite alternate;
+    }
+
+    @keyframes poemMove {
+      0% {
+        transform: translateY(25px);
+        opacity: 0.35;
+      }
+
+      50% {
+        opacity: 0.75;
+      }
+
+      100% {
+        transform: translateY(-25px);
+        opacity: 0.4;
+      }
+    }
+
+    /* ANA KART */
+    .card {
+      position: relative;
+      z-index: 2;
+
+      width: calc(100% - 32px);
+      max-width: 390px;
+
+      padding: 32px 22px;
+
+      text-align: center;
+
       border-radius: 24px;
-      background: #332029;
-      border: 1px solid #714052;
-      box-shadow: 0 15px 45px rgba(0,0,0,.3);
+
+      background: rgba(38, 22, 30, 0.94);
+
+      border: 1px solid rgba(160, 91, 113, 0.35);
+
+      box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.45);
+
+      backdrop-filter: blur(8px);
     }
 
     h1 {
       margin: 0 0 25px;
-      color: #f5b5c9;
-      font-size: 30px;
+
+      color: #c9829d;
+
+      font-size: clamp(26px, 7vw, 32px);
+
       line-height: 1.2;
+    }
+
+    /* SADE KALP */
+    .heart {
+      color: #b96f8c;
+      font-size: 22px;
+
+      margin-bottom: 16px;
+
+      animation: heartbeat 2s ease-in-out infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% {
+        transform: scale(1);
+        opacity: .55;
+      }
+
+      50% {
+        transform: scale(1.12);
+        opacity: .9;
+      }
     }
 
     input {
       width: 100%;
       height: 52px;
-      border: 1px solid #754256;
+
+      border: 1px solid rgba(185, 111, 140, 0.45);
+
       border-radius: 13px;
-      background: #21131a;
+
+      background: rgba(15, 9, 13, 0.6);
+
       color: white;
+
       outline: none;
+
       text-align: center;
-      font-size: 20px;
+
+      font-size: 19px;
+
       letter-spacing: 5px;
     }
 
+    input::placeholder {
+      color: rgba(255, 255, 255, 0.35);
+      letter-spacing: 1px;
+    }
+
     input:focus {
-      border-color: #e8a0ba;
+      border-color: #b96f8c;
+      box-shadow: 0 0 15px rgba(185, 111, 140, 0.12);
     }
 
     .button {
-      border: 0;
-      border-radius: 13px;
       height: 52px;
-      padding: 0 24px;
-      font-size: 16px;
+
+      border: none;
+      border-radius: 13px;
+
+      padding: 0 20px;
+
+      font-size: 15px;
       font-weight: bold;
+
       cursor: pointer;
     }
 
     .open {
       width: 100%;
+
       margin-top: 12px;
-      background: #e9a6bc;
-      color: #29151e;
+
+      background: #b96f8c;
+
+      color: #24151c;
+
+      transition: .2s;
     }
 
     .open:active {
@@ -80,9 +181,12 @@
     }
 
     .error {
-      height: 20px;
+      height: 18px;
+
       margin-top: 8px;
-      color: #ee91ad;
+
+      color: #d58ca7;
+
       font-size: 13px;
     }
 
@@ -93,61 +197,109 @@
     /* BARIŞMA EKRANI */
 
     .question {
-      color: #f5b5c9;
-      font-size: 29px;
-      line-height: 1.35;
-      margin: 0 0 30px;
+      color: #d28ba5;
+
+      font-size: clamp(25px, 7vw, 30px);
+
+      line-height: 1.45;
+
+      margin-bottom: 28px;
     }
 
     .buttons {
       display: flex;
+
       justify-content: center;
+
       align-items: center;
-      gap: 14px;
-      min-height: 55px;
+
+      gap: 12px;
+
+      min-height: 54px;
     }
 
     .yes {
-      background: #e9a6bc;
-      color: #29151e;
+      background: #b96f8c;
+      color: #24151c;
+
+      transition: .2s;
+    }
+
+    .yes:active {
+      transform: scale(.96);
     }
 
     .no {
-      background: #54313e;
-      color: white;
-      border: 1px solid #754256;
+      background: #3d2730;
+
+      color: #eee;
+
+      border: 1px solid rgba(185, 111, 140, .35);
+
       position: relative;
     }
 
+    /* GIF */
+
     .gif-container {
       display: none;
-      margin-top: 25px;
+
+      margin-top: 24px;
+
+      animation: appear .7s ease;
     }
 
     .gif-container img {
       width: 100%;
-      max-width: 300px;
+      max-width: 290px;
+
       border-radius: 16px;
+
+      box-shadow: 0 12px 35px rgba(0,0,0,.4);
     }
 
     .love {
-      margin-top: 15px;
-      color: #f5b5c9;
-      font-size: 18px;
+      margin-top: 14px;
+
+      color: #d28ba5;
+
+      font-size: 17px;
     }
 
-    @media (max-width: 400px) {
-      h1 {
-        font-size: 27px;
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: scale(.95);
       }
 
-      .question {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @media (max-width: 380px) {
+
+      .card {
+        padding: 28px 18px;
+      }
+
+      h1 {
         font-size: 26px;
       }
 
+      .question {
+        font-size: 24px;
+      }
+
       .button {
-        padding: 0 18px;
-        font-size: 15px;
+        padding: 0 16px;
+        font-size: 14px;
+      }
+
+      .poem-text {
+        font-size: 14px;
+        line-height: 1.9;
       }
     }
   </style>
@@ -155,10 +307,24 @@
 
 <body>
 
+  <!-- ARKADA AKAN ŞİİR -->
+  <div class="poem">
+    <div class="poem-text">
+      Ellerimde değil artık, aklımda kalan izin,<br>
+      Sessizce büyür her gece, saygım ve sevgim<br>
+      İçimde büyüyen şeyin adını koymadım<br>
+      Lüzum yok bazı şeylere sen anlatmadan anladım<br>
+      Adını anmadım ama bilesin sen birtanesin.
+    </div>
+  </div>
+
+
   <!-- ŞİFRE EKRANI -->
   <div class="card" id="passwordScreen">
 
-    <h1>Esilaaaaa birtanemmm 💗</h1>
+    <div class="heart">♥</div>
+
+    <h1>Esilaaaaa Birtanemm</h1>
 
     <input
       id="password"
@@ -166,12 +332,8 @@
       inputmode="numeric"
       maxlength="6"
       placeholder="Şifre"
-      onkeydown="if(event.key === 'Enter') checkPassword()"
+      autocomplete="off"
     >
-
-    <button class="button open" onclick="checkPassword()">
-      Aç 💗
-    </button>
 
     <div class="error" id="error"></div>
 
@@ -183,7 +345,7 @@
 
     <div class="question">
       Özür dilerim yavrum 🥺<br>
-      Barışalımmı? 💗
+      Barışalımmı?
     </div>
 
     <div class="buttons">
@@ -205,10 +367,13 @@
     </div>
 
     <div class="gif-container" id="gifContainer">
+
       <img src="kedi.gif" alt="Kedi">
+
       <div class="love">
-        Biliyordum barışacağımızııı 🥹💗
+        Biliyordum barışacağımızııı 🥹
       </div>
+
     </div>
 
   </div>
@@ -216,12 +381,15 @@
 
   <script>
 
-    function checkPassword() {
+    const passwordInput =
+      document.getElementById("password");
 
-      const password = document.getElementById("password").value;
-      const error = document.getElementById("error");
+    /*
+      160826 yazıldığı anda otomatik giriş
+    */
+    passwordInput.addEventListener("input", function () {
 
-      if (password === "160826") {
+      if (this.value === "160826") {
 
         document
           .getElementById("passwordScreen")
@@ -231,31 +399,34 @@
           .getElementById("questionScreen")
           .classList.remove("hidden");
 
-      } else {
+      }
 
-        error.textContent = "Şifre yanlış 🥺";
-        document.getElementById("password").value = "";
+      if (this.value.length >= 6 &&
+          this.value !== "160826") {
+
+        document.getElementById("error")
+          .textContent = "Şifre yanlış 🥺";
 
         setTimeout(() => {
-          error.textContent = "";
+          document.getElementById("error")
+            .textContent = "";
         }, 1500);
-
       }
-    }
+
+    });
 
 
+    /*
+      HAYIR BUTONU KAÇIYOR
+    */
     function moveNoButton() {
 
-      const button = document.getElementById("noButton");
-
-      /*
-        İlk kaçıştan sonra buton ekran içinde
-        rastgele bir yere gider.
-      */
+      const button =
+        document.getElementById("noButton");
 
       button.style.position = "fixed";
 
-      const padding = 15;
+      const padding = 12;
 
       const maxX =
         window.innerWidth -
@@ -269,28 +440,31 @@
 
       const x =
         padding +
-        Math.random() * Math.max(0, maxX - padding);
+        Math.random() *
+        Math.max(0, maxX - padding);
 
       const y =
         padding +
-        Math.random() * Math.max(0, maxY - padding);
+        Math.random() *
+        Math.max(0, maxY - padding);
 
       button.style.left = x + "px";
       button.style.top = y + "px";
     }
 
 
+    /*
+      EVET
+    */
     function yesClicked() {
 
-      const noButton =
-        document.getElementById("noButton");
+      document
+        .getElementById("noButton")
+        .style.display = "none";
 
-      const gifContainer =
-        document.getElementById("gifContainer");
-
-      noButton.style.display = "none";
-
-      gifContainer.style.display = "block";
+      document
+        .getElementById("gifContainer")
+        .style.display = "block";
 
     }
 
