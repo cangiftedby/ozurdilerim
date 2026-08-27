@@ -7,6 +7,7 @@
 <title>Esila'm</title>
 
 <style>
+
 * {
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
@@ -74,24 +75,21 @@ body {
 
     animation-duration: 1.7s;
     animation-timing-function:
-        cubic-bezier(.18,.75,.2,1);
+        cubic-bezier(.18, .75, .2, 1);
     animation-fill-mode: forwards;
 
-    transition:
-        color 1s ease;
+    transition: color 1s ease;
 }
 
 .left {
     left: 4vw;
     text-align: left;
-
     animation-name: soldan;
 }
 
 .right {
     right: 4vw;
     text-align: right;
-
     animation-name: sagdan;
 }
 
@@ -143,7 +141,7 @@ body {
 
 
 /* =========================
-   ALARM
+   KIRMIZI ALARM
 ========================= */
 
 #alarm {
@@ -171,31 +169,31 @@ body {
 
     0% {
         opacity: 0;
-        background: rgba(220,40,40,0);
+        background: rgba(220, 40, 40, 0);
         border-width: 0;
     }
 
     20% {
         opacity: 1;
-        background: rgba(220,40,40,.17);
+        background: rgba(220, 40, 40, .17);
         border-width: 8px;
     }
 
     45% {
         opacity: .5;
-        background: rgba(220,40,40,.07);
+        background: rgba(220, 40, 40, .07);
         border-width: 4px;
     }
 
     70% {
         opacity: .8;
-        background: rgba(220,40,40,.12);
+        background: rgba(220, 40, 40, .12);
         border-width: 7px;
     }
 
     100% {
         opacity: 0;
-        background: rgba(220,40,40,0);
+        background: rgba(220, 40, 40, 0);
         border-width: 0;
     }
 }
@@ -217,48 +215,45 @@ body.pembe {
 
 
 /*
-   Pembe temada yeşil görünen
-   her şey beyaza dönüyor.
+   ÖNEMLİ:
+   Buradaki kurallar sadece
+   body.pembe aktif olduktan sonra çalışır.
 */
+
+
+/* Beyaz kartın içindeki yazılar siyah */
 
 body.pembe .question,
 body.pembe .love {
-    color: #ffffff;
+    color: #171717;
 }
 
-body.pembe .poem-line {
-    color: rgba(255,255,255,.68);
-}
 
-body.pembe .card {
-    background: rgba(255,255,255,.94);
-
-    box-shadow:
-        0 20px 60px
-        rgba(130,70,80,.15);
-}
+/* EVET butonu */
 
 body.pembe .yes {
     background: #ffffff;
-    color: #a76d79;
+    color: #171717;
 }
 
-body.pembe .yes:hover {
-    background: #fffafb;
-}
+
+/* HAYIR butonu */
 
 body.pembe .no {
     background: #ffffff;
-    color: #a76d79;
-    border-color: #ffffff;
-}
-
-body.pembe .gif-container {
-    color: white;
+    color: #171717;
+    border-color: #dddddd;
 }
 
 
-/* PEMBE GEÇİŞ */
+/* Pembe modda şiir açık renk */
+
+body.pembe .poem-line {
+    color: rgba(255, 255, 255, .68);
+}
+
+
+/* Pembe geçiş */
 
 .pembe-gecis {
     position: fixed;
@@ -308,16 +303,16 @@ body.pembe .gif-container {
 
     text-align: center;
 
-    background: rgba(255,255,255,.96);
+    background: rgba(255, 255, 255, .96);
 
     border:
-        1px solid rgba(74,110,79,.15);
+        1px solid rgba(74, 110, 79, .15);
 
     border-radius: 24px;
 
     box-shadow:
         0 20px 60px
-        rgba(55,83,59,.17);
+        rgba(55, 83, 59, .17);
 
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -387,7 +382,7 @@ body.pembe .gif-container {
         filter:
             drop-shadow(
                 0 0 0
-                rgba(30,40,30,0)
+                rgba(30, 40, 30, 0)
             );
     }
 
@@ -397,7 +392,7 @@ body.pembe .gif-container {
         filter:
             drop-shadow(
                 0 0 7px
-                rgba(30,40,30,.28)
+                rgba(30, 40, 30, .28)
             );
     }
 }
@@ -457,7 +452,7 @@ input:focus {
 
     box-shadow:
         0 0 0 4px
-        rgba(128,167,134,.11);
+        rgba(128, 167, 134, .11);
 }
 
 .error {
@@ -537,7 +532,7 @@ button {
 
     box-shadow:
         0 8px 20px
-        rgba(75,113,81,.16);
+        rgba(75, 113, 81, .16);
 
     transition:
         transform .2s ease,
@@ -565,9 +560,9 @@ button {
         1px solid #c2d7c4;
 
     transition:
-        left .5s cubic-bezier(.22,.8,.2,1),
-        top .5s cubic-bezier(.22,.8,.2,1),
-        transform .5s cubic-bezier(.22,.8,.2,1),
+        left .5s cubic-bezier(.22, .8, .2, 1),
+        top .5s cubic-bezier(.22, .8, .2, 1),
+        transform .5s cubic-bezier(.22, .8, .2, 1),
         background .7s ease,
         color .7s ease;
 }
@@ -601,7 +596,7 @@ button {
 
     box-shadow:
         0 15px 40px
-        rgba(59,89,64,.17);
+        rgba(59, 89, 64, .17);
 }
 
 .love {
@@ -686,12 +681,42 @@ button {
     }
 }
 
+
+@media (max-height: 680px) {
+
+    .poem-line {
+        font-size: 10.5px;
+    }
+
+    .line1 {
+        top: 5%;
+    }
+
+    .line2 {
+        top: 16%;
+    }
+
+    .line3 {
+        bottom: 25%;
+    }
+
+    .line4 {
+        bottom: 13%;
+    }
+
+    .line5 {
+        bottom: 3%;
+    }
+}
+
 </style>
 </head>
 
 
 <body>
 
+
+<!-- ALARM -->
 
 <div id="alarm"></div>
 
@@ -747,7 +772,9 @@ button {
 </div>
 
 
-<!-- ŞİFRE -->
+<!-- =========================
+     ŞİFRE EKRANI
+========================= -->
 
 <div
     class="card"
@@ -779,7 +806,9 @@ button {
 </div>
 
 
-<!-- SORU -->
+<!-- =========================
+     BARIŞMA EKRANI
+========================= -->
 
 <div
     class="card hidden"
@@ -917,14 +946,10 @@ function alarmVer() {
 
 
 /* =========================
-   HAYIR BUTONU
+   HAYIR BUTONUNU KAÇIR
 ========================= */
 
 function moveNoButton() {
-
-    /*
-       Butonun gerçek boyutunu al.
-    */
 
     const w =
         noButton.offsetWidth;
@@ -934,75 +959,62 @@ function moveNoButton() {
 
 
     /*
-       Viewport boyutu.
+       Gerçek kullanılabilir ekran.
     */
 
     const W =
-        document.documentElement
-            .clientWidth;
+        document.documentElement.clientWidth;
 
     const H =
-        document.documentElement
-            .clientHeight;
+        document.documentElement.clientHeight;
 
 
     /*
-       Çok önemli:
-       Butonu ekranın tamamında
-       gezdirmiyoruz.
-
-       Sadece ortadaki güvenli
-       bir alan içerisinde hareket ediyor.
+       HAYIR'ın dolaşabileceği alan.
+       Kenarlardan uzak tutuluyor.
     */
 
     const minX =
         Math.max(
-            15,
-            W * .12
+            12,
+            W * 0.10
         );
 
     const maxX =
         Math.max(
             minX,
-            W * .88 - w
+            W * 0.90 - w
         );
 
 
     const minY =
         Math.max(
-            90,
-            H * .30
+            70,
+            H * 0.27
         );
 
     const maxY =
         Math.max(
             minY,
-            H * .70 - h
+            H * 0.73 - h
         );
 
 
     /*
-       EVET'in konumunu al.
+       EVET'in mevcut konumu.
     */
 
     const yesRect =
         yesButton.getBoundingClientRect();
 
 
-    let bestX =
-        minX;
-
-    let bestY =
-        minY;
-
-
-    let bestDistance =
-        0;
+    let bestX = minX;
+    let bestY = minY;
+    let bestDistance = -1;
 
 
     /*
-       150 farklı konumdan
-       en güvenlisini seç.
+       Güvenli nokta ara.
     */
 
     for (
@@ -1029,20 +1041,12 @@ function moveNoButton() {
             );
 
 
-        /*
-           Yeni butonun merkezi.
-        */
-
         const centerX =
             x + w / 2;
 
         const centerY =
             y + h / 2;
 
-
-        /*
-           EVET'in merkezi.
-        */
 
         const yesX =
             yesRect.left +
@@ -1082,9 +1086,8 @@ function moveNoButton() {
 
 
     /*
-       MUTLAK SON SINIR.
-       Buradan sonra dışarı çıkması
-       matematiksel olarak mümkün değil.
+       SON GÜVENLİK KİLİDİ.
+       Buton viewport dışına çıkamaz.
     */
 
     bestX =
@@ -1099,10 +1102,10 @@ function moveNoButton() {
 
     bestY =
         Math.max(
-            70,
+            65,
             Math.min(
                 bestY,
-                H - h - 70
+                H - h - 65
             )
         );
 
@@ -1125,7 +1128,7 @@ function moveNoButton() {
 
 
 /* =========================
-   KAÇIŞ
+   HAYIR'A BASILINCA
 ========================= */
 
 function escapeNoButton(e) {
@@ -1139,8 +1142,7 @@ function escapeNoButton(e) {
 
 
     /*
-       İlk seferde mevcut konumu
-       kaybetme.
+       İlk kaçış.
     */
 
     if (!escaped) {
@@ -1149,40 +1151,34 @@ function escapeNoButton(e) {
             noButton.getBoundingClientRect();
 
 
-        /*
-           İlk konumu da viewport
-           sınırları içinde kilitle.
-        */
-
         const W =
-            document.documentElement
-                .clientWidth;
+            document.documentElement.clientWidth;
 
         const H =
-            document.documentElement
-                .clientHeight;
+            document.documentElement.clientHeight;
 
+
+        /*
+           Mevcut konumu önce güvenli
+           viewport sınırlarına kilitle.
+        */
 
         const safeX =
             Math.max(
                 10,
                 Math.min(
                     rect.left,
-                    W -
-                    rect.width -
-                    10
+                    W - rect.width - 10
                 )
             );
 
 
         const safeY =
             Math.max(
-                70,
+                65,
                 Math.min(
                     rect.top,
-                    H -
-                    rect.height -
-                    70
+                    H - rect.height - 65
                 )
             );
 
@@ -1210,16 +1206,16 @@ function escapeNoButton(e) {
             }
         );
 
-    } else {
+    }
+
+    else {
 
         moveNoButton();
     }
 }
 
 
-/*
-   Bilgisayarda mouse yaklaşınca.
-*/
+/* Bilgisayarda */
 
 noButton.addEventListener(
     "mouseenter",
@@ -1227,9 +1223,7 @@ noButton.addEventListener(
 );
 
 
-/*
-   Telefonda dokununca.
-*/
+/* Telefonda */
 
 noButton.addEventListener(
     "touchstart",
@@ -1249,7 +1243,7 @@ yesButton.addEventListener(
     function () {
 
         /*
-           Pembe temaya geç.
+           Önce pembe tema aktif.
         */
 
         document.body
@@ -1258,7 +1252,7 @@ yesButton.addEventListener(
 
 
         /*
-           Kısa pembe ışık.
+           Yumuşak pembe geçiş.
         */
 
         const gecis =
@@ -1273,7 +1267,7 @@ yesButton.addEventListener(
 
 
         /*
-           HAYIR artık yok.
+           HAYIR tamamen kaldır.
         */
 
         noButton.style.display =
@@ -1281,7 +1275,7 @@ yesButton.addEventListener(
 
 
         /*
-           GIF'i biraz gecikmeli göster.
+           GIF.
         */
 
         setTimeout(
@@ -1299,6 +1293,10 @@ yesButton.addEventListener(
         );
 
 
+        /*
+           Geçiş katmanını temizle.
+        */
+
         setTimeout(
             function () {
 
@@ -1307,6 +1305,7 @@ yesButton.addEventListener(
             },
             1200
         );
+
     }
 );
 
