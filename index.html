@@ -7,18 +7,12 @@
 <title>Esila'm</title>
 
 <style>
-
-/* =========================
-   TEMEL
-========================= */
-
 * {
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
 }
 
-html,
-body {
+html, body {
     width: 100%;
     height: 100%;
     margin: 0;
@@ -26,87 +20,63 @@ body {
 
 body {
     min-height: 100svh;
-
-    /* ASIL EKSİK BUYDU */
     display: flex;
     align-items: center;
     justify-content: center;
-
     overflow: hidden;
 
-    font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
+    font-family: Arial, sans-serif;
 
     background:
-        radial-gradient(
-            circle at center,
+        radial-gradient(circle at center,
             #ffffff 0%,
             #eef6ef 48%,
-            #dcebdd 100%
-        );
+            #dcebdd 100%);
 
     color: #405b45;
 }
 
 
-/* =========================
-   ŞİİR
-========================= */
+/* ŞİİR */
 
 .poem {
     position: fixed;
     inset: 0;
-
     z-index: 1;
-
     pointer-events: none;
-
     overflow: hidden;
 }
 
 .poem-line {
     position: absolute;
-
     max-width: 43vw;
 
-    color: rgba(64, 94, 69, 0.38);
+    color: rgba(61, 94, 67, 0.38);
 
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
+    font-family: Georgia, serif;
     font-size: clamp(12px, 3.5vw, 17px);
-
     line-height: 1.55;
 
     opacity: 0;
 
     animation-duration: 1.7s;
-    animation-timing-function:
-        cubic-bezier(.18, .75, .2, 1);
+    animation-timing-function: cubic-bezier(.18,.75,.2,1);
     animation-fill-mode: forwards;
 }
 
 .left {
     left: 4vw;
     text-align: left;
-
-    animation-name: fromLeft;
+    animation-name: soldan;
 }
 
 .right {
     right: 4vw;
     text-align: right;
-
-    animation-name: fromRight;
+    animation-name: sagdan;
 }
 
-
-@keyframes fromLeft {
+@keyframes soldan {
     from {
         opacity: 0;
         transform: translateX(-100vw);
@@ -118,8 +88,7 @@ body {
     }
 }
 
-
-@keyframes fromRight {
+@keyframes sagdan {
     from {
         opacity: 0;
         transform: translateX(100vw);
@@ -131,90 +100,58 @@ body {
     }
 }
 
-
-/* Şiir konumları */
-
-.line1 {
-    top: 7%;
-}
-
-.line2 {
-    top: 19%;
-}
-
-.line3 {
-    bottom: 27%;
-}
-
-.line4 {
-    bottom: 15%;
-}
-
-.line5 {
-    bottom: 5%;
-}
+.line1 { top: 7%; }
+.line2 { top: 19%; }
+.line3 { bottom: 27%; }
+.line4 { bottom: 15%; }
+.line5 { bottom: 5%; }
 
 
-/* =========================
-   KART
-========================= */
+/* KART */
 
 .card {
     position: relative;
-
     z-index: 10;
 
-    width: calc(100% - 28px);
+    width: calc(100% - 26px);
     max-width: 380px;
 
     padding: 30px 19px;
 
     text-align: center;
 
-    background:
-        rgba(255, 255, 255, 0.96);
+    background: rgba(255,255,255,.96);
 
-    border:
-        1px solid rgba(74, 110, 79, 0.15);
-
+    border: 1px solid rgba(74,110,79,.15);
     border-radius: 24px;
 
     box-shadow:
-        0 20px 60px
-        rgba(55, 83, 59, 0.17);
+        0 20px 60px rgba(55,83,59,.17);
 
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 
-    animation: cardIn .6s ease;
+    animation: kart .6s ease;
 }
 
-
-@keyframes cardIn {
+@keyframes kart {
     from {
         opacity: 0;
-        transform:
-            translateY(12px)
-            scale(.97);
+        transform: translateY(12px) scale(.97);
     }
 
     to {
         opacity: 1;
-        transform:
-            translateY(0)
-            scale(1);
+        transform: translateY(0) scale(1);
     }
 }
-
 
 .hidden {
     display: none !important;
 }
 
 
-/* =========================
-   KALP
-========================= */
+/* KALP */
 
 .heart {
     width: 23px;
@@ -225,16 +162,14 @@ body {
     color: #202620;
 
     font-size: 19px;
-
     line-height: 23px;
 
     animation:
-        heartRotate 6s linear infinite,
-        heartGlow 3s ease-in-out infinite;
+        donenKalp 6s linear infinite,
+        kalpParla 3s ease-in-out infinite;
 }
 
-
-@keyframes heartRotate {
+@keyframes donenKalp {
     from {
         transform: rotate(0deg);
     }
@@ -244,35 +179,20 @@ body {
     }
 }
 
-
-@keyframes heartGlow {
-
-    0%,
-    100% {
+@keyframes kalpParla {
+    0%, 100% {
         opacity: .65;
-
-        filter:
-            drop-shadow(
-                0 0 0
-                rgba(30, 40, 30, 0)
-            );
+        filter: drop-shadow(0 0 0 rgba(30,40,30,0));
     }
 
     50% {
         opacity: 1;
-
-        filter:
-            drop-shadow(
-                0 0 7px
-                rgba(30, 40, 30, .28)
-            );
+        filter: drop-shadow(0 0 7px rgba(30,40,30,.28));
     }
 }
 
 
-/* =========================
-   BAŞLIK
-========================= */
+/* BAŞLIK */
 
 h1 {
     margin: 0 0 23px;
@@ -280,16 +200,11 @@ h1 {
     color: #527659;
 
     font-size: 29px;
-
     font-weight: 650;
-
-    line-height: 1.2;
 }
 
 
-/* =========================
-   ŞİFRE
-========================= */
+/* ŞİFRE */
 
 input {
     display: block;
@@ -299,58 +214,45 @@ input {
 
     padding: 0 14px;
 
-    border:
-        1px solid #bdd3bf;
-
+    border: 1px solid #bdd3bf;
     border-radius: 14px;
 
     outline: none;
 
     background: #f8fbf8;
-
     color: #38543d;
 
     text-align: center;
 
     font-size: 19px;
-
     letter-spacing: 6px;
 
-    transition: .2s ease;
+    transition: .2s;
 }
-
 
 input::placeholder {
     color: #a5b7a7;
     letter-spacing: 1px;
 }
 
-
 input:focus {
     border-color: #80a786;
-
-    background: #fff;
+    background: white;
 
     box-shadow:
-        0 0 0 4px
-        rgba(128, 167, 134, .11);
+        0 0 0 4px rgba(128,167,134,.11);
 }
-
 
 .error {
     min-height: 18px;
-
     margin-top: 8px;
 
     color: #718f76;
-
     font-size: 13px;
 }
 
 
-/* =========================
-   SORU
-========================= */
+/* SORU */
 
 .question {
     margin-bottom: 27px;
@@ -358,29 +260,23 @@ input:focus {
     color: #527659;
 
     font-size: 26px;
-
     line-height: 1.45;
-
     font-weight: 600;
 }
 
 
-/* =========================
-   BUTONLAR
-========================= */
+/* BUTONLAR */
 
 .buttons {
     width: 100%;
     height: 54px;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
     gap: 13px;
 }
-
 
 button {
     height: 50px;
@@ -388,17 +284,13 @@ button {
     padding: 0 18px;
 
     border: none;
-
     border-radius: 14px;
 
     font-family: inherit;
-
     font-size: 13px;
-
     font-weight: 700;
 
     cursor: pointer;
-
     touch-action: manipulation;
 }
 
@@ -407,30 +299,23 @@ button {
 
 .yes {
     position: relative;
-
     z-index: 20;
 
     background: #8fb793;
-
     color: white;
 
     box-shadow:
-        0 8px 20px
-        rgba(75, 113, 81, .16);
+        0 8px 20px rgba(75,113,81,.16);
 
     transition:
         transform .2s ease,
         background .2s ease;
 }
 
-
 .yes:hover {
     background: #80a985;
-
-    transform:
-        translateY(-2px);
+    transform: translateY(-2px);
 }
-
 
 .yes:active {
     transform: scale(.96);
@@ -441,41 +326,28 @@ button {
 
 .no {
     position: relative;
-
     z-index: 30;
 
     background: #eef5ee;
-
     color: #58745d;
 
-    border:
-        1px solid #c2d7c4;
+    border: 1px solid #c2d7c4;
 
     transition:
-        left .55s
-        cubic-bezier(.22,.8,.2,1),
-
-        top .55s
-        cubic-bezier(.22,.8,.2,1),
-
-        transform .55s
-        cubic-bezier(.22,.8,.2,1);
+        left .55s cubic-bezier(.22,.8,.2,1),
+        top .55s cubic-bezier(.22,.8,.2,1),
+        transform .55s cubic-bezier(.22,.8,.2,1);
 }
 
 
-/* =========================
-   GIF
-========================= */
+/* GIF */
 
 .gif-container {
     display: none;
-
     margin-top: 24px;
 
-    animation:
-        gifIn .7s ease;
+    animation: gifGiris .7s ease;
 }
-
 
 .gif-container img {
     display: block;
@@ -487,14 +359,11 @@ button {
     margin: 0 auto;
 
     object-fit: contain;
-
     border-radius: 18px;
 
     box-shadow:
-        0 15px 40px
-        rgba(59, 89, 64, .17);
+        0 15px 40px rgba(59,89,64,.17);
 }
-
 
 .love {
     margin-top: 15px;
@@ -502,85 +371,64 @@ button {
     color: #527659;
 
     font-size: 18px;
-
+    line-height: 1.45;
     font-weight: 600;
 }
 
-
-@keyframes gifIn {
+@keyframes gifGiris {
     from {
         opacity: 0;
-
-        transform:
-            translateY(12px)
-            scale(.94);
+        transform: translateY(12px) scale(.94);
     }
 
     to {
         opacity: 1;
-
-        transform:
-            translateY(0)
-            scale(1);
+        transform: translateY(0) scale(1);
     }
 }
 
 
-/* =========================
-   TELEFON
-========================= */
+/* TELEFON */
 
 @media (max-width: 420px) {
 
     .card {
         width: calc(100% - 24px);
-
-        padding:
-            29px 18px;
+        padding: 29px 18px;
     }
-
 
     h1 {
         font-size: 28px;
     }
 
-
     .question {
         font-size: 25px;
     }
 
-
     .poem-line {
         max-width: 42vw;
-
         font-size: 11.5px;
     }
 }
 
 
-/* Küçük telefon */
+/* ÇOK KÜÇÜK TELEFON */
 
 @media (max-width: 350px) {
 
     .card {
         width: calc(100% - 20px);
-
-        padding:
-            26px 15px;
+        padding: 26px 15px;
     }
-
 
     .poem-line {
         max-width: 40vw;
-
         font-size: 10.5px;
     }
-
 
     .question {
         font-size: 23px;
     }
-
 
     button {
         padding: 0 15px;
@@ -589,7 +437,7 @@ button {
 }
 
 
-/* Kısa ekran */
+/* KISA EKRAN */
 
 @media (max-height: 680px) {
 
@@ -597,26 +445,21 @@ button {
         font-size: 10.5px;
     }
 
-
     .line1 {
         top: 5%;
     }
-
 
     .line2 {
         top: 16%;
     }
 
-
     .line3 {
         bottom: 25%;
     }
 
-
     .line4 {
         bottom: 13%;
     }
-
 
     .line5 {
         bottom: 3%;
@@ -630,9 +473,7 @@ button {
 <body>
 
 
-<!-- =========================
-     ŞİİR
-========================= -->
+<!-- ŞİİR -->
 
 <div class="poem">
 
@@ -644,7 +485,6 @@ button {
         aklımda kalan izin,
     </div>
 
-
     <div
         class="poem-line right line2"
         style="animation-delay:.7s"
@@ -652,7 +492,6 @@ button {
         Sessizce büyür her gece,<br>
         saygım ve sevgim
     </div>
-
 
     <div
         class="poem-line left line3"
@@ -662,7 +501,6 @@ button {
         adını koymadım
     </div>
 
-
     <div
         class="poem-line right line4"
         style="animation-delay:1.7s"
@@ -670,7 +508,6 @@ button {
         Lüzum yok bazı şeylere,<br>
         sen anlatmadan anladım
     </div>
-
 
     <div
         class="poem-line left line5"
@@ -683,24 +520,16 @@ button {
 </div>
 
 
-<!-- =========================
-     ŞİFRE
-========================= -->
+<!-- ŞİFRE EKRANI -->
 
 <div
     class="card"
     id="passwordScreen"
 >
 
-    <div class="heart">
-        ♥
-    </div>
+    <div class="heart">♥</div>
 
-
-    <h1>
-        Esila'm
-    </h1>
-
+    <h1>Esila'm</h1>
 
     <input
         id="password"
@@ -711,7 +540,6 @@ button {
         placeholder="Şifre"
     >
 
-
     <div
         class="error"
         id="error"
@@ -720,9 +548,7 @@ button {
 </div>
 
 
-<!-- =========================
-     SORU
-========================= -->
+<!-- BARIŞMA EKRANI -->
 
 <div
     class="card hidden"
@@ -730,17 +556,12 @@ button {
 >
 
     <div class="question">
-
         Özür dilerim yavrum 🥺<br>
         Barışalımmı?
-
     </div>
 
 
-    <div
-        class="buttons"
-        id="buttonArea"
-    >
+    <div class="buttons">
 
         <button
             class="yes"
@@ -749,7 +570,6 @@ button {
         >
             EVETTTTT 💚
         </button>
-
 
         <button
             class="no"
@@ -772,9 +592,9 @@ button {
             alt="Kedi"
         >
 
-
         <div class="love">
-            Biliyordum yavrum barışacağımızı.
+            Biliyordum ki barışacağımızı<br>
+            seni çoooook seviyorum ❤️
         </div>
 
     </div>
@@ -784,88 +604,52 @@ button {
 
 <script>
 
-/* =========================
-   ELEMENTLER
-========================= */
+/* ELEMENTLER */
 
-const password =
-    document.getElementById("password");
-
-const passwordScreen =
-    document.getElementById("passwordScreen");
-
-const questionScreen =
-    document.getElementById("questionScreen");
-
-const error =
-    document.getElementById("error");
-
-const noButton =
-    document.getElementById("noButton");
-
-const yesButton =
-    document.getElementById("yesButton");
+const password = document.getElementById("password");
+const passwordScreen = document.getElementById("passwordScreen");
+const questionScreen = document.getElementById("questionScreen");
+const error = document.getElementById("error");
+const noButton = document.getElementById("noButton");
+const yesButton = document.getElementById("yesButton");
 
 let escaped = false;
 
 
-/* =========================
-   ŞİFRE
-========================= */
+/* ŞİFRE */
 
-password.addEventListener(
-    "input",
-    function () {
+password.addEventListener("input", function () {
 
-        if (this.value === "160826") {
+    if (this.value === "160826") {
 
-            passwordScreen
-                .classList
-                .add("hidden");
+        passwordScreen.classList.add("hidden");
+        questionScreen.classList.remove("hidden");
 
-            questionScreen
-                .classList
-                .remove("hidden");
-
-            return;
-        }
-
-
-        if (this.value.length === 6) {
-
-            error.textContent =
-                "Şifre yanlış 🥺";
-
-            setTimeout(() => {
-
-                error.textContent = "";
-
-                password.value = "";
-
-            }, 1000);
-        }
+        return;
     }
-);
+
+    if (this.value.length === 6) {
+
+        error.textContent = "Şifre yanlış 🥺";
+
+        setTimeout(function () {
+
+            error.textContent = "";
+            password.value = "";
+
+        }, 1000);
+    }
+});
 
 
-/* =========================
-   HAYIR BUTONU
-========================= */
+/* HAYIR BUTONU */
 
 function moveNoButton() {
 
-    const width =
-        noButton.offsetWidth;
-
-    const height =
-        noButton.offsetHeight;
+    const width = noButton.offsetWidth;
+    const height = noButton.offsetHeight;
 
     const padding = 15;
-
-
-    /*
-       Ekranın kesin sınırları.
-    */
 
     const maxX =
         window.innerWidth -
@@ -879,9 +663,8 @@ function moveNoButton() {
 
 
     /*
-       Rastgele güvenli konum.
-       Kartın merkezinden uzak
-       kenarlara yönlendiriyoruz.
+       Ekranın dışına çıkmayacak
+       dört güvenli bölge.
     */
 
     const zones = [
@@ -891,12 +674,10 @@ function moveNoButton() {
         "bottom"
     ];
 
-
     const zone =
         zones[
             Math.floor(
-                Math.random() *
-                zones.length
+                Math.random() * zones.length
             )
         ];
 
@@ -918,7 +699,6 @@ function moveNoButton() {
                 1,
                 maxY - padding
             );
-
     }
 
 
@@ -935,7 +715,6 @@ function moveNoButton() {
                 1,
                 maxY - padding
             );
-
     }
 
 
@@ -952,7 +731,6 @@ function moveNoButton() {
         y =
             padding +
             Math.random() * 60;
-
     }
 
 
@@ -973,46 +751,38 @@ function moveNoButton() {
 
 
     /*
-       SON güvenlik kontrolü.
-       Asla ekran dışına çıkamaz.
+       Son güvenlik kontrolü.
     */
 
     x =
         Math.max(
             padding,
-            Math.min(
-                x,
-                maxX
-            )
+            Math.min(x, maxX)
         );
-
 
     y =
         Math.max(
             padding,
-            Math.min(
-                y,
-                maxY
-            )
+            Math.min(y, maxY)
         );
 
 
-    noButton.style.left =
-        x + "px";
-
-    noButton.style.top =
-        y + "px";
+    noButton.style.left = x + "px";
+    noButton.style.top = y + "px";
 
 
     const rotation =
         Math.random() * 4 - 2;
 
     noButton.style.transform =
-        `rotate(${rotation}deg)`;
+        "rotate(" + rotation + "deg)";
 }
 
 
-/* İlk kaçış */
+/*
+   İlk kaçışta mevcut konumu sabitle.
+   Böylece bir anda yok olmaz.
+*/
 
 function escapeNoButton(event) {
 
@@ -1027,13 +797,7 @@ function escapeNoButton(event) {
             noButton.getBoundingClientRect();
 
 
-        /*
-           Önce mevcut konumunu
-           sabitliyoruz.
-        */
-
-        noButton.style.position =
-            "fixed";
+        noButton.style.position = "fixed";
 
         noButton.style.left =
             rect.left + "px";
@@ -1045,13 +809,9 @@ function escapeNoButton(event) {
         escaped = true;
 
 
-        /*
-           Sonra smooth kaçış.
-        */
+        requestAnimationFrame(function () {
 
-        requestAnimationFrame(() => {
-
-            requestAnimationFrame(() => {
+            requestAnimationFrame(function () {
 
                 moveNoButton();
 
@@ -1068,7 +828,7 @@ function escapeNoButton(event) {
 }
 
 
-/* Bilgisayarda */
+/* Bilgisayar */
 
 noButton.addEventListener(
     "mouseenter",
@@ -1076,7 +836,7 @@ noButton.addEventListener(
 );
 
 
-/* Telefonda */
+/* Telefon */
 
 noButton.addEventListener(
     "touchstart",
@@ -1087,29 +847,22 @@ noButton.addEventListener(
 );
 
 
-/* =========================
-   EVET
-========================= */
+/* EVET */
 
 yesButton.addEventListener(
     "click",
     function () {
 
-        noButton.style.display =
-            "none";
-
+        noButton.style.display = "none";
 
         document
             .getElementById("gifContainer")
-            .style.display =
-            "block";
+            .style.display = "block";
     }
 );
 
 
-/* =========================
-   EKRAN BOYUTU
-========================= */
+/* Ekran dönerse / boyutu değişirse */
 
 window.addEventListener(
     "resize",
@@ -1165,7 +918,6 @@ window.addEventListener(
                 padding,
                 Math.min(x, maxX)
             );
-
 
         y =
             Math.max(
