@@ -1,491 +1,834 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#dcebdc">
+    <meta charset="UTF-8">
 
-<title>Esila'm 💚</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
 
-<style>
-* {
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
-}
+    <meta
+        name="theme-color"
+        content="#e2eee2"
+    >
 
-html, body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-}
+    <title>Esila'm</title>
 
-body {
-    min-height: 100svh;
-    overflow: hidden;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    <style>
 
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        /* ==================================================
+           TEMEL
+        ================================================== */
 
-    background:
-        radial-gradient(circle at 50% 45%, #f8fcf7 0%, #e8f2e7 48%, #d5e6d5 100%);
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
 
-    color: #334b38;
-}
+        html,
+        body {
+            width: 100%;
+            min-height: 100%;
+            margin: 0;
+        }
 
+        body {
+            min-height: 100svh;
 
-/* =========================================
-   ŞİİR
-   Her dize ayrı ayrı sağdan / soldan gelir
-   ========================================= */
+            overflow: hidden;
 
-.poem {
-    position: fixed;
-    inset: 0;
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
 
-    z-index: 0;
-    pointer-events: none;
+            background:
+                radial-gradient(
+                    circle at 50% 45%,
+                    #fbfdfb 0%,
+                    #eef6ee 48%,
+                    #dcebdd 100%
+                );
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+            color: #405b45;
+        }
 
-    gap: 17px;
 
-    overflow: hidden;
+        /* ==================================================
+           ŞİİR ARKA PLANI
+        ================================================== */
 
-    padding: 20px 0;
-}
+        .poem {
+            position: fixed;
 
-.line {
-    width: max-content;
-    max-width: 92%;
+            inset: 0;
 
-    color: rgba(60, 91, 66, 0.31);
+            z-index: 1;
 
-    font-family: Georgia, "Times New Roman", serif;
+            pointer-events: none;
 
-    font-size: clamp(14px, 4vw, 19px);
-    line-height: 1.5;
+            overflow: hidden;
+        }
 
-    white-space: nowrap;
 
-    opacity: 0;
+        .poem-line {
+            position: absolute;
 
-    animation-duration: 1.7s;
-    animation-timing-function: cubic-bezier(.22, .75, .2, 1);
-    animation-fill-mode: forwards;
-}
+            width: max-content;
 
+            max-width: 46vw;
 
-/* Sağdan gelenler */
+            color:
+                rgba(61, 94, 67, 0.42);
 
-.from-right {
-    align-self: flex-end;
-    padding-right: 4%;
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
 
-    animation-name: fromRight;
-}
+            font-size:
+                clamp(12px, 3.6vw, 18px);
 
+            line-height: 1.55;
 
-/* Soldan gelenler */
+            letter-spacing: .1px;
 
-.from-left {
-    align-self: flex-start;
-    padding-left: 4%;
+            opacity: 0;
 
-    animation-name: fromLeft;
-}
+            animation-duration: 1.8s;
 
+            animation-timing-function:
+                cubic-bezier(.16, .8, .2, 1);
 
-@keyframes fromRight {
-    from {
-        opacity: 0;
-        transform: translateX(110vw);
-    }
+            animation-fill-mode: forwards;
+        }
 
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
 
+        /* Soldan */
 
-@keyframes fromLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-110vw);
-    }
+        .from-left {
+            left: 4vw;
 
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
+            text-align: left;
 
+            animation-name:
+                poemLeft;
+        }
 
-/* =========================================
-   ANA KART
-   ========================================= */
 
-.card {
-    position: relative;
-    z-index: 5;
+        /* Sağdan */
 
-    width: calc(100% - 28px);
-    max-width: 390px;
+        .from-right {
+            right: 4vw;
 
-    padding: 32px 21px;
+            text-align: right;
 
-    text-align: center;
+            animation-name:
+                poemRight;
+        }
 
-    background: rgba(255, 255, 255, 0.94);
 
-    border: 1px solid rgba(84, 119, 89, .18);
+        @keyframes poemLeft {
 
-    border-radius: 25px;
+            from {
+                opacity: 0;
 
-    box-shadow:
-        0 20px 60px rgba(57, 83, 61, .17);
+                transform:
+                    translateX(-100vw);
+            }
 
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+            to {
+                opacity: 1;
 
-    animation: cardIn .7s ease;
-}
+                transform:
+                    translateX(0);
+            }
+        }
 
 
-@keyframes cardIn {
-    from {
-        opacity: 0;
-        transform: translateY(15px) scale(.97);
-    }
+        @keyframes poemRight {
 
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
+            from {
+                opacity: 0;
 
+                transform:
+                    translateX(100vw);
+            }
 
-.hidden {
-    display: none !important;
-}
+            to {
+                opacity: 1;
 
+                transform:
+                    translateX(0);
+            }
+        }
 
-/* =========================================
-   ŞİFRE
-   ========================================= */
 
-h1 {
-    margin: 0 0 23px;
+        /*
+           Şiirin konumları.
 
-    color: #527659;
+           Orta bölüm özellikle boş bırakılıyor.
+           Böylece kart şiiri kapatmıyor.
+        */
 
-    font-size: 30px;
-    font-weight: 650;
+        .line1 {
+            top: 7%;
+        }
 
-    letter-spacing: -.5px;
-}
+        .line2 {
+            top: 19%;
+        }
 
+        .line3 {
+            bottom: 27%;
+        }
 
-input {
-    width: 100%;
-    height: 52px;
+        .line4 {
+            bottom: 15%;
+        }
 
-    border-radius: 14px;
+        .line5 {
+            bottom: 5%;
+        }
 
-    border: 1px solid #b9cfba;
 
-    outline: none;
+        /* ==================================================
+           ANA KART
+        ================================================== */
 
-    background: #f8fbf8;
+        .card {
+            position: relative;
 
-    color: #38523d;
+            z-index: 10;
 
-    text-align: center;
+            width:
+                calc(100% - 24px);
 
-    font-size: 19px;
+            max-width: 390px;
 
-    letter-spacing: 6px;
+            padding:
+                30px 19px;
 
-    transition: .2s;
-}
+            text-align: center;
 
+            background:
+                rgba(255, 255, 255, .95);
 
-input:focus {
-    border-color: #7fa885;
+            border:
+                1px solid
+                rgba(78, 116, 84, .16);
 
-    box-shadow:
-        0 0 0 4px rgba(127, 168, 133, .12);
-}
+            border-radius: 25px;
 
+            box-shadow:
+                0 20px 60px
+                rgba(56, 85, 61, .17);
 
-input::placeholder {
-    color: #a1b3a3;
-    letter-spacing: 1px;
-}
+            backdrop-filter:
+                blur(12px);
 
+            -webkit-backdrop-filter:
+                blur(12px);
 
-.error {
-    min-height: 18px;
+            animation:
+                cardIn .65s ease;
+        }
 
-    margin-top: 8px;
 
-    color: #729177;
+        @keyframes cardIn {
 
-    font-size: 13px;
-}
+            from {
+                opacity: 0;
 
+                transform:
+                    translateY(12px)
+                    scale(.97);
+            }
 
-/* =========================================
-   SORU
-   ========================================= */
+            to {
+                opacity: 1;
 
-.question {
-    margin-bottom: 28px;
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+        }
 
-    color: #527659;
 
-    font-size: 27px;
-    line-height: 1.45;
+        .hidden {
+            display: none !important;
+        }
 
-    font-weight: 600;
-}
 
+        /* ==================================================
+           KALP
+        ================================================== */
 
-/* =========================================
-   BUTONLAR
-   ========================================= */
+        .heart {
+            width: 22px;
+            height: 22px;
 
-.buttons {
-    display: flex;
+            margin:
+                0 auto 4px;
 
-    align-items: center;
-    justify-content: center;
+            color: #202820;
 
-    gap: 14px;
+            font-size: 19px;
 
-    height: 54px;
-}
+            line-height: 22px;
 
+            animation:
+                heartSpin 6s linear infinite,
+                heartGlow 3s ease-in-out infinite;
+        }
 
-button {
-    height: 50px;
 
-    padding: 0 20px;
+        /*
+           Yavaş sürekli dönüş
+        */
 
-    border-radius: 14px;
+        @keyframes heartSpin {
 
-    border: none;
+            from {
+                transform:
+                    rotate(0deg);
+            }
 
-    font-family: inherit;
+            to {
+                transform:
+                    rotate(360deg);
+            }
+        }
 
-    font-size: 14px;
-    font-weight: 700;
 
-    cursor: pointer;
-}
+        /*
+           Hafif parlama
+        */
 
+        @keyframes heartGlow {
 
-.yes {
-    position: relative;
-    z-index: 10;
+            0%,
+            100% {
+                filter:
+                    drop-shadow(
+                        0 0 0
+                        rgba(32, 40, 32, 0)
+                    );
 
-    background: #8fb894;
+                opacity: .68;
+            }
 
-    color: white;
+            50% {
+                filter:
+                    drop-shadow(
+                        0 0 6px
+                        rgba(32, 40, 32, .30)
+                    );
 
-    box-shadow:
-        0 8px 20px rgba(78, 116, 84, .16);
+                opacity: 1;
+            }
+        }
 
-    transition: .2s;
-}
 
+        /* ==================================================
+           BAŞLIK
+        ================================================== */
 
-.yes:hover {
-    background: #80a985;
-    transform: translateY(-2px);
-}
+        h1 {
+            margin:
+                0 0 23px;
 
+            color: #527659;
 
-/* =========================================
-   HAYIR BUTONU
+            font-size: 30px;
 
-   Başlangıçta normal.
-   Kaçınca fixed olur.
-   Kaybolmaz.
-   Yumuşak şekilde hareket eder.
-   ========================================= */
+            line-height: 1.2;
 
-.no {
-    position: relative;
-    z-index: 20;
+            font-weight: 650;
 
-    background: #edf5ed;
+            letter-spacing: -.5px;
+        }
 
-    color: #57725c;
 
-    border: 1px solid #c1d7c3;
+        /* ==================================================
+           ŞİFRE
+        ================================================== */
 
-    transition:
-        left .55s cubic-bezier(.22, .8, .2, 1),
-        top .55s cubic-bezier(.22, .8, .2, 1),
-        transform .55s cubic-bezier(.22, .8, .2, 1);
-}
+        input {
+            display: block;
 
+            width: 100%;
 
-/* =========================================
-   GIF
-   ========================================= */
+            height: 52px;
 
-.gif-container {
-    display: none;
+            padding:
+                0 14px;
 
-    margin-top: 25px;
+            border:
+                1px solid #bdd3bf;
 
-    animation: gifIn .7s ease;
-}
+            border-radius: 14px;
 
+            outline: none;
 
-.gif-container img {
-    display: block;
+            background:
+                #f8fbf8;
 
-    width: 100%;
-    max-width: 290px;
-    max-height: 290px;
+            color:
+                #38543d;
 
-    object-fit: contain;
+            text-align: center;
 
-    margin: auto;
+            font-size: 19px;
 
-    border-radius: 18px;
+            letter-spacing: 6px;
 
-    box-shadow:
-        0 15px 40px rgba(60, 88, 64, .18);
-}
+            transition:
+                border-color .2s ease,
+                box-shadow .2s ease,
+                background .2s ease;
+        }
 
 
-.love {
-    margin-top: 16px;
+        input::placeholder {
+            color:
+                #a6b7a8;
 
-    color: #527659;
+            letter-spacing: 1px;
+        }
 
-    font-size: 18px;
 
-    font-weight: 600;
-}
+        input:focus {
+            border-color:
+                #7fa786;
 
+            background:
+                #ffffff;
 
-@keyframes gifIn {
-    from {
-        opacity: 0;
-        transform: scale(.92) translateY(10px);
-    }
+            box-shadow:
+                0 0 0 4px
+                rgba(127, 167, 134, .11);
+        }
 
-    to {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-    }
-}
 
+        .error {
+            min-height: 18px;
 
-/* =========================================
-   TELEFON
-   ========================================= */
+            margin-top: 8px;
 
-@media (max-width: 420px) {
+            color:
+                #718f76;
 
-    .card {
-        width: calc(100% - 22px);
-        padding: 29px 18px;
-    }
+            font-size: 13px;
+        }
 
-    h1 {
-        font-size: 28px;
-    }
 
-    .question {
-        font-size: 25px;
-    }
+        /* ==================================================
+           BARIŞMA SORUSU
+        ================================================== */
 
-    button {
-        padding: 0 17px;
-        font-size: 13px;
-    }
+        .question {
+            margin:
+                0 0 28px;
 
-    .line {
-        font-size: 14px;
-        gap: 0;
-    }
+            color:
+                #527659;
 
-    .poem {
-        gap: 18px;
-    }
-}
+            font-size:
+                clamp(24px, 7vw, 28px);
 
+            line-height:
+                1.45;
 
-@media (max-height: 650px) {
+            font-weight:
+                600;
+        }
 
-    .card {
-        padding-top: 24px;
-        padding-bottom: 24px;
-    }
 
-    .poem {
-        gap: 10px;
-    }
+        /* ==================================================
+           BUTON ALANI
+        ================================================== */
 
-    .line {
-        font-size: 13px;
-    }
-}
+        .buttons {
+            position: relative;
 
-</style>
+            width: 100%;
+
+            height: 54px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 13px;
+        }
+
+
+        button {
+            height: 50px;
+
+            padding:
+                0 19px;
+
+            border: none;
+
+            border-radius: 14px;
+
+            font-family: inherit;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            touch-action: manipulation;
+        }
+
+
+        /* ==================================================
+           EVET
+        ================================================== */
+
+        .yes {
+            position: relative;
+
+            z-index: 20;
+
+            background:
+                #8fb793;
+
+            color:
+                white;
+
+            box-shadow:
+                0 8px 20px
+                rgba(75, 113, 81, .16);
+
+            transition:
+                transform .2s ease,
+                background .2s ease;
+        }
+
+
+        .yes:hover {
+            background:
+                #80a985;
+
+            transform:
+                translateY(-2px);
+        }
+
+
+        .yes:active {
+            transform:
+                scale(.96);
+        }
+
+
+        /* ==================================================
+           HAYIR
+        ================================================== */
+
+        .no {
+            position: relative;
+
+            z-index: 30;
+
+            background:
+                #eef5ee;
+
+            color:
+                #58745d;
+
+            border:
+                1px solid
+                #c2d7c4;
+
+            transition:
+                left .55s
+                    cubic-bezier(.22,.8,.2,1),
+
+                top .55s
+                    cubic-bezier(.22,.8,.2,1),
+
+                transform .55s
+                    cubic-bezier(.22,.8,.2,1);
+        }
+
+
+        /* ==================================================
+           GIF
+        ================================================== */
+
+        .gif-container {
+            display: none;
+
+            margin-top: 25px;
+
+            animation:
+                gifIn .7s
+                cubic-bezier(.2,.8,.2,1);
+        }
+
+
+        .gif-container img {
+            display: block;
+
+            width: 100%;
+
+            max-width: 290px;
+
+            max-height: 290px;
+
+            margin:
+                0 auto;
+
+            object-fit: contain;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 15px 40px
+                rgba(59, 89, 64, .17);
+        }
+
+
+        .love {
+            margin-top: 16px;
+
+            color:
+                #527659;
+
+            font-size: 18px;
+
+            font-weight: 600;
+        }
+
+
+        @keyframes gifIn {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    translateY(12px)
+                    scale(.94);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+        }
+
+
+        /* ==================================================
+           TELEFON
+        ================================================== */
+
+        @media (max-width: 420px) {
+
+            .card {
+                width:
+                    calc(100% - 22px);
+
+                padding:
+                    29px 18px;
+            }
+
+
+            h1 {
+                font-size: 28px;
+            }
+
+
+            .question {
+                font-size: 25px;
+            }
+
+
+            button {
+                padding:
+                    0 17px;
+
+                font-size: 13px;
+            }
+
+
+            .poem-line {
+                max-width: 43vw;
+
+                font-size: 12px;
+
+                line-height: 1.55;
+            }
+        }
+
+
+        /* Çok küçük telefon */
+
+        @media (max-width: 350px) {
+
+            .card {
+                padding:
+                    26px 16px;
+            }
+
+
+            .poem-line {
+                max-width: 42vw;
+
+                font-size: 11px;
+            }
+
+
+            .question {
+                font-size: 23px;
+            }
+
+
+            button {
+                padding:
+                    0 15px;
+
+                font-size: 12px;
+            }
+        }
+
+
+        /*
+           Kısa telefon ekranları
+        */
+
+        @media (max-height: 680px) {
+
+            .card {
+                padding-top:
+                    24px;
+
+                padding-bottom:
+                    24px;
+            }
+
+
+            .poem-line {
+                font-size: 11px;
+            }
+
+
+            .line1 {
+                top: 5%;
+            }
+
+
+            .line2 {
+                top: 16%;
+            }
+
+
+            .line3 {
+                bottom: 25%;
+            }
+
+
+            .line4 {
+                bottom: 13%;
+            }
+
+
+            .line5 {
+                bottom: 3%;
+            }
+        }
+
+    </style>
 </head>
 
 
 <body>
 
 
-<!-- =========================================
-     ARKA PLAN ŞİİRİ
-     ========================================= -->
+<!-- =====================================================
+     ŞİİR
+===================================================== -->
 
 <div class="poem">
 
-    <div class="line from-left" style="animation-delay:.2s">
-        Ellerimde değil artık, aklımda kalan izin,
+    <div
+        class="poem-line from-left line1"
+        style="animation-delay: .15s"
+    >
+        Ellerimde değil artık,<br>
+        aklımda kalan izin,
     </div>
 
-    <div class="line from-right" style="animation-delay:.7s">
-        Sessizce büyür her gece, saygım ve sevgim
+
+    <div
+        class="poem-line from-right line2"
+        style="animation-delay: .65s"
+    >
+        Sessizce büyür her gece,<br>
+        saygım ve sevgim
     </div>
 
-    <div class="line from-left" style="animation-delay:1.2s">
-        İçimde büyüyen şeyin adını koymadım
+
+    <div
+        class="poem-line from-left line3"
+        style="animation-delay: 1.15s"
+    >
+        İçimde büyüyen şeyin<br>
+        adını koymadım
     </div>
 
-    <div class="line from-right" style="animation-delay:1.7s">
-        Lüzum yok bazı şeylere sen anlatmadan anladım
+
+    <div
+        class="poem-line from-right line4"
+        style="animation-delay: 1.65s"
+    >
+        Lüzum yok bazı şeylere,<br>
+        sen anlatmadan anladım
     </div>
 
-    <div class="line from-left" style="animation-delay:2.2s">
-        Adını anmadım ama bilesin sen birtanesin.
+
+    <div
+        class="poem-line from-left line5"
+        style="animation-delay: 2.15s"
+    >
+        Adını anmadım ama<br>
+        bilesin sen birtanesin.
     </div>
 
 </div>
 
 
-<!-- =========================================
+
+<!-- =====================================================
      ŞİFRE EKRANI
-     ========================================= -->
+===================================================== -->
 
-<div class="card" id="passwordScreen">
+<div
+    class="card"
+    id="passwordScreen"
+>
 
-    <h1>Esila'm</h1>
+    <div class="heart">
+        ♥
+    </div>
+
+
+    <h1>
+        Esila'm
+    </h1>
+
 
     <input
         id="password"
@@ -494,31 +837,46 @@ button {
         maxlength="6"
         autocomplete="off"
         placeholder="Şifre"
+        aria-label="Şifre"
     >
 
-    <div class="error" id="error"></div>
+
+    <div
+        class="error"
+        id="error"
+    ></div>
 
 </div>
 
 
-<!-- =========================================
-     BARIŞMA EKRANI
-     ========================================= -->
 
-<div class="card hidden" id="questionScreen">
+<!-- =====================================================
+     BARIŞMA EKRANI
+===================================================== -->
+
+<div
+    class="card hidden"
+    id="questionScreen"
+>
 
     <div class="question">
+
         Özür dilerim yavrum 🥺<br>
+
         Barışalımmı?
+
     </div>
 
 
-    <div class="buttons">
+    <div
+        class="buttons"
+        id="buttonArea"
+    >
 
         <button
             class="yes"
             id="yesButton"
-            onclick="yesClicked()"
+            type="button"
         >
             EVETTTTT 💚
         </button>
@@ -527,6 +885,7 @@ button {
         <button
             class="no"
             id="noButton"
+            type="button"
         >
             HAYIR !
         </button>
@@ -544,6 +903,7 @@ button {
             alt="Kedi"
         >
 
+
         <div class="love">
             Biliyordum yavrum barışacağımızı.
         </div>
@@ -553,14 +913,13 @@ button {
 </div>
 
 
+
 <script>
 
 
-/* =========================================
-   ŞİFRE
-
-   160826 yazıldığı anda geçer.
-   ========================================= */
+/* =====================================================
+   ELEMENTLER
+===================================================== */
 
 const password =
     document.getElementById("password");
@@ -574,69 +933,82 @@ const questionScreen =
 const error =
     document.getElementById("error");
 
-
-password.addEventListener("input", function() {
-
-    if (this.value === "160826") {
-
-        passwordScreen.classList.add("hidden");
-
-        questionScreen.classList.remove("hidden");
-
-    }
-
-    else if (this.value.length === 6) {
-
-        error.textContent =
-            "Şifre yanlış 🥺";
-
-        setTimeout(() => {
-            error.textContent = "";
-        }, 1400);
-
-    }
-
-});
-
-
-/* =========================================
-   KAÇAN HAYIR BUTONU
-   ========================================= */
-
 const noButton =
     document.getElementById("noButton");
 
+const yesButton =
+    document.getElementById("yesButton");
+
+const buttonArea =
+    document.getElementById("buttonArea");
+
+
+
+/* =====================================================
+   ŞİFRE
+===================================================== */
+
+password.addEventListener(
+    "input",
+    function () {
+
+        /*
+           Doğru şifre:
+           anında geç.
+        */
+
+        if (this.value === "160826") {
+
+            error.textContent = "";
+
+            passwordScreen
+                .classList
+                .add("hidden");
+
+            questionScreen
+                .classList
+                .remove("hidden");
+
+            return;
+        }
+
+
+        /*
+           6 hane dolduysa yanlış.
+        */
+
+        if (this.value.length === 6) {
+
+            error.textContent =
+                "Şifre yanlış 🥺";
+
+            setTimeout(() => {
+
+                error.textContent = "";
+
+                password.value = "";
+
+            }, 1000);
+        }
+
+    }
+);
+
+
+
+/* =====================================================
+   HAYIR BUTONU
+===================================================== */
 
 let escaped = false;
 
 
 /*
-   Masaüstünde fare butona gerçekten
-   yaklaştığında kaçıyor.
+   Butonun kartın üstüne gelmesini önlemek için
+   güvenli alanlar hesaplanıyor.
 */
 
-noButton.addEventListener("mouseenter", function() {
-
-    escapeButton();
-
-});
-
-
-/*
-   Telefonda dokunulduğunda kaçıyor.
-   Ama buton yok olmuyor.
-*/
-
-noButton.addEventListener("touchstart", function(e) {
-
-    e.preventDefault();
-
-    escapeButton();
-
-}, { passive: false });
-
-
-function escapeButton() {
+function getSafePosition() {
 
     const buttonWidth =
         noButton.offsetWidth;
@@ -645,175 +1017,508 @@ function escapeButton() {
         noButton.offsetHeight;
 
 
-    /*
-       İlk hareketten önce mevcut
-       konumunu koruyoruz.
-    */
+    const padding = 16;
 
-    if (!escaped) {
-
-        const rect =
-            noButton.getBoundingClientRect();
-
-        noButton.style.position = "fixed";
-
-        noButton.style.left =
-            rect.left + "px";
-
-        noButton.style.top =
-            rect.top + "px";
-
-        escaped = true;
-
-        /*
-           Browser'ın ilk pozisyonu
-           uygulaması için küçük gecikme.
-        */
-
-        requestAnimationFrame(() => {
-            moveButton(buttonWidth, buttonHeight);
-        });
-
-    }
-
-    else {
-
-        moveButton(buttonWidth, buttonHeight);
-
-    }
-
-}
-
-
-function moveButton(width, height) {
-
-    const padding = 18;
 
     const maxX =
         window.innerWidth -
-        width -
+        buttonWidth -
         padding;
+
 
     const maxY =
         window.innerHeight -
-        height -
+        buttonHeight -
         padding;
 
 
     /*
-       Kartın bulunduğu orta bölgeden
-       uzak yerlere kaçmasını sağlıyoruz.
+       Kartın ekran üzerindeki konumu.
     */
+
+    const card =
+        questionScreen.getBoundingClientRect();
+
+
+    /*
+       Kart çevresinde güvenli boşluk.
+    */
+
+    const safeGap = 25;
+
+
+    const forbiddenLeft =
+        card.left - buttonWidth - safeGap;
+
+    const forbiddenRight =
+        card.right + safeGap;
+
+    const forbiddenTop =
+        card.top - buttonHeight - safeGap;
+
+    const forbiddenBottom =
+        card.bottom + safeGap;
+
+
+    /*
+       Ekranın dört kenar bölgesinden
+       birini seçiyoruz.
+    */
+
+    const areas = [];
+
+
+    /*
+       SOL
+    */
+
+    if (forbiddenLeft > padding) {
+
+        areas.push("left");
+    }
+
+
+    /*
+       SAĞ
+    */
+
+    if (
+        forbiddenRight <
+        window.innerWidth - padding
+    ) {
+
+        areas.push("right");
+    }
+
+
+    /*
+       ÜST
+    */
+
+    if (forbiddenTop > padding) {
+
+        areas.push("top");
+    }
+
+
+    /*
+       ALT
+    */
+
+    if (
+        forbiddenBottom <
+        window.innerHeight - padding
+    ) {
+
+        areas.push("bottom");
+    }
+
+
+    /*
+       Uygun alan bulunamazsa,
+       ekranın güvenli sınırları içinde
+       herhangi bir yer.
+    */
+
+    if (areas.length === 0) {
+
+        return {
+
+            x:
+                padding +
+                Math.random() *
+                Math.max(
+                    1,
+                    maxX - padding
+                ),
+
+            y:
+                padding +
+                Math.random() *
+                Math.max(
+                    1,
+                    maxY - padding
+                )
+        };
+    }
+
+
+    const selected =
+        areas[
+            Math.floor(
+                Math.random() *
+                areas.length
+            )
+        ];
+
 
     let x;
     let y;
 
-    const side =
-        Math.floor(Math.random() * 4);
 
+    /* SOL */
 
-    if (side === 0) {
-
-        // SOL
+    if (selected === "left") {
 
         x =
             padding +
-            Math.random() * 75;
-
-        y =
-            70 +
-            Math.random() * Math.max(50, maxY - 140);
-
-    }
-
-    else if (side === 1) {
-
-        // SAĞ
-
-        x =
-            maxX -
-            Math.random() * 75;
-
-        y =
-            70 +
-            Math.random() * Math.max(50, maxY - 140);
-
-    }
-
-    else if (side === 2) {
-
-        // ÜST
-
-        x =
-            padding +
-            Math.random() * Math.max(50, maxX - 50);
+            Math.random() *
+            Math.max(
+                1,
+                forbiddenLeft - padding
+            );
 
         y =
             padding +
-            Math.random() * 80;
-
+            Math.random() *
+            Math.max(
+                1,
+                maxY - padding
+            );
     }
+
+
+    /* SAĞ */
+
+    else if (selected === "right") {
+
+        x =
+            forbiddenRight +
+            Math.random() *
+            Math.max(
+                1,
+                maxX - forbiddenRight
+            );
+
+        y =
+            padding +
+            Math.random() *
+            Math.max(
+                1,
+                maxY - padding
+            );
+    }
+
+
+    /* ÜST */
+
+    else if (selected === "top") {
+
+        x =
+            padding +
+            Math.random() *
+            Math.max(
+                1,
+                maxX - padding
+            );
+
+        y =
+            padding +
+            Math.random() *
+            Math.max(
+                1,
+                forbiddenTop - padding
+            );
+    }
+
+
+    /* ALT */
 
     else {
 
-        // ALT
-
         x =
             padding +
-            Math.random() * Math.max(50, maxX - 50);
+            Math.random() *
+            Math.max(
+                1,
+                maxX - padding
+            );
 
         y =
-            maxY -
-            Math.random() * 80;
-
+            forbiddenBottom +
+            Math.random() *
+            Math.max(
+                1,
+                maxY - forbiddenBottom
+            );
     }
 
 
-    x = Math.max(
-        padding,
-        Math.min(x, maxX)
-    );
+    /*
+       Son güvenlik kontrolü.
+    */
 
-    y = Math.max(
-        padding,
-        Math.min(y, maxY)
-    );
+    x =
+        Math.max(
+            padding,
+            Math.min(
+                x,
+                maxX
+            )
+        );
+
+
+    y =
+        Math.max(
+            padding,
+            Math.min(
+                y,
+                maxY
+            )
+        );
+
+
+    return {
+        x,
+        y
+    };
+}
+
+
+
+/*
+   Butonu hareket ettir.
+*/
+
+function moveNoButton() {
+
+    const position =
+        getSafePosition();
 
 
     noButton.style.left =
-        x + "px";
+        position.x + "px";
+
 
     noButton.style.top =
-        y + "px";
+        position.y + "px";
 
 
     /*
-       Çok hafif yön değişimi.
-       Sert dönmüyor.
+       Hafif eğim.
+       Sert değil.
     */
 
     const rotation =
         Math.random() * 4 - 2;
+
 
     noButton.style.transform =
         `rotate(${rotation}deg)`;
 }
 
 
-/* =========================================
-   EVET
-   ========================================= */
 
-function yesClicked() {
+/*
+   İlk kaçış.
 
-    noButton.style.display =
-        "none";
+   Mevcut yerini önce fixed olarak
+   koruyoruz. Böylece bir anda
+   "yol olup" kaybolmuyor.
+*/
 
-    document
-        .getElementById("gifContainer")
-        .style.display = "block";
+function escapeNoButton(event) {
 
+    if (event) {
+        event.preventDefault();
+    }
+
+
+    if (!escaped) {
+
+        const rect =
+            noButton.getBoundingClientRect();
+
+
+        noButton.style.position =
+            "fixed";
+
+
+        noButton.style.left =
+            rect.left + "px";
+
+
+        noButton.style.top =
+            rect.top + "px";
+
+
+        escaped = true;
+
+
+        /*
+           Browser önce mevcut konumu
+           çizsin, sonra hareket etsin.
+        */
+
+        requestAnimationFrame(() => {
+
+            requestAnimationFrame(() => {
+
+                moveNoButton();
+
+            });
+
+        });
+
+    }
+
+    else {
+
+        moveNoButton();
+
+    }
 }
+
+
+
+/* =====================================================
+   MASAÜSTÜ
+===================================================== */
+
+noButton.addEventListener(
+    "mouseenter",
+    function () {
+
+        escapeNoButton();
+
+    }
+);
+
+
+
+/* =====================================================
+   TELEFON
+===================================================== */
+
+noButton.addEventListener(
+    "touchstart",
+    function (event) {
+
+        escapeNoButton(event);
+
+    },
+    {
+        passive: false
+    }
+);
+
+
+
+/* =====================================================
+   EVET
+===================================================== */
+
+yesButton.addEventListener(
+    "click",
+    function () {
+
+        /*
+           Hayır artık görünmez.
+        */
+
+        noButton.style.display =
+            "none";
+
+
+        /*
+           GIF açılır.
+        */
+
+        document
+            .getElementById("gifContainer")
+            .style.display =
+            "block";
+
+    }
+);
+
+
+
+/* =====================================================
+   EKRAN BOYUTU DEĞİŞİRSE
+===================================================== */
+
+window.addEventListener(
+    "resize",
+    function () {
+
+        if (!escaped) {
+            return;
+        }
+
+
+        const width =
+            noButton.offsetWidth;
+
+        const height =
+            noButton.offsetHeight;
+
+
+        const padding = 16;
+
+
+        const maxX =
+            window.innerWidth -
+            width -
+            padding;
+
+
+        const maxY =
+            window.innerHeight -
+            height -
+            padding;
+
+
+        let x =
+            parseFloat(
+                noButton.style.left
+            );
+
+
+        let y =
+            parseFloat(
+                noButton.style.top
+            );
+
+
+        if (Number.isNaN(x)) {
+            x = padding;
+        }
+
+
+        if (Number.isNaN(y)) {
+            y = padding;
+        }
+
+
+        x =
+            Math.max(
+                padding,
+                Math.min(
+                    x,
+                    maxX
+                )
+            );
+
+
+        y =
+            Math.max(
+                padding,
+                Math.min(
+                    y,
+                    maxY
+                )
+            );
+
+
+        noButton.style.left =
+            x + "px";
+
+
+        noButton.style.top =
+            y + "px";
+    }
+);
 
 </script>
 
