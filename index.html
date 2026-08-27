@@ -12,7 +12,8 @@
     -webkit-tap-highlight-color: transparent;
 }
 
-html, body {
+html,
+body {
     width: 100%;
     height: 100%;
     margin: 0;
@@ -28,27 +29,33 @@ body {
     font-family: Arial, sans-serif;
 
     background:
-        radial-gradient(circle at center,
+        radial-gradient(
+            circle at center,
             #ffffff 0%,
             #eef6ef 48%,
-            #dcebdd 100%);
+            #dcebdd 100%
+        );
 
     color: #405b45;
 }
 
 
-/* ŞİİR */
+/* =========================
+   ŞİİR
+========================= */
 
 .poem {
     position: fixed;
     inset: 0;
     z-index: 1;
+
     pointer-events: none;
     overflow: hidden;
 }
 
 .poem-line {
     position: absolute;
+
     max-width: 43vw;
 
     color: rgba(61, 94, 67, 0.38);
@@ -100,14 +107,87 @@ body {
     }
 }
 
-.line1 { top: 7%; }
-.line2 { top: 19%; }
-.line3 { bottom: 27%; }
-.line4 { bottom: 15%; }
-.line5 { bottom: 5%; }
+.line1 {
+    top: 7%;
+}
+
+.line2 {
+    top: 19%;
+}
+
+.line3 {
+    bottom: 27%;
+}
+
+.line4 {
+    bottom: 15%;
+}
+
+.line5 {
+    bottom: 5%;
+}
 
 
-/* KART */
+/* =========================
+   KIRMIZI ALARM
+========================= */
+
+#alarm {
+    position: fixed;
+    inset: 0;
+
+    z-index: 100;
+
+    pointer-events: none;
+
+    background: rgba(220, 40, 40, 0);
+
+    border: 0 solid rgba(220, 40, 40, 0);
+
+    opacity: 0;
+}
+
+#alarm.active {
+    animation: alarm .45s ease;
+}
+
+@keyframes alarm {
+
+    0% {
+        opacity: 0;
+        background: rgba(220, 40, 40, 0);
+        border-width: 0;
+    }
+
+    20% {
+        opacity: 1;
+        background: rgba(220, 40, 40, .18);
+        border-width: 9px;
+    }
+
+    45% {
+        opacity: .5;
+        background: rgba(220, 40, 40, .08);
+        border-width: 5px;
+    }
+
+    70% {
+        opacity: .9;
+        background: rgba(220, 40, 40, .13);
+        border-width: 8px;
+    }
+
+    100% {
+        opacity: 0;
+        background: rgba(220, 40, 40, 0);
+        border-width: 0;
+    }
+}
+
+
+/* =========================
+   KART
+========================= */
 
 .card {
     position: relative;
@@ -151,7 +231,9 @@ body {
 }
 
 
-/* KALP */
+/* =========================
+   KALP
+========================= */
 
 .heart {
     width: 23px;
@@ -170,6 +252,7 @@ body {
 }
 
 @keyframes donenKalp {
+
     from {
         transform: rotate(0deg);
     }
@@ -180,19 +263,33 @@ body {
 }
 
 @keyframes kalpParla {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: .65;
-        filter: drop-shadow(0 0 0 rgba(30,40,30,0));
+
+        filter:
+            drop-shadow(
+                0 0 0
+                rgba(30,40,30,0)
+            );
     }
 
     50% {
         opacity: 1;
-        filter: drop-shadow(0 0 7px rgba(30,40,30,.28));
+
+        filter:
+            drop-shadow(
+                0 0 7px
+                rgba(30,40,30,.28)
+            );
     }
 }
 
 
-/* BAŞLIK */
+/* =========================
+   BAŞLIK
+========================= */
 
 h1 {
     margin: 0 0 23px;
@@ -204,7 +301,9 @@ h1 {
 }
 
 
-/* ŞİFRE */
+/* =========================
+   ŞİFRE
+========================= */
 
 input {
     display: block;
@@ -237,22 +336,28 @@ input::placeholder {
 
 input:focus {
     border-color: #80a786;
+
     background: white;
 
     box-shadow:
-        0 0 0 4px rgba(128,167,134,.11);
+        0 0 0 4px
+        rgba(128,167,134,.11);
 }
 
 .error {
     min-height: 18px;
+
     margin-top: 8px;
 
     color: #718f76;
+
     font-size: 13px;
 }
 
 
-/* SORU */
+/* =========================
+   SORU
+========================= */
 
 .question {
     margin-bottom: 27px;
@@ -261,11 +366,14 @@ input:focus {
 
     font-size: 26px;
     line-height: 1.45;
+
     font-weight: 600;
 }
 
 
-/* BUTONLAR */
+/* =========================
+   BUTONLAR
+========================= */
 
 .buttons {
     width: 100%;
@@ -305,7 +413,8 @@ button {
     color: white;
 
     box-shadow:
-        0 8px 20px rgba(75,113,81,.16);
+        0 8px 20px
+        rgba(75,113,81,.16);
 
     transition:
         transform .2s ease,
@@ -314,7 +423,9 @@ button {
 
 .yes:hover {
     background: #80a985;
-    transform: translateY(-2px);
+
+    transform:
+        translateY(-2px);
 }
 
 .yes:active {
@@ -329,9 +440,11 @@ button {
     z-index: 30;
 
     background: #eef5ee;
+
     color: #58745d;
 
-    border: 1px solid #c2d7c4;
+    border:
+        1px solid #c2d7c4;
 
     transition:
         left .55s cubic-bezier(.22,.8,.2,1),
@@ -340,13 +453,17 @@ button {
 }
 
 
-/* GIF */
+/* =========================
+   GIF
+========================= */
 
 .gif-container {
     display: none;
+
     margin-top: 24px;
 
-    animation: gifGiris .7s ease;
+    animation:
+        gifGiris .7s ease;
 }
 
 .gif-container img {
@@ -359,10 +476,12 @@ button {
     margin: 0 auto;
 
     object-fit: contain;
+
     border-radius: 18px;
 
     box-shadow:
-        0 15px 40px rgba(59,89,64,.17);
+        0 15px 40px
+        rgba(59,89,64,.17);
 }
 
 .love {
@@ -372,29 +491,41 @@ button {
 
     font-size: 18px;
     line-height: 1.45;
+
     font-weight: 600;
 }
 
 @keyframes gifGiris {
+
     from {
         opacity: 0;
-        transform: translateY(12px) scale(.94);
+
+        transform:
+            translateY(12px)
+            scale(.94);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0) scale(1);
+
+        transform:
+            translateY(0)
+            scale(1);
     }
 }
 
 
-/* TELEFON */
+/* =========================
+   TELEFON
+========================= */
 
 @media (max-width: 420px) {
 
     .card {
         width: calc(100% - 24px);
-        padding: 29px 18px;
+
+        padding:
+            29px 18px;
     }
 
     h1 {
@@ -412,13 +543,15 @@ button {
 }
 
 
-/* ÇOK KÜÇÜK TELEFON */
+/* Küçük telefon */
 
 @media (max-width: 350px) {
 
     .card {
         width: calc(100% - 20px);
-        padding: 26px 15px;
+
+        padding:
+            26px 15px;
     }
 
     .poem-line {
@@ -437,7 +570,7 @@ button {
 }
 
 
-/* KISA EKRAN */
+/* Kısa ekran */
 
 @media (max-height: 680px) {
 
@@ -473,6 +606,11 @@ button {
 <body>
 
 
+<!-- KIRMIZI ALARM -->
+
+<div id="alarm"></div>
+
+
 <!-- ŞİİR -->
 
 <div class="poem">
@@ -485,6 +623,7 @@ button {
         aklımda kalan izin,
     </div>
 
+
     <div
         class="poem-line right line2"
         style="animation-delay:.7s"
@@ -492,6 +631,7 @@ button {
         Sessizce büyür her gece,<br>
         saygım ve sevgim
     </div>
+
 
     <div
         class="poem-line left line3"
@@ -501,6 +641,7 @@ button {
         adını koymadım
     </div>
 
+
     <div
         class="poem-line right line4"
         style="animation-delay:1.7s"
@@ -508,6 +649,7 @@ button {
         Lüzum yok bazı şeylere,<br>
         sen anlatmadan anladım
     </div>
+
 
     <div
         class="poem-line left line5"
@@ -527,9 +669,15 @@ button {
     id="passwordScreen"
 >
 
-    <div class="heart">♥</div>
+    <div class="heart">
+        ♥
+    </div>
 
-    <h1>Esila'm</h1>
+
+    <h1>
+        Esila'm
+    </h1>
+
 
     <input
         id="password"
@@ -539,6 +687,7 @@ button {
         autocomplete="off"
         placeholder="Şifre"
     >
+
 
     <div
         class="error"
@@ -571,6 +720,7 @@ button {
             EVETTTTT 💚
         </button>
 
+
         <button
             class="no"
             id="noButton"
@@ -592,6 +742,7 @@ button {
             alt="Kedi"
         >
 
+
         <div class="love">
             Biliyordum ki barışacağımızı<br>
             seni çoooook seviyorum ❤️
@@ -606,183 +757,274 @@ button {
 
 /* ELEMENTLER */
 
-const password = document.getElementById("password");
-const passwordScreen = document.getElementById("passwordScreen");
-const questionScreen = document.getElementById("questionScreen");
-const error = document.getElementById("error");
-const noButton = document.getElementById("noButton");
-const yesButton = document.getElementById("yesButton");
+const password =
+    document.getElementById("password");
+
+const passwordScreen =
+    document.getElementById("passwordScreen");
+
+const questionScreen =
+    document.getElementById("questionScreen");
+
+const error =
+    document.getElementById("error");
+
+const noButton =
+    document.getElementById("noButton");
+
+const yesButton =
+    document.getElementById("yesButton");
+
+const alarm =
+    document.getElementById("alarm");
 
 let escaped = false;
 
 
-/* ŞİFRE */
+/* =========================
+   ŞİFRE
+========================= */
 
-password.addEventListener("input", function () {
+password.addEventListener(
+    "input",
+    function () {
 
-    if (this.value === "160826") {
+        if (this.value === "160826") {
 
-        passwordScreen.classList.add("hidden");
-        questionScreen.classList.remove("hidden");
+            passwordScreen
+                .classList
+                .add("hidden");
 
-        return;
+            questionScreen
+                .classList
+                .remove("hidden");
+
+            return;
+        }
+
+
+        if (this.value.length === 6) {
+
+            error.textContent =
+                "Şifre yanlış 🥺";
+
+            setTimeout(function () {
+
+                error.textContent = "";
+
+                password.value = "";
+
+            }, 1000);
+        }
     }
-
-    if (this.value.length === 6) {
-
-        error.textContent = "Şifre yanlış 🥺";
-
-        setTimeout(function () {
-
-            error.textContent = "";
-            password.value = "";
-
-        }, 1000);
-    }
-});
+);
 
 
-/* HAYIR BUTONU */
+/* =========================
+   KIRMIZI ALARM
+========================= */
+
+function showAlarm() {
+
+    alarm.classList.remove("active");
+
+    /*
+       Animasyonu yeniden başlatır.
+    */
+
+    void alarm.offsetWidth;
+
+    alarm.classList.add("active");
+}
+
+
+/* =========================
+   HAYIR BUTONU
+========================= */
 
 function moveNoButton() {
 
-    const width = noButton.offsetWidth;
-    const height = noButton.offsetHeight;
+    const buttonWidth =
+        noButton.offsetWidth;
 
-    const padding = 15;
+    const buttonHeight =
+        noButton.offsetHeight;
 
-    const maxX =
-        window.innerWidth -
-        width -
-        padding;
-
-    const maxY =
-        window.innerHeight -
-        height -
-        padding;
+    const padding = 20;
 
 
     /*
-       Ekranın dışına çıkmayacak
-       dört güvenli bölge.
+       Buton ekranın kenarlarına
+       kadar gitmeyecek.
     */
 
-    const zones = [
-        "left",
-        "right",
-        "top",
-        "bottom"
-    ];
+    const minX =
+        Math.max(
+            padding,
+            window.innerWidth * 0.16
+        );
 
-    const zone =
-        zones[
-            Math.floor(
-                Math.random() * zones.length
-            )
-        ];
+    const maxX =
+        Math.min(
+            window.innerWidth -
+            buttonWidth -
+            padding,
+
+            window.innerWidth * 0.84 -
+            buttonWidth
+        );
+
+
+    const minY =
+        Math.max(
+            padding,
+            window.innerHeight * 0.18
+        );
+
+    const maxY =
+        Math.min(
+            window.innerHeight -
+            buttonHeight -
+            padding,
+
+            window.innerHeight * 0.82 -
+            buttonHeight
+        );
+
+
+    /*
+       EVET butonunun konumu.
+    */
+
+    const yesRect =
+        yesButton.getBoundingClientRect();
 
 
     let x;
     let y;
 
-
-    if (zone === "left") {
-
-        x =
-            padding +
-            Math.random() * 55;
-
-        y =
-            padding +
-            Math.random() *
-            Math.max(
-                1,
-                maxY - padding
-            );
-    }
-
-
-    else if (zone === "right") {
-
-        x =
-            maxX -
-            Math.random() * 55;
-
-        y =
-            padding +
-            Math.random() *
-            Math.max(
-                1,
-                maxY - padding
-            );
-    }
-
-
-    else if (zone === "top") {
-
-        x =
-            padding +
-            Math.random() *
-            Math.max(
-                1,
-                maxX - padding
-            );
-
-        y =
-            padding +
-            Math.random() * 60;
-    }
-
-
-    else {
-
-        x =
-            padding +
-            Math.random() *
-            Math.max(
-                1,
-                maxX - padding
-            );
-
-        y =
-            maxY -
-            Math.random() * 60;
-    }
+    let tries = 0;
 
 
     /*
-       Son güvenlik kontrolü.
+       EVET'in çevresinde boşluk.
+    */
+
+    const safeX = 35;
+    const safeY = 30;
+
+
+    /*
+       Uygun bir konum bulana kadar
+       birkaç kere deniyoruz.
+    */
+
+    do {
+
+        x =
+            minX +
+            Math.random() *
+            Math.max(
+                1,
+                maxX - minX
+            );
+
+        y =
+            minY +
+            Math.random() *
+            Math.max(
+                1,
+                maxY - minY
+            );
+
+
+        tries++;
+
+
+        const noLeft = x;
+        const noRight =
+            x + buttonWidth;
+
+        const noTop = y;
+        const noBottom =
+            y + buttonHeight;
+
+
+        const overlapsYes =
+            noRight >
+                yesRect.left - safeX &&
+
+            noLeft <
+                yesRect.right + safeX &&
+
+            noBottom >
+                yesRect.top - safeY &&
+
+            noTop <
+                yesRect.bottom + safeY;
+
+
+        if (!overlapsYes) {
+            break;
+        }
+
+    }
+    while (tries < 80);
+
+
+    /*
+       Son güvenlik:
+       ekran dışına çıkamaz.
     */
 
     x =
         Math.max(
             padding,
-            Math.min(x, maxX)
+            Math.min(
+                x,
+                window.innerWidth -
+                buttonWidth -
+                padding
+            )
         );
+
 
     y =
         Math.max(
             padding,
-            Math.min(y, maxY)
+            Math.min(
+                y,
+                window.innerHeight -
+                buttonHeight -
+                padding
+            )
         );
 
 
-    noButton.style.left = x + "px";
-    noButton.style.top = y + "px";
+    noButton.style.left =
+        x + "px";
 
+    noButton.style.top =
+        y + "px";
+
+
+    /*
+       Ufak bir dönüş.
+    */
 
     const rotation =
-        Math.random() * 4 - 2;
+        Math.random() * 6 - 3;
 
     noButton.style.transform =
-        "rotate(" + rotation + "deg)";
+        "rotate(" +
+        rotation +
+        "deg)";
 }
 
 
-/*
-   İlk kaçışta mevcut konumu sabitle.
-   Böylece bir anda yok olmaz.
-*/
+/* =========================
+   KAÇIŞ
+========================= */
 
 function escapeNoButton(event) {
 
@@ -791,13 +1033,26 @@ function escapeNoButton(event) {
     }
 
 
+    /*
+       Her basışta kırmızı alarm.
+    */
+
+    showAlarm();
+
+
+    /*
+       İlk hareket:
+       Buton bir anda yok olmasın.
+    */
+
     if (!escaped) {
 
         const rect =
             noButton.getBoundingClientRect();
 
 
-        noButton.style.position = "fixed";
+        noButton.style.position =
+            "fixed";
 
         noButton.style.left =
             rect.left + "px";
@@ -809,15 +1064,23 @@ function escapeNoButton(event) {
         escaped = true;
 
 
-        requestAnimationFrame(function () {
+        /*
+           Önce mevcut konumu çiz,
+           sonra smooth hareket ettir.
+        */
 
-            requestAnimationFrame(function () {
+        requestAnimationFrame(
+            function () {
 
-                moveNoButton();
+                requestAnimationFrame(
+                    function () {
 
-            });
+                        moveNoButton();
 
-        });
+                    }
+                );
+            }
+        );
 
     }
 
@@ -847,22 +1110,29 @@ noButton.addEventListener(
 );
 
 
-/* EVET */
+/* =========================
+   EVET
+========================= */
 
 yesButton.addEventListener(
     "click",
     function () {
 
-        noButton.style.display = "none";
+        noButton.style.display =
+            "none";
+
 
         document
             .getElementById("gifContainer")
-            .style.display = "block";
+            .style.display =
+            "block";
     }
 );
 
 
-/* Ekran dönerse / boyutu değişirse */
+/* =========================
+   EKRAN BOYUTU DEĞİŞİRSE
+========================= */
 
 window.addEventListener(
     "resize",
