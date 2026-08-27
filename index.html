@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Esilaaaaa Birtanemm 💗</title>
+  <meta name="theme-color" content="#dff0df">
+
+  <title>Esila'm 💚</title>
 
   <style>
     * {
@@ -11,367 +13,574 @@
       -webkit-tap-highlight-color: transparent;
     }
 
+    html, body {
+      width: 100%;
+      min-height: 100%;
+    }
+
     body {
       margin: 0;
       min-height: 100vh;
+      min-height: 100svh;
+
       display: flex;
-      justify-content: center;
       align-items: center;
-      font-family: Arial, sans-serif;
-      background:
-        radial-gradient(circle at center, #38232d 0%, #21141b 70%);
-      color: white;
+      justify-content: center;
+
       overflow: hidden;
+
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      color: #26352b;
+
+      background:
+        radial-gradient(
+          circle at 50% 35%,
+          #f7fff7 0%,
+          #e8f5e8 45%,
+          #d5e9d6 100%
+        );
     }
 
-    /* ARKA PLAN ŞİİRİ */
-    .poem {
+
+    /* =========================
+       ARKA PLAN ŞİİRİ
+       ========================= */
+
+    .poem-layer {
       position: fixed;
       inset: 0;
+
       display: flex;
       justify-content: center;
       align-items: center;
+
       pointer-events: none;
-      z-index: 0;
+
       overflow: hidden;
+
+      z-index: 0;
     }
 
-    .poem-text {
-      width: 90%;
-      max-width: 500px;
+    .poem {
+      width: min(92%, 520px);
+
       text-align: center;
-      color: rgba(255, 225, 235, 0.12);
+
+      color: rgba(68, 104, 75, 0.27);
+
+      font-family: Georgia, serif;
+
       font-size: clamp(15px, 4vw, 20px);
+
       line-height: 2;
-      font-weight: 400;
-      animation: poemMove 18s ease-in-out infinite alternate;
+
+      letter-spacing: 0.15px;
+
+      animation:
+        poemFloat 16s ease-in-out infinite alternate;
+
+      filter: blur(0.15px);
     }
 
-    @keyframes poemMove {
+    @keyframes poemFloat {
+
       0% {
-        transform: translateY(25px);
-        opacity: 0.35;
+        transform:
+          translate3d(-8px, 18px, 0)
+          scale(0.98);
+
+        opacity: 0.45;
       }
 
       50% {
-        opacity: 0.75;
+        opacity: 0.85;
       }
 
       100% {
-        transform: translateY(-25px);
-        opacity: 0.4;
+        transform:
+          translate3d(8px, -18px, 0)
+          scale(1.02);
+
+        opacity: 0.6;
       }
     }
 
-    /* ANA KART */
+
+    /* =========================
+       ANA KART
+       ========================= */
+
     .card {
+
       position: relative;
+
       z-index: 2;
 
-      width: calc(100% - 32px);
+      width: calc(100% - 30px);
+
       max-width: 390px;
 
-      padding: 32px 22px;
+      padding: 34px 23px;
 
       text-align: center;
 
-      border-radius: 24px;
+      background:
+        rgba(255, 255, 255, 0.91);
 
-      background: rgba(38, 22, 30, 0.94);
+      border:
+        1px solid rgba(104, 146, 109, 0.24);
 
-      border: 1px solid rgba(160, 91, 113, 0.35);
+      border-radius: 26px;
 
       box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.45);
+        0 18px 55px rgba(65, 94, 69, 0.16);
 
-      backdrop-filter: blur(8px);
+      backdrop-filter: blur(12px);
+
+      -webkit-backdrop-filter: blur(12px);
+
+      animation: cardIn .7s ease;
     }
+
+    @keyframes cardIn {
+
+      from {
+        opacity: 0;
+        transform: translateY(12px) scale(.98);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+
+    /* =========================
+       BAŞLIK
+       ========================= */
 
     h1 {
-      margin: 0 0 25px;
 
-      color: #c9829d;
+      margin: 0 0 24px;
 
-      font-size: clamp(26px, 7vw, 32px);
+      color: #557d5b;
 
-      line-height: 1.2;
+      font-size: 32px;
+
+      font-weight: 650;
+
+      letter-spacing: -0.5px;
     }
 
-    /* SADE KALP */
-    .heart {
-      color: #b96f8c;
-      font-size: 22px;
 
-      margin-bottom: 16px;
-
-      animation: heartbeat 2s ease-in-out infinite;
-    }
-
-    @keyframes heartbeat {
-      0%, 100% {
-        transform: scale(1);
-        opacity: .55;
-      }
-
-      50% {
-        transform: scale(1.12);
-        opacity: .9;
-      }
-    }
+    /* =========================
+       ŞİFRE
+       ========================= */
 
     input {
+
       width: 100%;
+
       height: 52px;
 
-      border: 1px solid rgba(185, 111, 140, 0.45);
+      border:
+        1px solid #b9d3bb;
 
-      border-radius: 13px;
-
-      background: rgba(15, 9, 13, 0.6);
-
-      color: white;
+      border-radius: 14px;
 
       outline: none;
+
+      background: #f7fbf7;
+
+      color: #304a35;
 
       text-align: center;
 
       font-size: 19px;
 
-      letter-spacing: 5px;
+      letter-spacing: 6px;
+
+      transition: .25s ease;
     }
 
     input::placeholder {
-      color: rgba(255, 255, 255, 0.35);
+
+      color: #9aad9d;
+
       letter-spacing: 1px;
     }
 
     input:focus {
-      border-color: #b96f8c;
-      box-shadow: 0 0 15px rgba(185, 111, 140, 0.12);
-    }
 
-    .button {
-      height: 52px;
+      border-color: #769d7b;
 
-      border: none;
-      border-radius: 13px;
+      background: #fff;
 
-      padding: 0 20px;
-
-      font-size: 15px;
-      font-weight: bold;
-
-      cursor: pointer;
-    }
-
-    .open {
-      width: 100%;
-
-      margin-top: 12px;
-
-      background: #b96f8c;
-
-      color: #24151c;
-
-      transition: .2s;
-    }
-
-    .open:active {
-      transform: scale(.98);
+      box-shadow:
+        0 0 0 4px rgba(118, 157, 123, .10);
     }
 
     .error {
-      height: 18px;
 
-      margin-top: 8px;
+      min-height: 20px;
 
-      color: #d58ca7;
+      margin-top: 9px;
+
+      color: #78947c;
 
       font-size: 13px;
     }
 
-    .hidden {
-      display: none;
-    }
 
-    /* BARIŞMA EKRANI */
+    /* =========================
+       BARIŞMA EKRANI
+       ========================= */
 
     .question {
-      color: #d28ba5;
 
-      font-size: clamp(25px, 7vw, 30px);
+      color: #557d5b;
+
+      font-size: 28px;
 
       line-height: 1.45;
 
-      margin-bottom: 28px;
+      margin-bottom: 30px;
+
+      font-weight: 600;
     }
 
-    .buttons {
-      display: flex;
 
-      justify-content: center;
+    .buttons {
+
+      position: relative;
+
+      display: flex;
 
       align-items: center;
 
-      gap: 12px;
+      justify-content: center;
 
-      min-height: 54px;
+      gap: 13px;
+
+      width: 100%;
+
+      height: 56px;
     }
+
+
+    button {
+
+      height: 52px;
+
+      border: none;
+
+      border-radius: 14px;
+
+      padding: 0 21px;
+
+      font-size: 15px;
+
+      font-weight: 700;
+
+      cursor: pointer;
+
+      font-family: inherit;
+    }
+
 
     .yes {
-      background: #b96f8c;
-      color: #24151c;
-
-      transition: .2s;
-    }
-
-    .yes:active {
-      transform: scale(.96);
-    }
-
-    .no {
-      background: #3d2730;
-
-      color: #eee;
-
-      border: 1px solid rgba(185, 111, 140, .35);
 
       position: relative;
+
+      z-index: 3;
+
+      background: #91b995;
+
+      color: #fff;
+
+      box-shadow:
+        0 7px 18px rgba(91, 130, 97, .18);
+
+      transition:
+        transform .2s ease,
+        background .2s ease;
     }
 
-    /* GIF */
+    .yes:hover {
+
+      background: #82aa87;
+
+      transform: translateY(-2px);
+    }
+
+
+    /* =========================
+       KAÇAN HAYIR
+       ========================= */
+
+    .no {
+
+      position: relative;
+
+      z-index: 4;
+
+      background: #eef6ee;
+
+      color: #58745d;
+
+      border:
+        1px solid #c5dcc7;
+
+      transition:
+        left .45s cubic-bezier(.22, .8, .25, 1),
+        top .45s cubic-bezier(.22, .8, .25, 1),
+        transform .45s ease;
+    }
+
+
+    /* =========================
+       GIF
+       ========================= */
 
     .gif-container {
+
       display: none;
 
-      margin-top: 24px;
+      margin-top: 26px;
 
-      animation: appear .7s ease;
+      animation: gifIn .7s cubic-bezier(.2,.8,.2,1);
     }
 
-    .gif-container img {
-      width: 100%;
-      max-width: 290px;
+    @keyframes gifIn {
 
-      border-radius: 16px;
-
-      box-shadow: 0 12px 35px rgba(0,0,0,.4);
-    }
-
-    .love {
-      margin-top: 14px;
-
-      color: #d28ba5;
-
-      font-size: 17px;
-    }
-
-    @keyframes appear {
       from {
         opacity: 0;
-        transform: scale(.95);
+        transform: translateY(12px) scale(.96);
       }
 
       to {
         opacity: 1;
-        transform: scale(1);
+        transform: translateY(0) scale(1);
       }
     }
 
-    @media (max-width: 380px) {
+    .gif-container img {
+
+      display: block;
+
+      width: 100%;
+
+      max-width: 290px;
+
+      max-height: 290px;
+
+      object-fit: contain;
+
+      margin: 0 auto;
+
+      border-radius: 18px;
+
+      box-shadow:
+        0 14px 35px rgba(63, 91, 67, .16);
+    }
+
+    .love {
+
+      margin-top: 17px;
+
+      color: #557d5b;
+
+      font-size: 18px;
+
+      font-weight: 600;
+    }
+
+
+    .hidden {
+      display: none !important;
+    }
+
+
+    /* =========================
+       TELEFON
+       ========================= */
+
+    @media (max-width: 420px) {
 
       .card {
-        padding: 28px 18px;
+
+        width: calc(100% - 24px);
+
+        padding:
+          30px 18px;
       }
 
       h1 {
-        font-size: 26px;
+
+        font-size: 29px;
+
+        margin-bottom: 22px;
       }
 
       .question {
-        font-size: 24px;
+
+        font-size: 25px;
+
+        margin-bottom: 26px;
       }
 
-      .button {
-        padding: 0 16px;
+      button {
+
+        padding: 0 17px;
+
         font-size: 14px;
       }
 
-      .poem-text {
+      .poem {
+
         font-size: 14px;
+
         line-height: 1.9;
+
+        width: 88%;
       }
     }
+
+
+    @media (max-height: 650px) {
+
+      .card {
+
+        padding-top: 24px;
+
+        padding-bottom: 24px;
+      }
+
+      .poem {
+
+        font-size: 13px;
+      }
+    }
+
   </style>
 </head>
 
+
 <body>
 
-  <!-- ARKADA AKAN ŞİİR -->
-  <div class="poem">
-    <div class="poem-text">
+
+  <!--
+    ARKA PLAN ŞİİRİ
+  -->
+
+  <div class="poem-layer">
+
+    <div class="poem">
+
       Ellerimde değil artık, aklımda kalan izin,<br>
+
       Sessizce büyür her gece, saygım ve sevgim<br>
+
       İçimde büyüyen şeyin adını koymadım<br>
+
       Lüzum yok bazı şeylere sen anlatmadan anladım<br>
+
       Adını anmadım ama bilesin sen birtanesin.
+
     </div>
+
   </div>
 
 
-  <!-- ŞİFRE EKRANI -->
-  <div class="card" id="passwordScreen">
+  <!--
+    ŞİFRE EKRANI
+  -->
 
-    <div class="heart">♥</div>
+  <div
+    class="card"
+    id="passwordScreen"
+  >
 
-    <h1>Esilaaaaa Birtanemm</h1>
+    <h1>
+      Esila'm 💗
+    </h1>
 
     <input
       id="password"
       type="password"
       inputmode="numeric"
       maxlength="6"
-      placeholder="Şifre"
       autocomplete="off"
+      placeholder="Şifre"
     >
 
-    <div class="error" id="error"></div>
+    <div
+      class="error"
+      id="error"
+    ></div>
 
   </div>
 
 
-  <!-- BARIŞMA EKRANI -->
-  <div class="card hidden" id="questionScreen">
+  <!--
+    BARIŞMA EKRANI
+  -->
+
+  <div
+    class="card hidden"
+    id="questionScreen"
+  >
 
     <div class="question">
+
       Özür dilerim yavrum 🥺<br>
+
       Barışalımmı?
+
     </div>
+
 
     <div class="buttons">
 
-      <button class="button yes" onclick="yesClicked()">
-        EVETTTTT 💕
+      <button
+        class="yes"
+        id="yesButton"
+        onclick="yesClicked()"
+      >
+        EVETTTTT 💚
       </button>
 
+
       <button
-        class="button no"
+        class="no"
         id="noButton"
         onmouseenter="moveNoButton()"
-        ontouchstart="moveNoButton()"
-        onclick="moveNoButton()"
+        ontouchstart="moveNoButton(event)"
       >
         HAYIR !
       </button>
 
     </div>
 
-    <div class="gif-container" id="gifContainer">
 
-      <img src="kedi.gif" alt="Kedi">
+    <div
+      class="gif-container"
+      id="gifContainer"
+    >
+
+      <img
+        src="kedi.gif"
+        alt="Kedi"
+      >
 
       <div class="love">
-        Biliyordum barışacağımızııı 🥹
+        Biliyordum yavrum barışacağımızı.
       </div>
 
     </div>
@@ -381,90 +590,226 @@
 
   <script>
 
-    const passwordInput =
+    const password =
       document.getElementById("password");
 
-    /*
-      160826 yazıldığı anda otomatik giriş
-    */
-    passwordInput.addEventListener("input", function () {
+    const passwordScreen =
+      document.getElementById("passwordScreen");
 
-      if (this.value === "160826") {
+    const questionScreen =
+      document.getElementById("questionScreen");
 
-        document
-          .getElementById("passwordScreen")
-          .classList.add("hidden");
-
-        document
-          .getElementById("questionScreen")
-          .classList.remove("hidden");
-
-      }
-
-      if (this.value.length >= 6 &&
-          this.value !== "160826") {
-
-        document.getElementById("error")
-          .textContent = "Şifre yanlış 🥺";
-
-        setTimeout(() => {
-          document.getElementById("error")
-            .textContent = "";
-        }, 1500);
-      }
-
-    });
+    const error =
+      document.getElementById("error");
 
 
     /*
-      HAYIR BUTONU KAÇIYOR
+      ŞİFRE:
+      160826 yazıldığı anda otomatik açılır.
     */
-    function moveNoButton() {
+
+    password.addEventListener(
+      "input",
+      function () {
+
+        if (this.value === "160826") {
+
+          passwordScreen.classList.add("hidden");
+
+          questionScreen.classList.remove("hidden");
+
+        }
+
+        else if (this.value.length === 6) {
+
+          error.textContent =
+            "Şifre yanlış 🥺";
+
+          setTimeout(() => {
+
+            error.textContent = "";
+
+          }, 1400);
+
+        }
+
+      }
+    );
+
+
+    /*
+      HAYIR BUTONU
+      Kaybolmaz.
+      Yumuşak şekilde farklı yerlere gider.
+    */
+
+    function moveNoButton(event) {
+
+      if (event) {
+        event.preventDefault();
+      }
 
       const button =
         document.getElementById("noButton");
 
-      button.style.position = "fixed";
 
-      const padding = 12;
+      /*
+        İlk kaçıştan sonra
+        fixed konuma geçiyoruz.
+      */
+
+      if (
+        getComputedStyle(button).position !== "fixed"
+      ) {
+
+        const rect =
+          button.getBoundingClientRect();
+
+        button.style.position = "fixed";
+
+        button.style.left =
+          rect.left + "px";
+
+        button.style.top =
+          rect.top + "px";
+      }
+
+
+      const margin = 18;
+
 
       const maxX =
         window.innerWidth -
         button.offsetWidth -
-        padding;
+        margin;
+
 
       const maxY =
         window.innerHeight -
         button.offsetHeight -
-        padding;
+        margin;
 
-      const x =
-        padding +
-        Math.random() *
-        Math.max(0, maxX - padding);
 
-      const y =
-        padding +
-        Math.random() *
-        Math.max(0, maxY - padding);
+      /*
+        Kartın tam üstüne gelmesini
+        azaltmak için güvenli bölgeler.
+      */
 
-      button.style.left = x + "px";
-      button.style.top = y + "px";
+      let x;
+      let y;
+
+      const side =
+        Math.floor(Math.random() * 4);
+
+
+      if (side === 0) {
+
+        x =
+          margin +
+          Math.random() *
+          Math.max(1, maxX - margin);
+
+        y =
+          margin +
+          Math.random() *
+          Math.min(
+            120,
+            Math.max(1, maxY - margin)
+          );
+
+      }
+
+      else if (side === 1) {
+
+        x =
+          margin +
+          Math.random() *
+          Math.max(1, maxX - margin);
+
+        y =
+          Math.max(
+            120,
+            maxY -
+            Math.random() * 100
+          );
+
+      }
+
+      else if (side === 2) {
+
+        x =
+          margin +
+          Math.random() *
+          Math.min(
+            110,
+            Math.max(1, maxX - margin)
+          );
+
+        y =
+          margin +
+          Math.random() *
+          Math.max(1, maxY - margin);
+
+      }
+
+      else {
+
+        x =
+          Math.max(
+            110,
+            maxX -
+            Math.random() * 100
+          );
+
+        y =
+          margin +
+          Math.random() *
+          Math.max(1, maxY - margin);
+      }
+
+
+      button.style.left =
+        Math.max(
+          margin,
+          Math.min(x, maxX)
+        ) + "px";
+
+
+      button.style.top =
+        Math.max(
+          margin,
+          Math.min(y, maxY)
+        ) + "px";
+
+
+      /*
+        Hafif bir hareket hissi.
+      */
+
+      button.style.transform =
+        `rotate(${(Math.random() * 6 - 3).toFixed(1)}deg)`;
     }
 
 
     /*
       EVET
     */
+
     function yesClicked() {
 
-      document
-        .getElementById("noButton")
-        .style.display = "none";
+      const noButton =
+        document.getElementById("noButton");
 
-      document
-        .getElementById("gifContainer")
-        .style.display = "block";
+      const gifContainer =
+        document.getElementById("gifContainer");
+
+
+      noButton.style.display =
+        "none";
+
+
+      gifContainer.style.display =
+        "block";
 
     }
 
